@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support · Hydra Art Walk 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #0a0a0a;
+      --muted: #888;
+      --border: #e0e0e0;
+      --grad: linear-gradient(90deg, #a855f7, #ec4899);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-back {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: #a855f7; }
+
+    .hero {
+      padding: 8rem 2rem 3rem;
+      max-width: 820px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .year-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .year-tag::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(180deg, #a855f7, #ec4899);
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      font-weight: 700;
+      line-height: 0.93;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 .gradient {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.65;
+      padding-left: 1.25rem;
+      border-left: 2px solid #a855f7;
+    }
+
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+      background: var(--grad);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-link:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3.5rem 0;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .covers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    .cover-item {
+      background: #fff;
+      padding: 2rem;
+      transition: background 0.2s;
+    }
+    .cover-item:hover { background: #fafafa; }
+
+    .cover-item .icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+
+    .cover-item h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .cover-item p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    .tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+
+    .tier {
+      background: #fff;
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      transition: background 0.2s;
+    }
+    .tier:hover { background: #fafafa; }
+
+    .tier-amount {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      min-width: 95px;
+      line-height: 1;
+    }
+
+    .tier-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.2rem;
+    }
+
+    .tier-info p { font-size: 12px; color: var(--muted); }
+
+    .cta-block { animation: fadeUp 0.7s 0.35s ease both; }
+
+    .cta-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .btn-support {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--grad);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.15rem 2.75rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-support:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .btn-meta {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1rem;
+      letter-spacing: 0.07em;
+    }
+
+    .supporter-note {
+      border: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      margin-top: 3rem;
+      animation: fadeUp 0.7s 0.45s ease both;
+    }
+
+    .supporter-note p { font-size: 12px; color: var(--muted); line-height: 1.8; }
+    .supporter-note a { color: #a855f7; text-decoration: none; }
+    .supporter-note a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #a855f7; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 560px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero, main { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .covers-grid { grid-template-columns: 1fr; }
+      .tier { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+      footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-brand" href="https://hydraartwalk.com">Hydra Art Walk 2026</a>
+    <a class="nav-back" href="https://hydraartwalk.com">← Back</a>
+  </nav>
+
+  <div class="hero">
+    <div class="year-tag">Edition III · June – October 2026</div>
+    <h1>
+      Support<br>
+      <span class="gradient">Hydra</span><br>
+      Art Walk
+    </h1>
+    <p class="hero-sub">
+      Hydra Art Walk is an independent, nonprofit art collective bringing together artists in both Augmented Reality and physical space. We create group exhibitions that are free and accessible for everyone.
+    </p>
+    <a class="hero-link" href="https://buy.stripe.com/9B6eVceFL68ZakB9mk4Ni00" target="_blank" rel="noopener">↗ Every contribution counts</a>
+  </div>
+
+  <main>
+
+    <hr class="divider" />
+
+    <div class="section-label">What your support covers</div>
+
+    <div class="covers-grid">
+      <div class="cover-item">
+        <span class="icon">🖨</span>
+        <h3>Printing</h3>
+        <p>Large-format posters placed across the island of Hydra — each one a physical artwork.</p>
+      </div>
+      <div class="cover-item">
+        <span class="icon">🍷</span>
+        <h3>Opening Events</h3>
+        <p>Wine, food and gatherings that bring artists and community together on the island.</p>
+      </div>
+      <div class="cover-item">
+        <span class="icon">📡</span>
+        <h3>AR Infrastructure</h3>
+        <p>Web-based AR experiences — no app required. Hosting, development and maintenance.</p>
+      </div>
+      <div class="cover-item">
+        <span class="icon">🌊</span>
+        <h3>Future Editions</h3>
+        <p>Every contribution helps us grow the exhibition and invite more artists each year.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">Suggested contributions</div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-amount">5 €</div>
+        <div class="tier-info">
+          <h3>Friend</h3>
+          <p>A small gesture that goes a long way. Thank you.</p>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">15 €</div>
+        <div class="tier-info">
+          <h3>Supporter</h3>
+          <p>Listed as a supporter in our exhibition credits upon request.</p>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">50 €</div>
+        <div class="tier-info">
+          <h3>Patron</h3>
+          <p>Named on the website and at the physical exhibition. Our deepest thanks.</p>
+        </div>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">✦</div>
+        <div class="tier-info">
+          <h3>Your amount</h3>
+          <p>Give whatever feels right. Every contribution counts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <p class="cta-note">
+        All contributions go directly toward making the exhibition happen.<br>
+        No ticket fees. No paywalls. Just art.
+      </p>
+
+      <a class="btn-support" href="https://buy.stripe.com/9B6eVceFL68ZakB9mk4Ni00" target="_blank" rel="noopener">
+        ↗ Support Hydra Art Walk
+      </a>
+
+      <span class="btn-meta">Secure payment via Stripe · One-time · Any amount</span>
+    </div>
+
+    <div class="supporter-note">
+      <p>
+        Would you like to be listed as a supporter in our exhibition credits?<br>
+        After your contribution, send your name to <a href="mailto:hello@digitalbohemians.club">hello@digitalbohemians.club</a> or reach us on Instagram.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-brand">Hydra Art Walk · Edition III · 2026</div>
+    <div class="footer-links">
+      <a href="https://hydraartwalk.com">Exhibition</a>
+      <a href="https://digitalbohemians.club">Club</a>
+      <a href="mailto:hello@digitalbohemians.club">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
