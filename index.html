@@ -6,164 +6,440 @@
   <title>Hydra Art Walk 2026 — DigitalBohemians</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&family=Space+Mono@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black:#0a0a0a;--surface:#131313;--edge:rgba(255,255,255,0.07);
-      --white:#f4efe9;--muted:rgba(244,239,233,0.38);
-      --cyan:#00C5D5;--magenta:#CC00CC;
-      --serif:'DM Serif Display',Georgia,serif;
-      --sans:'DM Sans',sans-serif;
-      --mono:'Space Mono',monospace;
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --text: #0a0a0a;
+      --muted: #888;
+      --border: #e0e0e0;
+      --grad: linear-gradient(90deg, #a855f7, #ec4899);
+      --purple: #a855f7;
+      --pink: #ec4899;
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{background:var(--black);color:var(--white);font-family:var(--sans);overflow-x:hidden;}
-    body::before{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.022;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; overflow-x: hidden; }
 
     /* NAV */
-    nav{padding:22px 44px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,0.07);background:#fff;}
-    .logo-slot{display:flex;align-items:center;gap:14px;}
-    .logo-text{font-family:var(--mono);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#111;line-height:1.6;}
-    .logo-text span{display:block;font-size:11px;color:var(--cyan);letter-spacing:0.18em;}
-    .nav-edition{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(0,0,0,0.35);}
-    .nav-edition em{font-style:normal;color:var(--magenta);}
+    nav {
+      padding: 20px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-slot { display: flex; align-items: center; gap: 14px; }
+    .logo-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #111;
+      line-height: 1.6;
+    }
+    .logo-text span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-edition {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-support {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--grad);
+      color: #fff;
+      padding: 0.55rem 1.25rem;
+      transition: opacity 0.2s;
+    }
+    .nav-support:hover { opacity: 0.85; }
 
     /* INTRO */
-    .intro{max-width:980px;margin:0 auto;padding:88px 44px 72px;text-align:center;position:relative;}
-    .intro::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-      width:600px;height:400px;pointer-events:none;z-index:0;
-      background:radial-gradient(ellipse at 35% 50%,rgba(0,197,213,0.08) 0%,transparent 60%),
-                 radial-gradient(ellipse at 65% 50%,rgba(204,0,204,0.06) 0%,transparent 55%);}
-    .intro>*{position:relative;z-index:1;}
-    .intro-label{font-family:var(--mono);font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
-      color:var(--magenta);margin-bottom:28px;opacity:0;animation:up 0.8s 0.1s cubic-bezier(.22,1,.36,1) forwards;}
-    .intro-title{font-family:var(--serif);font-size:clamp(52px,8vw,108px);line-height:0.9;letter-spacing:-0.03em;
-      margin-bottom:40px;opacity:0;animation:up 0.9s 0.2s cubic-bezier(.22,1,.36,1) forwards;}
-    .intro-title .ghost{display:block;color:transparent;-webkit-text-stroke:1px rgba(244,239,233,0.4);}
-    .intro-title .lit{display:block;font-style:italic;color:var(--cyan);}
-    .date-band{display:inline-flex;align-items:center;gap:20px;padding:14px 32px;
-      border:1px solid var(--edge);margin-bottom:44px;
-      opacity:0;animation:up 0.8s 0.3s cubic-bezier(.22,1,.36,1) forwards;}
-    .d-label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
-    .d-val{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--white);line-height:1;}
-    .date-sep{font-family:var(--serif);font-style:italic;font-size:30px;color:rgba(0,197,213,0.4);}
-    .intro-text{font-size:16px;font-weight:300;line-height:1.85;color:rgba(244,239,233,0.62);
-      max-width:660px;margin:0 auto 20px;
-      opacity:0;animation:up 0.9s 0.38s cubic-bezier(.22,1,.36,1) forwards;}
-    .intro-text strong{color:var(--white);font-weight:500;}
-    .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px;
-      opacity:0;animation:up 0.8s 0.5s cubic-bezier(.22,1,.36,1) forwards;}
-    .pill{padding:8px 18px;border:1px solid var(--edge);font-family:var(--mono);font-size:11px;
-      letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border-radius:100px;}
-    .pill.hi{border-color:rgba(0,197,213,0.35);color:var(--cyan);}
+    .intro {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 88px 44px 72px;
+      text-align: center;
+    }
+    .intro-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: up 0.8s 0.1s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .intro-label span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .intro-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 700;
+      line-height: 0.93;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: up 0.9s 0.2s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .intro-title .gradient {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .date-band {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 32px;
+      border: 1px solid var(--border);
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: up 0.8s 0.3s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .d-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .d-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); line-height: 1; }
+    .date-sep { font-size: 24px; color: var(--purple); }
+    .intro-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 660px;
+      margin: 0 auto 20px;
+      opacity: 0;
+      animation: up 0.9s 0.38s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .intro-text strong { color: var(--text); font-weight: 700; }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 28px;
+      opacity: 0;
+      animation: up 0.8s 0.5s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .pill {
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-radius: 100px;
+    }
+    .pill.hi {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
 
     /* MAP */
-    .map-section{padding:0 44px 80px;}
-    .map-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
-    .map-sec-label{font-family:var(--mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);}
-    .map-hint{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
-    .map-wrap{width:100%;height:620px;border:1px solid var(--edge);overflow:hidden;background:#0b1a1c;}
-    .map-wrap iframe{width:100%;height:100%;border:none;display:block;}
+    .map-section { padding: 0 44px 80px; }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section-label.colored {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .map-wrap { width: 100%; height: 620px; border: 1px solid var(--border); overflow: hidden; background: #f0f0f0; }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
     /* ARTISTS */
-    .artists-section{padding:80px 44px;border-top:1px solid var(--edge);}
-    .artists-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px;}
-    .artists-top h2{font-family:var(--serif);font-size:clamp(28px,3vw,46px);line-height:1;letter-spacing:-0.02em;}
-    .artists-sub{font-size:12px;font-family:var(--mono);letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}
-    .artists-top-note{font-size:14px;font-weight:300;color:var(--muted);max-width:280px;text-align:right;line-height:1.65;}
-    .artists-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;}
-    .artist-card{background:var(--surface);padding:26px 20px;display:flex;flex-direction:column;gap:10px;
-      transition:background 0.22s;min-height:190px;cursor:pointer;}
-    .artist-card:hover{background:#1c1c1c;}
-    .artist-card.tba{border:1px dashed rgba(255,255,255,0.06);background:transparent;
-      align-items:center;justify-content:center;text-align:center;cursor:default;}
-    .ac-num{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;color:var(--magenta);}
-    .ac-avatar{width:36px;height:36px;border-radius:50%;border:1px solid var(--edge);
-      background:linear-gradient(135deg,rgba(0,197,213,0.12),rgba(204,0,204,0.12));
-      display:flex;align-items:center;justify-content:center;font-family:var(--serif);
-      font-style:italic;font-size:15px;color:rgba(244,239,233,0.55);}
-    .ac-name{font-family:var(--serif);font-size:18px;line-height:1.1;}
-    .ac-medium{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
-    .ac-tag{display:inline-block;padding:5px 10px;border:1px solid var(--edge);font-family:var(--mono);
-      font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-top:auto;}
-    .tba-label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-      color:rgba(255,255,255,0.13);line-height:2;}
-    .ac-hint{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
-      color:rgba(0,197,213,0.3);margin-top:4px;}
+    .artists-section { padding: 80px 44px; border-top: 1px solid var(--border); }
+    .artists-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .artists-top h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .artists-top-note {
+      font-size: 13px;
+      font-family: 'Space Mono', monospace;
+      color: var(--muted);
+      max-width: 280px;
+      text-align: right;
+      line-height: 1.65;
+    }
+    /* ARTIST CAROUSEL */
+    .artists-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .carousel-arrows { display: flex; gap: 8px; }
+    .arrow-btn {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+      color: var(--text);
+    }
+    .arrow-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .artist-dropdown {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 0 1rem;
+      height: 40px;
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 2rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+    }
+    .artist-dropdown:focus { border-color: var(--purple); }
+    .carousel-counter {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-left: auto;
+    }
+    .artists-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .artist-card {
+      background: #fff;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.2s, opacity 0.3s;
+      min-height: 220px;
+      cursor: pointer;
+    }
+    .artist-card:hover { background: #fafafa; }
+    .artist-card.hidden { display: none; }
+    .ac-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ac-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.1));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--purple);
+    }
+    .ac-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.1; }
+    .ac-medium { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .ac-tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid rgba(168,85,247,0.3);
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-top: auto;
+    }
+    .ac-hint { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(168,85,247,0.4); margin-top: 4px; }
 
     /* MODAL */
-    .modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.75);
-      backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;
-      padding:20px;opacity:0;pointer-events:none;transition:opacity 0.25s ease;}
-    .modal-overlay.open{opacity:1;pointer-events:all;}
-    .modal{background:#1a1a1a;border:1px solid var(--edge);max-width:520px;width:100%;
-      position:relative;transform:translateY(20px);transition:transform 0.3s cubic-bezier(.22,1,.36,1);}
-    .modal-overlay.open .modal{transform:translateY(0);}
-    .modal-bar{height:4px;background:linear-gradient(90deg,#CC00CC,#a855f7,#00C5D5);}
-    .modal-inner{padding:32px;}
-    .modal-close{position:absolute;top:16px;right:18px;background:none;border:none;
-      color:var(--muted);font-size:22px;cursor:pointer;line-height:1;transition:color 0.2s;}
-    .modal-close:hover{color:var(--white);}
-    .modal-num{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--magenta);margin-bottom:8px;}
-    .modal-name{font-family:var(--serif);font-size:clamp(28px,4vw,40px);line-height:1;margin-bottom:6px;}
-    .modal-medium{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
-      color:var(--cyan);margin-bottom:24px;}
-    .modal-bio{font-size:14px;font-weight:300;line-height:1.8;color:rgba(244,239,233,0.65);margin-bottom:24px;}
-    .modal-location{display:flex;align-items:flex-start;gap:12px;padding:16px;
-      background:rgba(0,197,213,0.05);border:1px solid rgba(0,197,213,0.12);margin-bottom:24px;}
-    .modal-location-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
-    .modal-location-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;
-      text-transform:uppercase;color:var(--cyan);margin-bottom:4px;}
-    .modal-location-val{font-size:13px;color:var(--muted);line-height:1.5;}
-    .modal-footer{display:flex;gap:12px;flex-wrap:wrap;}
-    .modal-btn{padding:12px 20px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
-      text-transform:uppercase;text-decoration:none;border:1px solid var(--edge);
-      color:var(--muted);transition:all 0.2s;cursor:pointer;background:none;}
-    .modal-btn:hover{border-color:var(--cyan);color:var(--cyan);}
-    .modal-btn.primary{background:var(--white);color:var(--black);border-color:var(--white);}
-    .modal-btn.primary:hover{background:var(--cyan);border-color:var(--cyan);}
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: #fff;
+      border: 1px solid var(--border);
+      max-width: 520px; width: 100%;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-bar { height: 4px; background: var(--grad); }
+    .modal-inner { padding: 32px; }
+    .modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none;
+      color: var(--muted); font-size: 22px; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+    .modal-name { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1; margin-bottom: 6px; text-transform: uppercase; letter-spacing: -0.02em; }
+    .modal-medium { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 24px; }
+    .modal-bio { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--muted); margin-bottom: 24px; }
+    .modal-location {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px;
+      background: rgba(168,85,247,0.04);
+      border: 1px solid rgba(168,85,247,0.15);
+      margin-bottom: 24px;
+    }
+    .modal-location-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .modal-location-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 4px; }
+    .modal-location-val { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .modal-footer { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-btn {
+      padding: 12px 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.2s;
+      cursor: pointer;
+      background: none;
+    }
+    .modal-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .modal-btn.primary { background: var(--grad); color: #fff; border: none; }
+    .modal-btn.primary:hover { opacity: 0.85; }
 
     /* SPONSORS */
-    .sponsors-section{padding:64px 44px;border-top:1px solid rgba(0,0,0,0.07);background:#fff;}
-    .sponsors-label{font-family:var(--mono);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
-      color:rgba(0,0,0,0.35);text-align:center;margin-bottom:36px;}
-    .sponsors-row{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;}
-    .sponsor-slot{width:140px;height:56px;border:1px dashed rgba(0,0,0,0.15);
-      display:flex;align-items:center;justify-content:center;font-family:var(--mono);
-      font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(0,0,0,0.2);}
+    .sponsors-section {
+      padding: 64px 44px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .sponsors-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 36px; }
+    .sponsors-row { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .sponsor-slot {
+      width: 140px; height: 56px;
+      border: 1px dashed var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }
 
     /* FOOTER */
-    footer{padding:36px 44px;border-top:1px solid var(--edge);display:flex;align-items:center;
-      justify-content:space-between;flex-wrap:wrap;gap:16px;}
-    .footer-left{font-family:var(--mono);font-size:11px;letter-spacing:0.13em;text-transform:uppercase;
-      color:var(--muted);line-height:1.9;}
-    .footer-left strong{color:var(--white);font-weight:400;}
-    .footer-right{display:flex;gap:28px;}
-    .footer-right a{font-family:var(--mono);font-size:12px;letter-spacing:0.13em;text-transform:uppercase;
-      color:var(--muted);text-decoration:none;transition:color 0.2s;}
-    .footer-right a:hover{color:var(--cyan);}
-
-    @keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-
-    @media(max-width:900px){
-      nav,.intro,.map-section,.artists-section,.sponsors-section,footer{padding-left:20px;padding-right:20px;}
-      .artists-grid{grid-template-columns:repeat(3,1fr);}
-      .artists-top-note{text-align:left;}
-      .map-wrap{height:480px;}
-      .intro{padding-top:56px;}
+    footer {
+      padding: 36px 44px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
     }
-    @media(max-width:560px){
-      .intro-title{font-size:46px;}
-      .artists-grid{grid-template-columns:repeat(2,1fr);}
-      .map-wrap{height:380px;}
-      nav{padding:18px 20px;}
-      .nav-edition{display:none;}
-      .date-band{flex-direction:column;gap:8px;}
-      .modal-inner{padding:24px;}
-      .modal-footer{flex-direction:column;}
-      .modal-btn{text-align:center;}
+    .footer-left { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); line-height: 1.9; }
+    .footer-left strong { color: var(--text); font-weight: 400; }
+    .footer-right { display: flex; gap: 28px; align-items: center; }
+    .footer-right a { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--purple); }
+    .footer-support {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--grad);
+      color: #fff !important;
+      padding: 0.55rem 1.25rem;
+      transition: opacity 0.2s;
+    }
+    .footer-support:hover { opacity: 0.85 !important; color: #fff !important; }
+
+    @keyframes up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 900px) {
+      nav, .intro, .map-section, .artists-section, .sponsors-section, footer { padding-left: 20px; padding-right: 20px; }
+      .artists-grid { grid-template-columns: repeat(3, 1fr); }
+      .artists-top-note { text-align: left; }
+      .map-wrap { height: 480px; }
+      .intro { padding-top: 56px; }
+    }
+    @media (max-width: 560px) {
+      .artists-grid { grid-template-columns: repeat(2, 1fr); }
+      .map-wrap { height: 380px; }
+      nav { padding: 16px 20px; }
+      .nav-edition { display: none; }
+      .date-band { flex-direction: column; gap: 8px; }
+      .modal-inner { padding: 24px; }
+      .modal-footer { flex-direction: column; }
+      .modal-btn { text-align: center; }
     }
   </style>
 </head>
@@ -188,16 +464,19 @@
       <span>Augmented Reality</span>
     </div>
   </div>
-  <div class="nav-edition">Edition <em>III</em> &middot; 2026</div>
+  <div class="nav-right">
+    <div class="nav-edition">Edition III &middot; 2026</div>
+    <a class="nav-support" href="/support.html">↗ Support Us</a>
+  </div>
 </nav>
 
 <!-- INTRO -->
 <section class="intro">
-  <div class="intro-label">DigitalBohemians &middot; Hydra, Greece &middot; Hybrid Exhibition</div>
+  <div class="intro-label">DigitalBohemians &middot; <span>Hydra, Greece</span> &middot; Hybrid Exhibition</div>
   <h1 class="intro-title">
     Hydra<br>
-    <span class="ghost">Art Walk</span>
-    <span class="lit">2026</span>
+    <span class="gradient">Art Walk</span><br>
+    2026
   </h1>
   <div class="date-band">
     <div>
@@ -226,9 +505,9 @@
 
 <!-- MAP -->
 <div class="map-section">
-  <div class="map-header">
-    <div class="map-sec-label">&mdash; Explore the Island</div>
-    <div class="map-hint">Tap a pin &middot; Discover locations</div>
+  <div class="section-header">
+    <div class="section-label colored">&mdash; Explore the Island</div>
+    <div class="section-label">Tap a pin &middot; Discover locations</div>
   </div>
   <div class="map-wrap">
     <iframe src="https://digitalbohemians.github.io/hydra-map" title="Hydra Art Walk Map" loading="lazy"></iframe>
@@ -239,118 +518,24 @@
 <section class="artists-section">
   <div class="artists-top">
     <div>
-      <div class="artists-sub">&mdash; Participating Artists</div>
+      <div class="section-label colored" style="margin-bottom:10px">&mdash; Participating Artists</div>
       <h2>The Group</h2>
     </div>
-    <p class="artists-top-note">Edition III &mdash; 11 international artists working across painting, sculpture, writing, music, digital &amp; augmented reality.</p>
+    <p class="artists-top-note">Edition III &mdash; 16 international artists working across painting, sculpture, writing, music, ceramics, digital &amp; augmented reality.</p>
   </div>
 
-  <div class="artists-grid">
-
-    <div class="artist-card" onclick="openModal(0)">
-      <div class="ac-num">01 &mdash;</div>
-      <div class="ac-avatar">L</div>
-      <div class="ac-name">Lili</div>
-      <div class="ac-medium">Objects &amp; Artefacts</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
+  <div class="artists-controls">
+    <div class="carousel-arrows">
+      <button class="arrow-btn" onclick="carouselPrev()">←</button>
+      <button class="arrow-btn" onclick="carouselNext()">→</button>
     </div>
-
-    <div class="artist-card" onclick="openModal(1)">
-      <div class="ac-num">02 &mdash;</div>
-      <div class="ac-avatar">J</div>
-      <div class="ac-name">Julia Oram</div>
-      <div class="ac-medium">Sculpture</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(2)">
-      <div class="ac-num">03 &mdash;</div>
-      <div class="ac-avatar">M</div>
-      <div class="ac-name">Martina Pape</div>
-      <div class="ac-medium">Painting</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(3)">
-      <div class="ac-num">04 &mdash;</div>
-      <div class="ac-avatar">R</div>
-      <div class="ac-name">Rita Habermann</div>
-      <div class="ac-medium">Sculpture</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(4)">
-      <div class="ac-num">05 &mdash;</div>
-      <div class="ac-avatar">A</div>
-      <div class="ac-name">Amy Martin</div>
-      <div class="ac-medium">Writing &amp; Literature</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(5)">
-      <div class="ac-num">06 &mdash;</div>
-      <div class="ac-avatar">A</div>
-      <div class="ac-name">Andreas Horstmann</div>
-      <div class="ac-medium">Abstract Painting</div>
-      <div class="ac-tag">Hydra Resident</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(6)">
-      <div class="ac-num">07 &mdash;</div>
-      <div class="ac-avatar">J</div>
-      <div class="ac-name">Jacqueline Savidge</div>
-      <div class="ac-medium">Textile &amp; Silk</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(7)">
-      <div class="ac-num">08 &mdash;</div>
-      <div class="ac-avatar">L</div>
-      <div class="ac-name">Lisa Pohl</div>
-      <div class="ac-medium">Fine Arts</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(8)">
-      <div class="ac-num">09 &mdash;</div>
-      <div class="ac-avatar">K</div>
-      <div class="ac-name">Kleopatra Haritou</div>
-      <div class="ac-medium">Photography &amp; Film</div>
-      <div class="ac-tag">AR &middot; Poster</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(9)">
-      <div class="ac-num">10 &mdash;</div>
-      <div class="ac-avatar">M</div>
-      <div class="ac-name">Muriel Lherm</div>
-      <div class="ac-medium">AI &amp; Digital Art</div>
-      <div class="ac-tag">AR &middot; Digital</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card" onclick="openModal(10)">
-      <div class="ac-num">11 &mdash;</div>
-      <div class="ac-avatar">Z</div>
-      <div class="ac-name">Zemor</div>
-      <div class="ac-medium">Music &amp; Song</div>
-      <div class="ac-tag">AR &middot; Sound</div>
-      <div class="ac-hint">Tap for info ↗</div>
-    </div>
-
-    <div class="artist-card tba">
-      <div class="tba-label">+ More<br>Announced<br>Soon</div>
-    </div>
-
+    <select class="artist-dropdown" onchange="carouselJumpTo(this.value)" id="artistDropdown">
+      <option value="">— Jump to artist</option>
+    </select>
+    <div class="carousel-counter" id="carouselCounter"></div>
   </div>
+
+  <div class="artists-grid" id="artistsGrid"></div>
 </section>
 
 <!-- SPONSORS -->
@@ -375,6 +560,7 @@
   <div class="footer-right">
     <a href="https://digitalbohemians.club" target="_blank">Website</a>
     <a href="mailto:hello@digitalbohemians.club">Contact</a>
+    <a class="footer-support" href="/support.html">↗ Support Us</a>
   </div>
 </footer>
 
@@ -402,73 +588,82 @@
 
 <script>
   var artists = [
-    {
-      num: "01", name: "Lili", medium: "Objects & Artefacts",
-      bio: "Lili creates handmade artefacts for herself and her friends — driven by a pure, personal love of art and making.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: null, urlLabel: null
-    },
-    {
-      num: "02", name: "Julia Oram", medium: "Sculpture",
-      bio: "Julia Oram (b. 1990) is a Canadian interdisciplinary artist of Greek and English heritage, based in Berlin. Her sculptural practice is anchored in a deep relationship with nature, shaped by her upbringing in the Canadian Rockies. Working with marble, metal, and glass, she explores the intersection between organic processes and abstraction. Her work has been exhibited in Berlin, Athens, Japan, and Canada.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: null, urlLabel: null
-    },
-    {
-      num: "03", name: "Martina Pape", medium: "Painting",
-      bio: "Born in Munich in 1965. Studied at the Kunstakademie München. First came to Hydra as an Erasmus student and has returned many times over the years. Works in oil painting and ink drawing.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "http://www.martina-pape.de", urlLabel: "martina-pape.de"
-    },
-    {
-      num: "04", name: "Rita Habermann", medium: "Sculpture",
-      bio: "With her sculpture museum in Koilada, Argolida, Rita has been creating sculptures in Greece for the last 20 years. She moved her atelier to Greece for the inspiration she finds in the people, the place and the light. Known for her Taygeta series.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://ateliersud.eu", urlLabel: "ateliersud.eu"
-    },
-    {
-      num: "05", name: "Amy Martin", medium: "Writing & Literature",
-      bio: "A writer drawn to spaces, places and half-remembered conversations — the quiet tension between history and the present moment. Her work moves between travel writing, memoir, historical fiction and vignettes, circling questions of memory, ethics, and belonging.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: null, urlLabel: null
-    },
-    {
-      num: "06", name: "Andreas Horstmann", medium: "Abstract Painting",
-      bio: "Born in 1956, Andreas Horstmann is an autodidact artist. Since January 2023 he is a resident of Hydra. He works in abstract painting using techniques such as swab, scraper and collage, and welcomes studio visits by appointment.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://www.instagram.com/hydrandart", urlLabel: "@HydrAndArt"
-    },
-    {
-      num: "07", name: "Jacqueline Savidge", medium: "Textile & Silk",
-      bio: "Visual artist working with recent textile works in silk with embroidery. Exploring the intersection of craft, texture and augmented reality.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://www.instagram.com/jacqueline.savidge", urlLabel: "@jacqueline.savidge"
-    },
-    {
-      num: "08", name: "Lisa Pohl", medium: "Fine Arts",
-      bio: "Born January 23, 1989 in Winterthur, Switzerland. Studied Fine Arts in Lucerne and Rotterdam, graduating with a Master in Fine Arts. Lives and works in Zürich. Works on her own artistic projects alongside commissions and teaches at a Gymnasium.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: null, urlLabel: null
-    },
-    {
-      num: "09", name: "Kleopatra Haritou", medium: "Photography & Film",
-      bio: "Athens-born visual artist working across photography, installation and moving image. Studied in New York, Athens and London. Her work has been exhibited at the Benaki Museum, Art Athina, Mykonos Biennale, Cité de l'architecture Paris, and institutions across Europe.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://www.kleopatraharitou.com", urlLabel: "kleopatraharitou.com"
-    },
-    {
-      num: "10", name: "Muriel Lherm", medium: "AI & Digital Art",
-      bio: "French-British artist based in London, working with artificial intelligence, moving image and digital installation. Her practice explores memory, identity and emotional presence through generative visual systems. Exhibited internationally in Tokyo, Miami, New York, London and Las Vegas.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://muriellondon.art", urlLabel: "muriellondon.art"
-    },
-    {
-      num: "11", name: "Zemor", medium: "Music & Song",
-      bio: "Zemor is a musician and songwriter. Already known to the DigitalBohemians community, she brings her songs into the Hydra Art Walk experience.",
-      location: "TBA — Poster location on Hydra to be announced.",
-      url: "https://www.sandrazemor.com", urlLabel: "sandrazemor.com"
-    }
+    { num:"01", name:"Mostaque Ahmed", medium:"Abstract · Ink on Glass", tag:"AR · Poster", bio:"Internationally exhibiting visual artist whose practice bridges contemporary abstraction and Oriental artistic traditions. Working primarily with alcohol-based ink on glass, perspex and synthetic surfaces, he creates layered, luminous compositions rich in texture and emotional resonance. Exhibited across Australia, USA, UK, France, Germany, Italy, Spain, Greece, the Netherlands, Japan, India and Bangladesh.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/p/DXJj9C9j3NL/", urlLabel:"Instagram" },
+    { num:"02", name:"Amy Martin", medium:"Writing & Literature", tag:"AR · Poster", bio:"A writer drawn to spaces, places and half-remembered conversations — the quiet tension between history and the present moment. Her work moves between travel writing, memoir, historical fiction and vignettes, circling questions of memory, ethics, and belonging. She is interested in how landscapes hold stories, and how ordinary encounters become luminous.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
+    { num:"03", name:"Natacha Best", medium:"Watercolour", tag:"AR · Poster", bio:"French painter exhibiting since 1980 in France, Spain and Greece. Living between Paris and Hydra since 1990. Works primarily in watercolour, with landscapes as her main subject.", location:"TBA — Poster location on Hydra to be announced.", url:"https://instagram.com/bestofnatacha", urlLabel:"@bestofnatacha" },
+    { num:"04", name:"Dana", medium:"Ceramics", tag:"AR · Poster", bio:"Ceramic artist creating hand-built pottery inspired by ancient civilizations.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/danapottery.hydra", urlLabel:"@Danapottery.hydra" },
+    { num:"05", name:"Rita Habermann", medium:"Sculpture", tag:"AR · Poster", bio:"With her sculpture museum in Koilada, Argolida, Rita has been creating sculptures in Greece for the last 20 years. She moved her atelier to Greece for the inspiration she finds in the people, the place and the light. Trained with French and Italian sculptors before establishing her trademark Taygeta series. She exhibited at the museum in Hydra in April 2024.", location:"TBA — Poster location on Hydra to be announced.", url:"https://ateliersud.eu", urlLabel:"ateliersud.eu" },
+    { num:"06", name:"Kleopatra Haritou", medium:"Photography & Film", tag:"AR · Poster", bio:"Athens-born visual artist working across photography, installation and moving image. Studied in New York, Athens and London. Her series 'The Refugee Housing of Alexandras Ave.' was presented at the Benaki Museum. She recently completed her essay film 'IERA ODOS' and is developing 'REST IN PIECES,' funded by the Greek Film Centre and ERT. Her work has been exhibited at Art Athina, Mykonos Biennale, Cité de l'architecture Paris, and institutions across Europe.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.kleopatraharitou.com", urlLabel:"kleopatraharitou.com" },
+    { num:"07", name:"Andreas Horstmann", medium:"Abstract Painting", tag:"Hydra Resident", bio:"Born in 1956, Andreas Horstmann is an autodidact artist with a German surname and a Greek first name. Since January 2023 he is a resident of Hydra. He started with sculpture and expanded into abstract painting, working with techniques such as swab, scraper and collage. He welcomes studio visits by appointment.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/hydrandart", urlLabel:"@HydrAndArt" },
+    { num:"08", name:"Belladonna Lagerkvist", medium:"Photography & Fashion", tag:"AR · Poster", bio:"Swedish artist and designer living in France. Works with photography, illustration, textile and fashion design, rituals and wellness techniques. Her practice revolves around Holistic Creation and Rituals of Wellbeing, inspired by nature and positive psychology. Much of her work is created on Hydra itself.", location:"TBA — Poster location on Hydra to be announced.", url:"https://belladonnalagerkvist.com", urlLabel:"belladonnalagerkvist.com" },
+    { num:"09", name:"Muriel Lherm", medium:"AI & Digital Art", tag:"AR · Digital", bio:"French-British artist based in London, working with artificial intelligence, moving image and digital installation. Her practice explores memory, identity and emotional presence through generative visual systems, combining classical references with contemporary technologies. Exhibited internationally in Tokyo, Miami, New York, London and Las Vegas, including Beeple Studios and Mesa Contemporary Arts Center.", location:"TBA — Poster location on Hydra to be announced.", url:"https://muriellondon.art", urlLabel:"muriellondon.art" },
+    { num:"10", name:"Lili", medium:"Objects & Artefacts", tag:"AR · Poster", bio:"Lili creates handmade artefacts for herself and her friends — driven by a pure, personal love of art and making.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
+    { num:"11", name:"Maayane", medium:"Yoga & Movement", tag:"Hydra · Studio", bio:"Yoga teacher offering morning and evening classes on a beautiful terrace close to the port of Hydra.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/shakti_yoga_hydra", urlLabel:"@shakti_yoga_hydra" },
+    { num:"12", name:"Julia Oram", medium:"Sculpture", tag:"AR · Poster", bio:"Julia Oram (b. 1990) is a Canadian interdisciplinary artist of Greek and English heritage, based in Berlin. Her sculptural practice is anchored in a deep relationship with nature, shaped by her upbringing in the Canadian Rockies. After overcoming addiction in her mid-twenties, her practice shifted toward heightened material sensitivity — marble, metal, and glass — exploring the intersection of organic processes and abstraction. Her work has been exhibited in Berlin, Athens, Japan, and Canada, including a solo exhibition in Fujiyoshida, Japan (2024) and recognition from the Canada Council for the Arts.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
+    { num:"13", name:"Martina Pape", medium:"Painting", tag:"AR · Poster", bio:"Born in Munich in 1965. Studied at the Kunstakademie München. First came to Hydra as an Erasmus student and has returned many times over the years. Works in oil painting and ink drawing, with a deep love for the island.", location:"TBA — Poster location on Hydra to be announced.", url:"http://www.martina-pape.de", urlLabel:"martina-pape.de" },
+    { num:"14", name:"Lisa Pohl", medium:"Fine Arts", tag:"AR · Poster", bio:"Born in 1989 in Winterthur, Switzerland. Studied Fine Arts in Lucerne and Rotterdam, graduating with a Master in Fine Arts. Lives and works in Zürich, where she pursues her own artistic projects, takes on commissions, and teaches at a Gymnasium.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
+    { num:"15", name:"Jacqueline Savidge", medium:"Textile & Silk", tag:"AR · Poster", bio:"Visual artist working with textile works in silk with embroidery, exploring the intersection of craft, texture and augmented reality.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/jacqueline.savidge", urlLabel:"@jacqueline.savidge" },
+    { num:"16", name:"Zemor", medium:"Music & Song", tag:"AR · Sound", bio:"Zemor is a musician and songwriter, already known to the DigitalBohemians community. She brings her songs into the Hydra Art Walk experience.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.sandrazemor.com", urlLabel:"sandrazemor.com" }
   ];
+
+  var PER_PAGE = 3;
+  var currentPage = 0;
+  var totalPages = Math.ceil(artists.length / PER_PAGE);
+
+  // Build alphabetical dropdown
+  var dropdown = document.getElementById('artistDropdown');
+  var sorted = artists.slice().sort(function(a,b){ return a.name.localeCompare(b.name); });
+  sorted.forEach(function(a) {
+    var idx = artists.indexOf(a);
+    var opt = document.createElement('option');
+    opt.value = idx;
+    opt.textContent = a.name;
+    dropdown.appendChild(opt);
+  });
+
+  function renderCarousel() {
+    var grid = document.getElementById('artistsGrid');
+    grid.innerHTML = '';
+    var start = currentPage * PER_PAGE;
+    var slice = artists.slice(start, start + PER_PAGE);
+    slice.forEach(function(a, i) {
+      var realIdx = start + i;
+      var card = document.createElement('div');
+      card.className = 'artist-card';
+      card.onclick = function(){ openModal(realIdx); };
+      card.innerHTML =
+        '<div class="ac-num">' + a.num + ' &mdash;</div>' +
+        '<div class="ac-avatar">' + a.name[0] + '</div>' +
+        '<div class="ac-name">' + a.name + '</div>' +
+        '<div class="ac-medium">' + a.medium + '</div>' +
+        '<div class="ac-tag">' + a.tag + '</div>' +
+        '<div class="ac-hint">Tap for info ↗</div>';
+      grid.appendChild(card);
+    });
+    document.getElementById('carouselCounter').textContent =
+      (currentPage * PER_PAGE + 1) + '–' + Math.min((currentPage + 1) * PER_PAGE, artists.length) + ' / ' + artists.length;
+    dropdown.value = '';
+  }
+
+  function carouselNext() {
+    currentPage = (currentPage + 1) % totalPages;
+    renderCarousel();
+  }
+
+  function carouselPrev() {
+    currentPage = (currentPage - 1 + totalPages) % totalPages;
+    renderCarousel();
+  }
+
+  function carouselJumpTo(idx) {
+    if (idx === '') return;
+    idx = parseInt(idx);
+    currentPage = Math.floor(idx / PER_PAGE);
+    renderCarousel();
+    dropdown.value = '';
+  }
+
+  renderCarousel();
 
   function openModal(i) {
     var a = artists[i];
@@ -477,7 +672,6 @@
     document.getElementById('modalMedium').textContent = a.medium;
     document.getElementById('modalBio').textContent = a.bio;
     document.getElementById('modalLocation').textContent = a.location;
-
     var footer = document.getElementById('modalFooter');
     footer.innerHTML = '';
     if (a.url) {
@@ -493,7 +687,6 @@
     closeBtn.textContent = 'Close';
     closeBtn.onclick = closeModal;
     footer.appendChild(closeBtn);
-
     document.getElementById('modalOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -509,6 +702,8 @@
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') carouselNext();
+    if (e.key === 'ArrowLeft') carouselPrev();
   });
 </script>
 </body>
