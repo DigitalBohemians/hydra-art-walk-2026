@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hydra Art Walk 2026 — DigitalBohemians</title>
+  <title>Hydra Art Walk 2026 — Coming Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg: #ffffff;
@@ -17,12 +18,19 @@
       --grad: linear-gradient(90deg, #a855f7, #ec4899);
       --purple: #a855f7;
       --pink: #ec4899;
+      --radius: 8px;
     }
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Space Mono', monospace; overflow-x: hidden; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
+    }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       padding: 20px 44px;
       display: flex;
@@ -32,7 +40,7 @@
       background: #fff;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 200;
     }
     .logo-slot { display: flex; align-items: center; gap: 14px; }
     .logo-text {
@@ -70,18 +78,20 @@
       background: var(--grad);
       color: #fff;
       padding: 0.55rem 1.25rem;
+      border-radius: var(--radius);
       transition: opacity 0.2s;
+      white-space: nowrap;
     }
     .nav-support:hover { opacity: 0.85; }
 
-    /* INTRO */
-    .intro {
+    /* ── HERO ── */
+    .hero {
       max-width: 980px;
       margin: 0 auto;
-      padding: 88px 44px 72px;
+      padding: 80px 44px 64px;
       text-align: center;
     }
-    .intro-label {
+    .hero-label {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.22em;
@@ -91,15 +101,15 @@
       opacity: 0;
       animation: up 0.8s 0.1s cubic-bezier(.22,1,.36,1) forwards;
     }
-    .intro-label span {
+    .hero-label span {
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .intro-title {
+    .hero-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-size: clamp(3.2rem, 10vw, 7.5rem);
       font-weight: 700;
       line-height: 0.93;
       letter-spacing: -0.03em;
@@ -108,71 +118,129 @@
       opacity: 0;
       animation: up 0.9s 0.2s cubic-bezier(.22,1,.36,1) forwards;
     }
-    .intro-title .gradient {
+    .hero-title .gradient {
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    /* ── DATE BAND ── */
     .date-band {
       display: inline-flex;
       align-items: center;
       gap: 20px;
       padding: 14px 32px;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
       margin-bottom: 44px;
       opacity: 0;
       animation: up 0.8s 0.3s cubic-bezier(.22,1,.36,1) forwards;
     }
     .d-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
-    .d-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); line-height: 1; }
-    .date-sep { font-size: 24px; color: var(--purple); }
-    .intro-text {
+    .d-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); line-height: 1; }
+    .date-sep { font-size: 22px; color: var(--purple); }
+
+    /* ── COMING SOON BANNER ── */
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      background: rgba(168,85,247,0.06);
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: up 0.8s 0.35s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .cs-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+      animation: blink 1.6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .cs-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* ── INTRO TEXT ── */
+    .hero-text {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 16px;
       font-weight: 300;
       line-height: 1.85;
       color: var(--muted);
-      max-width: 660px;
-      margin: 0 auto 20px;
+      max-width: 600px;
+      margin: 0 auto 36px;
       opacity: 0;
-      animation: up 0.9s 0.38s cubic-bezier(.22,1,.36,1) forwards;
+      animation: up 0.9s 0.42s cubic-bezier(.22,1,.36,1) forwards;
     }
-    .intro-text strong { color: var(--text); font-weight: 700; }
-    .pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 28px;
-      opacity: 0;
-      animation: up 0.8s 0.5s cubic-bezier(.22,1,.36,1) forwards;
+    .hero-text strong { color: var(--text); font-weight: 700; }
+    .hero-highlight {
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      background: rgba(168,85,247,0.04);
+      color: var(--text);
     }
-    .pill {
-      padding: 8px 18px;
+    .hero-highlight strong { color: var(--purple); }
+
+    /* ── FEATURE BAR ── */
+    .feature-bar {
+      display: inline-flex;
+      align-items: center;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      animation: up 0.8s 0.52s cubic-bezier(.22,1,.36,1) forwards;
+      flex-wrap: wrap;
+    }
+    .feature-item {
+      padding: 10px 20px;
       font-family: 'Space Mono', monospace;
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      border-radius: 100px;
+      white-space: nowrap;
     }
-    .pill.hi {
-      border-color: var(--purple);
+    .feature-item.hi {
       color: var(--purple);
+      background: rgba(168,85,247,0.05);
+    }
+    .feature-sep {
+      width: 1px;
+      align-self: stretch;
+      background: var(--border);
+      flex-shrink: 0;
     }
 
-    /* MAP */
-    .map-section { padding: 0 44px 80px; }
-    .section-header {
+    /* ── MAP SECTION ── */
+    .map-section {
+      padding: 64px 44px 80px;
+      border-top: 1px solid var(--border);
+    }
+    .map-header {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
       gap: 10px;
     }
+    .map-title-group {}
     .section-label {
       font-family: 'Space Mono', monospace;
       font-size: 10px;
@@ -185,228 +253,287 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      margin-bottom: 6px;
+      display: block;
     }
-    .map-wrap { width: 100%; height: 620px; border: 1px solid var(--border); overflow: hidden; background: #f0f0f0; }
-    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-
-    /* ARTISTS */
-    .artists-section { padding: 80px 44px; border-top: 1px solid var(--border); }
-    .artists-top {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 36px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .artists-top h2 {
+    .map-title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: -0.02em;
       line-height: 1;
     }
-    .artists-top-note {
-      font-size: 13px;
+    .map-note {
       font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--muted);
-      max-width: 280px;
       text-align: right;
-      line-height: 1.65;
+      line-height: 1.7;
+      max-width: 220px;
     }
-    /* ARTIST CAROUSEL */
-    .artists-controls {
+
+    /* Map notice strip */
+    .map-notice {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .carousel-arrows { display: flex; gap: 8px; }
-    .arrow-btn {
-      width: 40px; height: 40px;
-      border: 1px solid var(--border);
-      background: #fff;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.2s, color 0.2s;
-      color: var(--text);
-    }
-    .arrow-btn:hover { border-color: var(--purple); color: var(--purple); }
-    .artist-dropdown {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: 1px solid var(--border);
-      padding: 0 1rem;
-      height: 40px;
-      background: #fff;
-      color: var(--text);
-      cursor: pointer;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-      -webkit-appearance: none;
-      padding-right: 2rem;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-    }
-    .artist-dropdown:focus { border-color: var(--purple); }
-    .carousel-counter {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-left: auto;
-    }
-    .artists-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .artist-card {
-      background: #fff;
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
       gap: 10px;
-      transition: background 0.2s, opacity 0.3s;
-      min-height: 220px;
-      cursor: pointer;
-    }
-    .artist-card:hover { background: #fafafa; }
-    .artist-card.hidden { display: none; }
-    .ac-num {
+      padding: 10px 16px;
+      background: rgba(168,85,247,0.05);
+      border: 1px solid rgba(168,85,247,0.2);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
       font-family: 'Space Mono', monospace;
       font-size: 10px;
-      letter-spacing: 0.13em;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .ac-avatar {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.1));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--purple);
     }
-    .ac-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.1; }
-    .ac-medium { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .ac-tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border: 1px solid rgba(168,85,247,0.3);
+    .map-notice-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      flex-shrink: 0;
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    /* Map container */
+    .map-wrap {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: #c8d8e0;
+      max-height: 560px;
+    }
+    .map-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 560px;
+      object-fit: cover;
+    }
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 800;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .legend-title {
       font-family: 'Space Mono', monospace;
       font-size: 9px;
-      letter-spacing: 0.1em;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--purple);
-      margin-top: auto;
+      color: var(--muted);
+      margin-bottom: 8px;
     }
-    .ac-hint { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(168,85,247,0.4); margin-top: 4px; }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 10000;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(6px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .modal-overlay.open { opacity: 1; pointer-events: all; }
-    .modal {
-      background: #fff;
-      border: 1px solid var(--border);
-      max-width: 520px; width: 100%;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s cubic-bezier(.22,1,.36,1);
-    }
-    .modal-overlay.open .modal { transform: translateY(0); }
-    .modal-bar { height: 4px; background: var(--grad); }
-    .modal-inner { padding: 32px; }
-    .modal-close {
-      position: absolute; top: 16px; right: 18px;
-      background: none; border: none;
-      color: var(--muted); font-size: 22px; cursor: pointer;
-      transition: color 0.2s;
-    }
-    .modal-close:hover { color: var(--text); }
-    .modal-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.15em; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
-    .modal-name { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1; margin-bottom: 6px; text-transform: uppercase; letter-spacing: -0.02em; }
-    .modal-medium { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 24px; }
-    .modal-bio { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--muted); margin-bottom: 24px; }
-    .modal-location {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 16px;
-      background: rgba(168,85,247,0.04);
-      border: 1px solid rgba(168,85,247,0.15);
-      margin-bottom: 24px;
-    }
-    .modal-location-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-    .modal-location-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 4px; }
-    .modal-location-val { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: var(--muted); line-height: 1.5; }
-    .modal-footer { display: flex; gap: 12px; flex-wrap: wrap; }
-    .modal-btn {
-      padding: 12px 20px;
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
       font-family: 'Space Mono', monospace;
       font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      transition: all 0.2s;
-      cursor: pointer;
-      background: none;
+      color: var(--text);
     }
-    .modal-btn:hover { border-color: var(--purple); color: var(--purple); }
-    .modal-btn.primary { background: var(--grad); color: #fff; border: none; }
-    .modal-btn.primary:hover { opacity: 0.85; }
+    .legend-item:last-child { margin-bottom: 0; }
+    .legend-dot-main {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--grad);
+      flex-shrink: 0;
+    }
+    .legend-dot-poster {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2px solid var(--purple);
+      background: #fff;
+      flex-shrink: 0;
+    }
 
-    /* SPONSORS */
-    .sponsors-section {
+    /* ── COMING SOON ARTISTS ── */
+    .artists-soon {
       padding: 64px 44px;
       border-top: 1px solid var(--border);
       background: var(--surface);
     }
-    .sponsors-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 36px; }
-    .sponsors-row { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
-    .sponsor-slot {
-      width: 140px; height: 56px;
-      border: 1px dashed var(--border);
+    .artists-soon-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .artists-soon-left {}
+    .artists-soon-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .artists-soon h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .artists-soon-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.7;
+      letter-spacing: 0.06em;
+    }
+    /* Placeholder artist avatars */
+    .avatar-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 280px;
+    }
+    .avatar-ph {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(168,85,247,0.07), rgba(236,72,153,0.07));
       display: flex; align-items: center; justify-content: center;
       font-family: 'Space Mono', monospace;
-      font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 9px;
+      letter-spacing: 0.08em;
       color: var(--muted);
     }
+    .avatar-ph.glow {
+      border-color: rgba(168,85,247,0.3);
+      background: linear-gradient(135deg, rgba(168,85,247,0.12), rgba(236,72,153,0.12));
+      color: var(--purple);
+    }
 
-    /* FOOTER */
+    /* ── NOTIFY SECTION ── */
+    .notify-section {
+      padding: 64px 44px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .notify-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .notify-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .notify-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      letter-spacing: 0.06em;
+    }
+    .notify-form {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .notify-input {
+      flex: 1;
+      padding: 14px 18px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      border: none;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+    }
+    .notify-input::placeholder { color: var(--muted); }
+    .notify-btn {
+      padding: 14px 22px;
+      background: var(--grad);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .notify-btn:hover { opacity: 0.85; }
+    .notify-thanks {
+      display: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--purple);
+      letter-spacing: 0.1em;
+      margin-top: 12px;
+    }
+
+    /* ── FOOTER ── */
     footer {
       padding: 36px 44px;
       border-top: 1px solid var(--border);
       display: flex; align-items: center;
       justify-content: space-between;
       flex-wrap: wrap; gap: 16px;
+      padding-bottom: calc(36px + env(safe-area-inset-bottom, 0px));
     }
-    .footer-left { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); line-height: 1.9; }
+    .footer-left {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.9;
+    }
     .footer-left strong { color: var(--text); font-weight: 400; }
-    .footer-right { display: flex; gap: 28px; align-items: center; }
-    .footer-right a { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-right { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .footer-right a {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
     .footer-right a:hover { color: var(--purple); }
     .footer-support {
       font-family: 'Space Grotesk', sans-serif;
@@ -418,28 +545,200 @@
       background: var(--grad);
       color: #fff !important;
       padding: 0.55rem 1.25rem;
+      border-radius: var(--radius);
       transition: opacity 0.2s;
     }
-    .footer-support:hover { opacity: 0.85 !important; color: #fff !important; }
+    .footer-support:hover { opacity: 0.85 !important; }
 
-    @keyframes up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 900px) {
-      nav, .intro, .map-section, .artists-section, .sponsors-section, footer { padding-left: 20px; padding-right: 20px; }
-      .artists-grid { grid-template-columns: repeat(3, 1fr); }
-      .artists-top-note { text-align: left; }
-      .map-wrap { height: 480px; }
-      .intro { padding-top: 56px; }
+    @keyframes up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    @media (max-width: 560px) {
-      .artists-grid { grid-template-columns: repeat(2, 1fr); }
-      .map-wrap { height: 380px; }
-      nav { padding: 16px 20px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav, .hero, .map-section, .artists-soon, .notify-section, footer {
+        padding-left: 24px; padding-right: 24px;
+      }
+      .map-wrap { height: 480px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 16px; }
       .nav-edition { display: none; }
-      .date-band { flex-direction: column; gap: 8px; }
-      .modal-inner { padding: 24px; }
-      .modal-footer { flex-direction: column; }
-      .modal-btn { text-align: center; }
+      .nav-support { font-size: 0.72rem; padding: 0.5rem 1rem; }
+      .logo-text { font-size: 11px; }
+      .logo-text span { font-size: 9px; }
+
+      .hero { padding: 44px 16px 52px; }
+      .hero-label { font-size: 9px; }
+
+      .date-band {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px 24px;
+        text-align: center;
+        width: 100%;
+      }
+      .date-sep { transform: rotate(90deg); }
+
+      .coming-soon { flex-direction: row; width: auto; }
+
+      .map-section { padding: 48px 16px 64px; }
+      .map-note { display: none; }
+
+      .artists-soon { padding: 48px 16px; }
+      .artists-soon-inner { flex-direction: column; }
+      .avatar-cluster { max-width: 100%; }
+
+      .notify-section { padding: 48px 16px; }
+      .notify-form { flex-direction: column; border-radius: var(--radius); }
+      .notify-input { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+      .notify-btn { border-radius: 0 0 var(--radius) var(--radius); padding: 14px; }
+
+      footer {
+        padding: 28px 16px;
+        padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .footer-right { width: 100%; flex-wrap: wrap; gap: 16px; }
+      .footer-support { margin-left: auto; }
+
+      .feature-bar { width: 100%; }
+      .feature-item { font-size: 9px; padding: 10px 14px; }
+    }
+
+    @media (max-width: 420px) {
+      .nav-support { display: none; }
+    }
+
+    /* ── TOGGLE ── */
+    .view-toggle {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .toggle-btn {
+      padding: 10px 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .toggle-btn:first-child { border-right: 1px solid var(--border); }
+    .toggle-btn.active {
+      background: var(--grad);
+      color: #fff;
+    }
+    .toggle-btn:not(.active):hover { color: var(--purple); }
+
+    /* ── CALENDAR ── */
+    .calendar-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cal-month {
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-month:last-child { border-bottom: none; }
+    .cal-month-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 20px 10px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .cal-event {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+      transition: background 0.15s;
+    }
+    .cal-event:last-of-type { border-bottom: none; }
+    .cal-event:hover { background: #fafafa; }
+    .cal-event.hi { background: rgba(168,85,247,0.03); }
+    .cal-event.hi:hover { background: rgba(168,85,247,0.06); }
+    .cal-event-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      padding: 18px 20px;
+      min-width: 110px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .cal-event-body {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+    .cal-event-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .cal-event-desc {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .cal-event-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid rgba(168,85,247,0.25);
+      border-radius: 4px;
+      padding: 3px 8px;
+      display: inline-block;
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+    .cal-coming-soon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: rgba(168,85,247,0.04);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    @media (max-width: 640px) {
+      .cal-event { flex-direction: column; }
+      .cal-event-date { border-right: none; border-bottom: 1px solid var(--border); padding: 12px 16px; min-width: unset; }
+      .cal-event-body { padding: 12px 16px; }
+      .toggle-btn { padding: 10px 18px; font-size: 10px; }
     }
   </style>
 </head>
@@ -470,84 +769,201 @@
   </div>
 </nav>
 
-<!-- INTRO -->
-<section class="intro">
-  <div class="intro-label">DigitalBohemians &middot; <span>Hydra, Greece</span> &middot; Hybrid Exhibition</div>
-  <h1 class="intro-title">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">DigitalBohemians &middot; <span>Hydra, Greece</span> &middot; Hybrid Exhibition</div>
+  <h1 class="hero-title">
     Hydra<br>
     <span class="gradient">Art Walk</span><br>
     2026
   </h1>
+
+  <div class="coming-soon">
+    <div class="cs-dot"></div>
+    <div class="cs-text">Website launching Late May &mdash; Mid June 2026</div>
+  </div>
+
   <div class="date-band">
     <div>
-      <div class="d-label">Opens</div>
+      <div class="d-label">Exhibition Opens</div>
       <div class="d-val">June 2026</div>
     </div>
     <div class="date-sep">&rarr;</div>
     <div>
       <div class="d-label">Closes</div>
-      <div class="d-val">Mid&nbsp;October&nbsp;2026</div>
+      <div class="d-val">Mid October 2026</div>
     </div>
   </div>
-  <p class="intro-text">
-    Stroll across the island of Hydra and discover a new kind of art experience.<br><br>
-    <strong>Hydra Art Walk</strong> is a hybrid group exhibition spread across the entire island &mdash; physical posters by participating artists placed in the harbour, alleyways, and on hillside walls, each one activatable as a <strong>web-based AR experience</strong>. No app needed. Point your phone at a poster and the artwork comes alive: painting, sculpture, poetry, music &mdash; extended into augmented reality, directly in your browser.<br><br>
-    We combine our celebrated annual AR group exhibition with <strong>physical studio visits</strong>, bringing together the tactile and the digital in one immersive island-wide walk.
+
+  <p class="hero-text">
+    A <strong>main AR Group Show</strong> of all participating artists awaits you at
+    <strong>Hydra harbour</strong> — viewable through your phone. Point your camera,
+    and the artworks come alive in augmented reality, directly in your browser.
   </p>
-  <div class="pills">
-    <span class="pill hi">No App Required</span>
-    <span class="pill">Web-Based AR</span>
-    <span class="pill">Studio Visits</span>
-    <span class="pill">Painting &middot; Sculpture &middot; Poetry &middot; Music</span>
-    <span class="pill">3rd Edition</span>
+
+  <p class="hero-text hero-highlight">
+    Across the island, <strong>physical posters</strong> invite you on a
+    <strong>Hydra Art Walk</strong> — each one a portal into painting, sculpture,
+    poetry and music, extended into AR. Plus a series of
+    <strong>studio visits &amp; events</strong> throughout the season.
+  </p>
+
+  <div class="feature-bar">
+    <div class="feature-item">Web-Based AR</div>
+    <div class="feature-sep"></div>
+    <div class="feature-item">Studio Visits</div>
+    <div class="feature-sep"></div>
+    <div class="feature-item">Painting &middot; Sculpture &middot; Poetry &middot; Music</div>
+    <div class="feature-sep"></div>
+    <div class="feature-item hi">3rd Edition</div>
   </div>
 </section>
 
-<!-- MAP -->
+<!-- MAP + CALENDAR -->
 <div class="map-section">
-  <div class="section-header">
-    <div class="section-label colored">&mdash; Explore the Island</div>
-    <div class="section-label">Tap a pin &middot; Discover locations</div>
+  <div class="map-header">
+    <div class="map-title-group">
+      <span class="section-label colored">&mdash; The Island</span>
+      <div class="map-title">Hydra Art Walk 2026</div>
+    </div>
+    <div class="map-note">
+      Exact locations &amp; events<br>
+      confirmed from June 2026
+    </div>
   </div>
-  <div class="map-wrap">
-    <iframe src="https://digitalbohemians.github.io/hydra-map" title="Hydra Art Walk Map" loading="lazy"></iframe>
+
+  <!-- TOGGLE -->
+  <div class="view-toggle">
+    <button class="toggle-btn active" id="btnMap" onclick="showView('map')">🗺 Map</button>
+    <button class="toggle-btn" id="btnCal" onclick="showView('cal')">📅 Calendar</button>
+  </div>
+
+  <!-- MAP VIEW -->
+  <div id="viewMap">
+    <div class="map-notice">
+      <div class="map-notice-dot"></div>
+      Placeholder locations &mdash; final positions announced at launch
+    </div>
+    <div class="map-wrap">
+      <img src="Hydramap_placeholder.png" alt="Hydra Art Walk — Poster Locations Map" style="width:100%;height:auto;display:block;"/>
+      <div class="map-legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><div class="legend-dot-main"></div>AR Group Show &mdash; Harbour</div>
+        <div class="legend-item"><div class="legend-dot-poster"></div>Poster Location (TBA)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALENDAR VIEW -->
+  <div id="viewCal" style="display:none;">
+    <div class="map-notice">
+      <div class="map-notice-dot"></div>
+      Full event programme announced at launch &mdash; Late May / Mid June 2026
+    </div>
+    <div class="calendar-wrap">
+
+      <div class="cal-month">
+        <div class="cal-month-label">June 2026</div>
+        <div class="cal-event hi">
+          <div class="cal-event-date">Early June</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">↗ Exhibition Opens &mdash; AR Group Show</div>
+            <div class="cal-event-desc">All artists go live at Hydra Harbour. Point your phone at any poster — the artwork comes alive in augmented reality, directly in your browser.</div>
+            <span class="cal-event-tag">AR · Harbour · All Artists</span>
+          </div>
+        </div>
+        <div class="cal-event">
+          <div class="cal-event-date">June</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Hydra Art Walk Begins</div>
+            <div class="cal-event-desc">Posters distributed across the island — harbourfront, alleyways, hillside walls. Each poster activates a unique AR experience.</div>
+            <span class="cal-event-tag">Island-Wide · Posters · AR</span>
+          </div>
+        </div>
+        <div class="cal-event">
+          <div class="cal-event-date">June &ndash; July</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Studio Visits</div>
+            <div class="cal-event-desc">Open studio sessions with participating artists — dates and locations to be announced.</div>
+            <span class="cal-event-tag">Studio · TBA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cal-month">
+        <div class="cal-month-label">July &ndash; August 2026</div>
+        <div class="cal-event">
+          <div class="cal-event-date">Summer</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Events &amp; Openings</div>
+            <div class="cal-event-desc">A series of artist talks, evening openings and special events throughout the high season. Programme TBA.</div>
+            <span class="cal-event-tag">Events · TBA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cal-month">
+        <div class="cal-month-label">Mid October 2026</div>
+        <div class="cal-event">
+          <div class="cal-event-date">Mid October</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Exhibition Closes</div>
+            <div class="cal-event-desc">Final day of the Hydra Art Walk 2026. Exact closing date to be announced.</div>
+            <span class="cal-event-tag">Closing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cal-coming-soon">
+        <div class="cs-dot" style="width:8px;height:8px;border-radius:50%;background:var(--purple);animation:blink 1.6s ease-in-out infinite;flex-shrink:0;"></div>
+        Full programme announced at launch &mdash; sign up below to be notified
+      </div>
+
+    </div>
   </div>
 </div>
 
-<!-- ARTISTS -->
-<section class="artists-section">
-  <div class="artists-top">
-    <div>
-      <div class="section-label colored" style="margin-bottom:10px">&mdash; Participating Artists</div>
-      <h2>The Group</h2>
+
+
+<!-- NOTIFY -->
+<section class="notify-section">
+  <span class="notify-label">&mdash; Stay in the loop</span>
+  <div class="notify-title">Get notified at launch</div>
+  <p class="notify-sub">
+    We'll send you one email when the website goes live<br>
+    and the posters are up on Hydra.
+  </p>
+
+  <form
+    action="https://club.us22.list-manage.com/subscribe/post?u=28032067aa4c5f0e41dd0ae49&amp;id=a5f79287da&amp;f_id=0087eee1f0"
+    method="post"
+    target="_blank"
+    id="mc-embedded-subscribe-form"
+    name="mc-embedded-subscribe-form"
+    novalidate
+  >
+    <div class="notify-form">
+      <input
+        class="notify-input"
+        type="email"
+        name="EMAIL"
+        id="mce-EMAIL"
+        placeholder="your@email.com"
+        required
+      />
+      <!-- Honeypot anti-bot field — do not remove -->
+      <div aria-hidden="true" style="position:absolute;left:-5000px;">
+        <input type="text" name="b_28032067aa4c5f0e41dd0ae49_a5f79287da" tabindex="-1" value="">
+      </div>
+      <button type="submit" class="notify-btn" name="subscribe" id="mc-embedded-subscribe">
+        ↗ Notify Me
+      </button>
     </div>
-    <p class="artists-top-note">Edition III &mdash; 16 international artists working across painting, sculpture, writing, music, ceramics, digital &amp; augmented reality.</p>
-  </div>
+  </form>
 
-  <div class="artists-controls">
-    <div class="carousel-arrows">
-      <button class="arrow-btn" onclick="carouselPrev()">←</button>
-      <button class="arrow-btn" onclick="carouselNext()">→</button>
-    </div>
-    <select class="artist-dropdown" onchange="carouselJumpTo(this.value)" id="artistDropdown">
-      <option value="">— Jump to artist</option>
-    </select>
-    <div class="carousel-counter" id="carouselCounter"></div>
-  </div>
-
-  <div class="artists-grid" id="artistsGrid"></div>
-</section>
-
-<!-- SPONSORS -->
-<section class="sponsors-section">
-  <div class="sponsors-label">Supported by</div>
-  <div class="sponsors-row">
-    <div class="sponsor-slot">Sponsor Logo</div>
-    <div class="sponsor-slot">Sponsor Logo</div>
-    <div class="sponsor-slot">Sponsor Logo</div>
-    <div class="sponsor-slot">Sponsor Logo</div>
-    <div class="sponsor-slot">Sponsor Logo</div>
-  </div>
+  <p class="notify-sub" style="margin-top:12px;font-size:10px;">
+    One email only. No spam. Unsubscribe anytime.
+  </p>
 </section>
 
 <!-- FOOTER -->
@@ -560,151 +976,20 @@
   <div class="footer-right">
     <a href="https://digitalbohemians.club" target="_blank">Website</a>
     <a href="mailto:hello@digitalbohemians.club">Contact</a>
+    <a href="https://instagram.com/digitalbohemians.club" target="_blank">Instagram</a>
     <a class="footer-support" href="/support.html">↗ Support Us</a>
   </div>
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
-    <div class="modal-bar"></div>
-    <div class="modal-inner">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
-      <div class="modal-num" id="modalNum"></div>
-      <div class="modal-name" id="modalName"></div>
-      <div class="modal-medium" id="modalMedium"></div>
-      <div class="modal-bio" id="modalBio"></div>
-      <div class="modal-location">
-        <div class="modal-location-icon">📍</div>
-        <div>
-          <div class="modal-location-label">Poster Location on Hydra</div>
-          <div class="modal-location-val" id="modalLocation"></div>
-        </div>
-      </div>
-      <div class="modal-footer" id="modalFooter"></div>
-    </div>
-  </div>
-</div>
-
 <script>
-  var artists = [
-    { num:"01", name:"Mostaque Ahmed", medium:"Abstract · Ink on Glass", tag:"AR · Poster", bio:"Internationally exhibiting visual artist whose practice bridges contemporary abstraction and Oriental artistic traditions. Working primarily with alcohol-based ink on glass, perspex and synthetic surfaces, he creates layered, luminous compositions rich in texture and emotional resonance. Exhibited across Australia, USA, UK, France, Germany, Italy, Spain, Greece, the Netherlands, Japan, India and Bangladesh.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/p/DXJj9C9j3NL/", urlLabel:"Instagram" },
-    { num:"02", name:"Amy Martin", medium:"Writing & Literature", tag:"AR · Poster", bio:"A writer drawn to spaces, places and half-remembered conversations — the quiet tension between history and the present moment. Her work moves between travel writing, memoir, historical fiction and vignettes, circling questions of memory, ethics, and belonging. She is interested in how landscapes hold stories, and how ordinary encounters become luminous.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
-    { num:"03", name:"Natacha Best", medium:"Watercolour", tag:"AR · Poster", bio:"French painter exhibiting since 1980 in France, Spain and Greece. Living between Paris and Hydra since 1990. Works primarily in watercolour, with landscapes as her main subject.", location:"TBA — Poster location on Hydra to be announced.", url:"https://instagram.com/bestofnatacha", urlLabel:"@bestofnatacha" },
-    { num:"04", name:"Dana", medium:"Ceramics", tag:"AR · Poster", bio:"Ceramic artist creating hand-built pottery inspired by ancient civilizations.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/danapottery.hydra", urlLabel:"@Danapottery.hydra" },
-    { num:"05", name:"Rita Habermann", medium:"Sculpture", tag:"AR · Poster", bio:"With her sculpture museum in Koilada, Argolida, Rita has been creating sculptures in Greece for the last 20 years. She moved her atelier to Greece for the inspiration she finds in the people, the place and the light. Trained with French and Italian sculptors before establishing her trademark Taygeta series. She exhibited at the museum in Hydra in April 2024.", location:"TBA — Poster location on Hydra to be announced.", url:"https://ateliersud.eu", urlLabel:"ateliersud.eu" },
-    { num:"06", name:"Kleopatra Haritou", medium:"Photography & Film", tag:"AR · Poster", bio:"Athens-born visual artist working across photography, installation and moving image. Studied in New York, Athens and London. Her series 'The Refugee Housing of Alexandras Ave.' was presented at the Benaki Museum. She recently completed her essay film 'IERA ODOS' and is developing 'REST IN PIECES,' funded by the Greek Film Centre and ERT. Her work has been exhibited at Art Athina, Mykonos Biennale, Cité de l'architecture Paris, and institutions across Europe.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.kleopatraharitou.com", urlLabel:"kleopatraharitou.com" },
-    { num:"07", name:"Andreas Horstmann", medium:"Abstract Painting", tag:"Hydra Resident", bio:"Born in 1956, Andreas Horstmann is an autodidact artist with a German surname and a Greek first name. Since January 2023 he is a resident of Hydra. He started with sculpture and expanded into abstract painting, working with techniques such as swab, scraper and collage. He welcomes studio visits by appointment.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/hydrandart", urlLabel:"@HydrAndArt" },
-    { num:"08", name:"Belladonna Lagerkvist", medium:"Photography & Fashion", tag:"AR · Poster", bio:"Swedish artist and designer living in France. Works with photography, illustration, textile and fashion design, rituals and wellness techniques. Her practice revolves around Holistic Creation and Rituals of Wellbeing, inspired by nature and positive psychology. Much of her work is created on Hydra itself.", location:"TBA — Poster location on Hydra to be announced.", url:"https://belladonnalagerkvist.com", urlLabel:"belladonnalagerkvist.com" },
-    { num:"09", name:"Muriel Lherm", medium:"AI & Digital Art", tag:"AR · Digital", bio:"French-British artist based in London, working with artificial intelligence, moving image and digital installation. Her practice explores memory, identity and emotional presence through generative visual systems, combining classical references with contemporary technologies. Exhibited internationally in Tokyo, Miami, New York, London and Las Vegas, including Beeple Studios and Mesa Contemporary Arts Center.", location:"TBA — Poster location on Hydra to be announced.", url:"https://muriellondon.art", urlLabel:"muriellondon.art" },
-    { num:"10", name:"Lili", medium:"Objects & Artefacts", tag:"AR · Poster", bio:"Lili creates handmade artefacts for herself and her friends — driven by a pure, personal love of art and making.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
-    { num:"11", name:"Maayane", medium:"Yoga & Movement", tag:"Hydra · Studio", bio:"Yoga teacher offering morning and evening classes on a beautiful terrace close to the port of Hydra.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/shakti_yoga_hydra", urlLabel:"@shakti_yoga_hydra" },
-    { num:"12", name:"Julia Oram", medium:"Sculpture", tag:"AR · Poster", bio:"Julia Oram (b. 1990) is a Canadian interdisciplinary artist of Greek and English heritage, based in Berlin. Her sculptural practice is anchored in a deep relationship with nature, shaped by her upbringing in the Canadian Rockies. After overcoming addiction in her mid-twenties, her practice shifted toward heightened material sensitivity — marble, metal, and glass — exploring the intersection of organic processes and abstraction. Her work has been exhibited in Berlin, Athens, Japan, and Canada, including a solo exhibition in Fujiyoshida, Japan (2024) and recognition from the Canada Council for the Arts.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
-    { num:"13", name:"Martina Pape", medium:"Painting", tag:"AR · Poster", bio:"Born in Munich in 1965. Studied at the Kunstakademie München. First came to Hydra as an Erasmus student and has returned many times over the years. Works in oil painting and ink drawing, with a deep love for the island.", location:"TBA — Poster location on Hydra to be announced.", url:"http://www.martina-pape.de", urlLabel:"martina-pape.de" },
-    { num:"14", name:"Lisa Pohl", medium:"Fine Arts", tag:"AR · Poster", bio:"Born in 1989 in Winterthur, Switzerland. Studied Fine Arts in Lucerne and Rotterdam, graduating with a Master in Fine Arts. Lives and works in Zürich, where she pursues her own artistic projects, takes on commissions, and teaches at a Gymnasium.", location:"TBA — Poster location on Hydra to be announced.", url:null, urlLabel:null },
-    { num:"15", name:"Jacqueline Savidge", medium:"Textile & Silk", tag:"AR · Poster", bio:"Visual artist working with textile works in silk with embroidery, exploring the intersection of craft, texture and augmented reality.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.instagram.com/jacqueline.savidge", urlLabel:"@jacqueline.savidge" },
-    { num:"16", name:"Zemor", medium:"Music & Song", tag:"AR · Sound", bio:"Zemor is a musician and songwriter, already known to the DigitalBohemians community. She brings her songs into the Hydra Art Walk experience.", location:"TBA — Poster location on Hydra to be announced.", url:"https://www.sandrazemor.com", urlLabel:"sandrazemor.com" }
-  ];
-
-  var PER_PAGE = 3;
-  var currentPage = 0;
-  var totalPages = Math.ceil(artists.length / PER_PAGE);
-
-  // Build alphabetical dropdown
-  var dropdown = document.getElementById('artistDropdown');
-  var sorted = artists.slice().sort(function(a,b){ return a.name.localeCompare(b.name); });
-  sorted.forEach(function(a) {
-    var idx = artists.indexOf(a);
-    var opt = document.createElement('option');
-    opt.value = idx;
-    opt.textContent = a.name;
-    dropdown.appendChild(opt);
-  });
-
-  function renderCarousel() {
-    var grid = document.getElementById('artistsGrid');
-    grid.innerHTML = '';
-    var start = currentPage * PER_PAGE;
-    var slice = artists.slice(start, start + PER_PAGE);
-    slice.forEach(function(a, i) {
-      var realIdx = start + i;
-      var card = document.createElement('div');
-      card.className = 'artist-card';
-      card.onclick = function(){ openModal(realIdx); };
-      card.innerHTML =
-        '<div class="ac-num">' + a.num + ' &mdash;</div>' +
-        '<div class="ac-avatar">' + a.name[0] + '</div>' +
-        '<div class="ac-name">' + a.name + '</div>' +
-        '<div class="ac-medium">' + a.medium + '</div>' +
-        '<div class="ac-tag">' + a.tag + '</div>' +
-        '<div class="ac-hint">Tap for info ↗</div>';
-      grid.appendChild(card);
-    });
-    document.getElementById('carouselCounter').textContent =
-      (currentPage * PER_PAGE + 1) + '–' + Math.min((currentPage + 1) * PER_PAGE, artists.length) + ' / ' + artists.length;
-    dropdown.value = '';
+  // ── TOGGLE MAP / CALENDAR ──
+  function showView(view) {
+    var isMap = view === 'map';
+    document.getElementById('viewMap').style.display = isMap ? 'block' : 'none';
+    document.getElementById('viewCal').style.display = isMap ? 'none' : 'block';
+    document.getElementById('btnMap').classList.toggle('active', isMap);
+    document.getElementById('btnCal').classList.toggle('active', !isMap);
   }
-
-  function carouselNext() {
-    currentPage = (currentPage + 1) % totalPages;
-    renderCarousel();
-  }
-
-  function carouselPrev() {
-    currentPage = (currentPage - 1 + totalPages) % totalPages;
-    renderCarousel();
-  }
-
-  function carouselJumpTo(idx) {
-    if (idx === '') return;
-    idx = parseInt(idx);
-    currentPage = Math.floor(idx / PER_PAGE);
-    renderCarousel();
-    dropdown.value = '';
-  }
-
-  renderCarousel();
-
-  function openModal(i) {
-    var a = artists[i];
-    document.getElementById('modalNum').textContent = a.num + ' —';
-    document.getElementById('modalName').textContent = a.name;
-    document.getElementById('modalMedium').textContent = a.medium;
-    document.getElementById('modalBio').textContent = a.bio;
-    document.getElementById('modalLocation').textContent = a.location;
-    var footer = document.getElementById('modalFooter');
-    footer.innerHTML = '';
-    if (a.url) {
-      var btn = document.createElement('a');
-      btn.className = 'modal-btn primary';
-      btn.href = a.url;
-      btn.target = '_blank';
-      btn.textContent = '↗ ' + a.urlLabel;
-      footer.appendChild(btn);
-    }
-    var closeBtn = document.createElement('button');
-    closeBtn.className = 'modal-btn';
-    closeBtn.textContent = 'Close';
-    closeBtn.onclick = closeModal;
-    footer.appendChild(closeBtn);
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowRight') carouselNext();
-    if (e.key === 'ArrowLeft') carouselPrev();
-  });
 </script>
 </body>
 </html>
