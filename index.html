@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hydra Art Walk 2026 — DigitalBohemians</title>
- 
+
   <!-- OG / Social Sharing -->
   <meta property="og:title" content="Hydra Art Walk 2026 — DigitalBohemians" />
   <meta property="og:description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
@@ -15,20 +15,19 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="DigitalBohemians" />
   <meta property="og:locale" content="en_GB" />
- 
+
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hydra Art Walk 2026 — DigitalBohemians" />
   <meta name="twitter:description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
   <meta name="twitter:image" content="https://digitalbohemians.club/og-image.jpg" />
- 
+
   <!-- General -->
   <meta name="description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
   <meta name="theme-color" content="#a855f7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --bg: #ffffff;
@@ -42,7 +41,7 @@
       --pink: #ec4899;
       --radius: 8px;
     }
- 
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -51,7 +50,7 @@
       font-family: 'Space Grotesk', sans-serif;
       overflow-x: hidden;
     }
- 
+
     /* NAV */
     nav {
       padding: 20px 44px;
@@ -131,7 +130,7 @@
       transition: opacity 0.3s ease;
     }
     .nav-edition em { font-style: normal; color: var(--purple); }
- 
+
     /* INTRO */
     .intro {
       max-width: 980px;
@@ -205,7 +204,7 @@
       line-height: 1;
     }
     .date-sep { font-size: 22px; color: var(--purple); }
- 
+
     .intro-text {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 16px;
@@ -218,7 +217,7 @@
       animation: up 0.9s 0.38s cubic-bezier(.22,1,.36,1) forwards;
     }
     .intro-text strong { color: var(--text); font-weight: 700; }
- 
+
     .intro-highlight {
       border: 1px solid rgba(168,85,247,0.25);
       border-radius: var(--radius);
@@ -233,7 +232,7 @@
       box-sizing: border-box;
     }
     .intro-highlight strong { color: var(--purple); font-weight: 700; }
- 
+
     .feature-bar {
       display: flex;
       align-items: stretch;
@@ -269,7 +268,7 @@
       background: var(--border);
       flex-shrink: 0;
     }
- 
+
     /* MAP */
     .map-section { padding: 64px 44px 80px; border-top: 1px solid var(--border); }
     .map-header {
@@ -332,7 +331,7 @@
       flex-shrink: 0;
       animation: blink 1.6s ease-in-out infinite;
     }
- 
+
     /* TOGGLE */
     .view-toggle {
       display: inline-flex;
@@ -358,7 +357,7 @@
     .toggle-btn:first-child { border-right: 1px solid var(--border); }
     .toggle-btn.active { background: var(--grad); color: #fff; }
     .toggle-btn:not(.active):hover { color: var(--purple); }
- 
+
     /* CALENDAR */
     .calendar-wrap { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     .cal-month { border-bottom: 1px solid var(--border); }
@@ -445,7 +444,7 @@
       .toggle-btn { padding: 10px 18px; font-size: 10px; }
       .map-note { display: none; }
     }
- 
+
     .map-wrap {
       position: relative;
       width: 100%;
@@ -549,7 +548,7 @@
       0%, 100% { box-shadow: 0 0 0 3px rgba(59,130,246,0.3); }
       50% { box-shadow: 0 0 0 10px rgba(59,130,246,0.0); }
     }
- 
+
     /* ARTISTS */
     .artists-section { padding: 80px 44px; border-top: 1px solid var(--border); }
     .artists-top {
@@ -688,7 +687,7 @@
     }
     .artist-card.clickable { cursor: pointer; }
     .artist-card.clickable:hover { background: var(--surface2); }
- 
+
     /* ── ARTIST POPUP OVERLAY ── */
     .ap-overlay {
       display: none;
@@ -782,7 +781,7 @@
       transition: opacity 0.2s;
     }
     .ap-link:hover { opacity: 0.85; }
- 
+
     /* SPONSORS */
     .sponsors-section {
       padding: 64px 44px;
@@ -844,7 +843,7 @@
     }
       color: #ccc;
     }
- 
+
     /* FOOTER */
     footer {
       padding: 36px 44px;
@@ -876,7 +875,7 @@
       transition: color 0.2s;
     }
     .footer-right a:hover { color: var(--purple); }
- 
+
     /* ANIMATIONS */
     @keyframes up {
       from { opacity: 0; transform: translateY(22px); }
@@ -888,7 +887,7 @@
       transition: opacity 0.85s cubic-bezier(.22,1,.36,1), transform 0.85s cubic-bezier(.22,1,.36,1);
     }
     .reveal.vis { opacity: 1; transform: none; }
- 
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       nav, .intro, .map-section, .artists-section, .sponsors-section, footer {
@@ -906,7 +905,7 @@
       .nav-edition { display: none; }
       .date-band { flex-direction: column; gap: 8px; text-align: center; width: 100%; }
       .date-sep { transform: rotate(90deg); }
- 
+
       /* ── MOBILE ARTIST LIST ── */
       .artists-grid {
         display: flex;
@@ -982,7 +981,7 @@
   </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav>
   <div class="logo-slot">
@@ -1019,37 +1018,37 @@
     <a href="https://hydraartwalk.com/support.html" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;padding:0.5rem 1.1rem;border-radius:var(--radius);transition:opacity 0.2s;white-space:nowrap;">↗ Support Us</a>
   </div>
 </nav>
- 
+
 <!-- INTRO -->
 <section class="intro">
   <div class="intro-label">DigitalBohemians &middot; <span>Hydra, Greece</span> &middot; Hybrid Exhibition</div>
- 
+
   <h1 class="intro-title">
     Hydra<br>
     <span class="ghost">Art Walk</span>
     <span class="lit">2026</span>
   </h1>
- 
+
   <div class="date-band">
     <div>
       <div class="d-label">Opens</div>
       <div class="d-val">21 June 2026</div>
     </div>
   </div>
- 
+
   <p class="intro-text">
     Stroll across the island of Hydra and discover a new kind of art experience.<br><br>
     <strong>Hydra Art Walk</strong> is a hybrid group exhibition spread across the entire island &mdash; physical posters by participating artists placed in the harbour, alleyways, and on hillside walls, each one activatable as a <strong>web-based AR experience</strong>. No app needed. Point your phone at a poster and the artwork comes alive: painting, sculpture, poetry, music &mdash; extended into augmented reality, directly in your browser.<br><br>
     We combine our celebrated annual AR group exhibition with <strong>physical studio visits</strong>, bringing together the tactile and the digital in one immersive island-wide walk.
   </p>
- 
+
   <p class="intro-text intro-highlight">
     Across the island, <strong>physical posters</strong> invite you on a
     <strong>Hydra Art Walk</strong> — each one a portal into painting, sculpture,
     poetry and music, extended into AR. Plus a series of
     <strong>studio visits &amp; events</strong> throughout the season.
   </p>
- 
+
   <!-- SUPPORT CTA -->
   <div class="intro-text intro-highlight" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;text-align:left;">
     <div>
@@ -1059,7 +1058,7 @@
     </div>
     <a href="https://hydraartwalk.com/support.html" target="_blank" style="display:inline-block;padding:14px 28px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);white-space:nowrap;transition:opacity 0.2s;flex-shrink:0;">↗ Support Us</a>
   </div>
- 
+
   <div class="feature-bar">
     <div class="feature-item">Art</div>
     <div class="feature-sep"></div>
@@ -1072,7 +1071,7 @@
     <div class="feature-item hi">3rd Edition</div>
   </div>
 </section>
- 
+
 <!-- SPONSORS TOP -->
 <section class="sponsors-section main">
   <div class="sponsors-label reveal">Main Supporter</div>
@@ -1140,7 +1139,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- MAP + CALENDAR -->
 <div class="map-section">
   <div class="map-header">
@@ -1153,13 +1152,13 @@
       confirmed from June 2026
     </div>
   </div>
- 
+
   <!-- TOGGLE -->
   <div class="view-toggle">
     <button class="toggle-btn active" id="btnMap" onclick="showView('map')">🗺 Map</button>
     <button class="toggle-btn" id="btnCal" onclick="showView('cal')">📅 Calendar</button>
   </div>
- 
+
   <!-- MAP VIEW -->
   <div id="viewMap">
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
@@ -1177,10 +1176,10 @@
       </div>
     </div>
     <div class="map-wrap reveal">
-      <div id="map"></div>
+      <iframe src="https://digitalbohemians.github.io/hydra-map/" width="100%" height="100%" frameborder="0" style="border:none;display:block;" title="Hydra Art Walk Map" allowfullscreen></iframe>
     </div>
   </div>
- 
+
   <!-- CALENDAR VIEW -->
   <div id="viewCal" style="display:none;">
     <div class="map-notice">
@@ -1188,7 +1187,7 @@
       Full event programme announced at launch &mdash; Late May / Mid June 2026
     </div>
     <div class="calendar-wrap">
- 
+
       <div class="cal-month">
         <div class="cal-month-label">June 2026</div>
         <div class="cal-event" data-start="2026-06-21" data-end="2026-06-21">
@@ -1219,7 +1218,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cal-month">
         <div class="cal-month-label">July 2026</div>
         <div class="cal-event" data-start="2026-07-04" data-end="2026-07-09">
@@ -1282,7 +1281,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cal-month">
         <div class="cal-month-label">22 September 2026</div>
         <div class="cal-event" data-start="2026-09-22" data-end="2026-09-22">
@@ -1294,16 +1293,16 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cal-coming-soon">
         <div class="cs-dot" style="width:8px;height:8px;border-radius:50%;background:var(--purple);animation:blink 1.6s ease-in-out infinite;flex-shrink:0;"></div>
         More events announced throughout the season &mdash; Instagram: @hydradancedays
       </div>
- 
+
     </div>
   </div>
 </div>
- 
+
 <!-- ARTISTS -->
 <section class="artists-section">
   <div class="artists-top reveal">
@@ -1315,7 +1314,7 @@
   </div>
     <p class="artists-top-note">Edition III &mdash; international artists working across painting, sculpture, poetry, music, digital &amp; augmented reality.</p>
   </div>
- 
+
   <div class="artists-grid reveal">
     <div class="artist-card clickable" onclick="openArtist('galen')">
       <div class="ac-num">01 &mdash; <span class="ac-medium-inline">Music · Songwriting</span></div>
@@ -1412,7 +1411,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- SPONSORS -->
 <section class="sponsors-section">
   <div class="sponsors-label reveal" style="
@@ -1435,7 +1434,7 @@
     <a href="https://hydraartwalk.com/support.html" target="_blank" style="display:inline-block;padding:14px 36px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">↗ Support Us</a>
   </div>
 </section>
- 
+
 <!-- WANNA TAKE PART 2027 -->
 <section style="
   padding: 64px 44px;
@@ -1505,7 +1504,7 @@
     </script>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
@@ -1521,7 +1520,7 @@
     </a>
   </div>
 </footer>
- 
+
 <!-- DANCE DAYS POPUP -->
 <div class="ap-overlay" id="danceDaysOverlay" onclick="closeDanceDays(event)">
   <div class="ap-popup" style="max-width:520px;">
@@ -1531,24 +1530,24 @@
       <span class="ap-tag">4 – 9 July 2026 · Hydra</span>
       <div class="ap-name">Hydra Dance Days</div>
       <div class="ap-medium">Workshops · Performances · International</div>
- 
+
       <div style="margin-top:16px;display:flex;flex-direction:column;gap:14px;">
- 
+
         <div style="padding:14px 16px;background:#f7f7f7;border-radius:8px;border-left:3px solid var(--purple);">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:6px;">4 – 9 July · Workshops</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:#555;line-height:1.65;">Workshops for Hydra's population, all ages, held by international choreographers <strong style="color:#0a0a0a;font-weight:600;">Christine Bastin</strong> (France), <strong style="color:#0a0a0a;font-weight:600;">Alice Kok</strong> (South Africa &amp; Germany) and <strong style="color:#0a0a0a;font-weight:600;">Michaela Meschke</strong> (Sweden).</div>
         </div>
- 
+
         <div style="padding:14px 16px;background:#f7f7f7;border-radius:8px;border-left:3px solid var(--purple);">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:6px;">Sunday 5 July · 20:00 · Hydrogoios</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:#555;line-height:1.65;"><strong style="color:#0a0a0a;font-weight:600;">Festival Opening Evening</strong> — Presentation of the artists and extracts from pieces and workshops.</div>
         </div>
- 
+
         <div style="padding:14px 16px;background:#f7f7f7;border-radius:8px;border-left:3px solid var(--purple);">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:6px;">Wed 8 &amp; Thu 9 July · Noon · Port</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:#555;line-height:1.65;"><strong style="color:#0a0a0a;font-weight:600;">Port Parade</strong> — Expect some dancing surprises in the port of Hydra!</div>
         </div>
- 
+
         <div style="padding:14px 16px;background:rgba(168,85,247,0.04);border-radius:8px;border-left:3px solid var(--pink);">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:8px;">Thursday 9 July · 21:15 · Hydrama Theatre</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#0a0a0a;margin-bottom:8px;line-height:1.3;">International Dance Evening</div>
@@ -1563,18 +1562,18 @@
           </div>
           <div style="margin-top:10px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);">⛵ Boat departure at 21:00, in front of the church tower.</div>
         </div>
- 
+
         <div style="padding:12px 16px;background:#f7f7f7;border-radius:8px;display:flex;flex-direction:column;gap:6px;">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">For more information</div>
           <a href="https://instagram.com/hydradancedays" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:var(--purple);text-decoration:none;">↗ Instagram: @hydradancedays</a>
           <a href="mailto:compagnie.moveo@gmail.com" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:#555;text-decoration:none;">✉ compagnie.moveo@gmail.com</a>
         </div>
- 
+
       </div>
     </div>
   </div>
 </div>
- 
+
 <script>
   function openDanceDays() {
     document.getElementById('danceDaysOverlay').classList.add('open');
@@ -1588,7 +1587,7 @@
     document.body.style.overflow = '';
   }
 </script>
- 
+
 <!-- ARTIST POPUP OVERLAY -->
 <div class="ap-overlay" id="artistOverlay" onclick="closeArtist(event)">
   <div class="ap-popup" id="artistPopup">
@@ -1604,7 +1603,7 @@
     </div>
   </div>
 </div>
- 
+
 <script>
   var artists = {
     cleopatra: {
@@ -1715,7 +1714,7 @@
       url: null
     }
   };
- 
+
   function openArtist(id) {
     var a = artists[id];
     if (!a) return;
@@ -1738,16 +1737,16 @@
     document.getElementById('artistOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
- 
+
   function closeArtist(e) {
     if (e.target === document.getElementById('artistOverlay')) closeArtistDirect();
   }
- 
+
   function closeArtistDirect() {
     document.getElementById('artistOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
- 
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeArtistDirect();
@@ -1755,85 +1754,8 @@
     }
   });
 </script>
- 
+
 <script>
-  (function() {
-    var s = document.createElement('script');
-    s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-    s.onload = function() { initMap(); };
-    document.body.appendChild(s);
-  })();
- 
-  function initMap() {
-    var m = L.map('map', { center: [37.3510, 23.4645], zoom: 15 });
- 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap', maxZoom: 19
-    }).addTo(m);
- 
-    var locations = [
-      {
-        lat: 37.35158, lng: 23.46232,
-        title: "Hydronetta",
-        tag: "AR · Location 01",
-        desc: "Erweiterte Realität direkt am Wasser der Hydronetta.",
-        coords: "37.35158° N · 23.46232° E",
-        url: "https://digitalbohemians.github.io/ar3d-location/",
-        filled: true
-      },
-      {
-        lat: 37.35033, lng: 23.46693,
-        title: "Hydra Kunst",
-        tag: "AR · Location 02",
-        desc: "Die Kunst im Code – mitten im Herzen von Hydra.",
-        coords: "37.35033° N · 23.46693° E",
-        url: "https://digitalbohemians.github.io/AR-Hydra/",
-        filled: false
-      }
-    ];
- 
-    locations.forEach(function(loc, i) {
-      var icon = L.divIcon({
-        className: '',
-        html: '<div class="marker-outer ' + (loc.filled ? 'filled' : '') + '"><div class="marker-inner"></div></div>',
-        iconSize: [40, 40], iconAnchor: [20, 20], popupAnchor: [0, -24]
-      });
- 
-      var marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(m);
-      marker.bindPopup(
-        '<div class="popup-bar"></div>' +
-        '<div class="popup-inner">' +
-          '<div class="popup-tag">' + loc.tag + '</div>' +
-          '<h2>' + loc.title + '</h2>' +
-          '<p>' + loc.desc + '</p>' +
-          '<div class="popup-coords">📍 ' + loc.coords + '</div>' +
-          '<a class="ar-btn" href="' + loc.url + '" target="_blank">▶ AR Starten</a>' +
-        '</div>',
-        { maxWidth: 280 }
-      );
- 
-      if (i === 0) setTimeout(function() { marker.openPopup(); }, 900);
-    });
- 
-    var myMarker = null;
-    var myIcon = L.divIcon({
-      className: '',
-      html: '<div class="my-location-dot"></div>',
-      iconSize: [18, 18], iconAnchor: [9, 9]
-    });
- 
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function(pos) {
-        var lat = pos.coords.latitude, lng = pos.coords.longitude;
-        if (!myMarker) {
-          myMarker = L.marker([lat, lng], { icon: myIcon, zIndexOffset: 1000 }).addTo(m);
-        } else {
-          myMarker.setLatLng([lat, lng]);
-        }
-      }, null, { enableHighAccuracy: true, maximumAge: 3000, timeout: 10000 });
-    }
-  }
- 
   // Scroll reveal
   // ── TOGGLE MAP / CALENDAR ──
   function showView(view) {
@@ -1843,7 +1765,7 @@
     document.getElementById('btnMap').classList.toggle('active', isMap);
     document.getElementById('btnCal').classList.toggle('active', !isMap);
   }
- 
+
   // ── NAV TITLE ON SCROLL ──
   var navTitle = document.getElementById('navTitle');
   var navEdition = document.getElementById('navEdition');
@@ -1861,12 +1783,12 @@
       navEdition.style.pointerEvents = '';
     }
   }, { passive: true });
- 
+
   // ── AUTO-HIGHLIGHT CURRENT / UPCOMING EVENTS ──
   document.addEventListener('DOMContentLoaded', function() {
     var today = new Date();
     today.setHours(0,0,0,0);
- 
+
     // Each cal-event gets a data-date attribute (set in HTML as ISO date of event end)
     // We highlight if today <= event end date
     document.querySelectorAll('.cal-event[data-end]').forEach(function(el) {
@@ -1878,7 +1800,7 @@
         el.classList.add('hi');
       }
     });
- 
+
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1895,4 +1817,3 @@
 </script>
 </body>
 </html>
- 
