@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X864XS4P1S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X864XS4P1S');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hydra Art Walk 2026 — DigitalBohemians</title>
 
@@ -364,13 +372,13 @@
     .cal-month:last-child { border-bottom: none; }
     .cal-month-label {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
-      padding: 12px 20px 10px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
+      color: #fff;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+      border-bottom: none;
     }
     .cal-event {
       display: flex;
@@ -1160,20 +1168,6 @@
 
   <!-- MAP VIEW -->
   <div id="viewMap">
-    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
-      <div style="display:flex;align-items:center;gap:6px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);flex-shrink:0;"></div>
-        <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">AR · Poster</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;flex-shrink:0;"></div>
-        <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">Sight</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;"></div>
-        <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">Physical Exhibition</span>
-      </div>
-    </div>
     <div class="map-wrap reveal">
       <iframe src="https://digitalbohemians.github.io/hydra-map/" width="100%" height="100%" frameborder="0" style="border:none;display:block;" title="Hydra Art Walk Map" allowfullscreen></iframe>
     </div>
@@ -1189,15 +1183,12 @@
 
       <div class="cal-month">
         <div class="cal-month-label">June 2026</div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-06-21">
-          <div class="cal-event-date">21 June<br>20:30</div>
+        <div class="cal-event" data-start="2026-06-01" data-end="2026-06-01">
+          <div class="cal-event-date">1 June</div>
           <div class="cal-event-body">
-            <div class="cal-event-title">↗ Hydra Art Walk Opening</div>
-            <div class="cal-event-desc">Official opening of the Hydra Art Walk 2026. With registration only.</div>
-            <span class="cal-event-tag">Opening · 20:30–21:30</span>
-            <div style="margin-top:10px;">
-              <a href="https://luma.com/jt4dsdmh" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--purple);text-decoration:none;letter-spacing:-0.01em;">↗ Register on Luma</a>
-            </div>
+            <div class="cal-event-title">↗ Bookstore Opening — Sto Limani</div>
+            <div class="cal-event-desc">Josh Hickey opens the new Sto Limani Bookstore on Hydra — a space dedicated to poetry and literature at the heart of the island.</div>
+            <span class="cal-event-tag">Bookstore · Poetry · Literature</span>
           </div>
         </div>
         <div class="cal-event" data-start="2026-06-21" data-end="2026-09-22">
@@ -1214,6 +1205,17 @@
             <div class="cal-event-title">Hydra Art Walk Begins</div>
             <div class="cal-event-desc">Posters distributed across the island — harbourfront, alleyways, hillside walls. Each poster activates a unique AR experience.</div>
             <span class="cal-event-tag">Island-Wide · Posters · AR</span>
+          </div>
+        </div>
+        <div class="cal-event" data-start="2026-06-23" data-end="2026-06-23">
+          <div class="cal-event-date">23 June</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">↗ Hydra Art Walk Opening — 20:30</div>
+            <div class="cal-event-desc">Official opening get together of the Hydra Art Walk 2026. With registration only.</div>
+            <span class="cal-event-tag">Opening · 20:30–21:30</span>
+            <div style="margin-top:10px;">
+              <a href="https://luma.com/jt4dsdmh" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--purple);text-decoration:none;letter-spacing:-0.01em;">↗ Register on Luma</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1798,22 +1800,29 @@
     }
   }, { passive: true });
 
-  // ── AUTO-HIGHLIGHT CURRENT / UPCOMING EVENTS ──
+  // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ONLY ──
   document.addEventListener('DOMContentLoaded', function() {
     var today = new Date();
     today.setHours(0,0,0,0);
 
-    // Each cal-event gets a data-date attribute (set in HTML as ISO date of event end)
-    // We highlight if today <= event end date
-    document.querySelectorAll('.cal-event[data-end]').forEach(function(el) {
+    var events = document.querySelectorAll('.cal-event[data-end]');
+    var nextEvent = null;
+    var nextDate = null;
+
+    events.forEach(function(el) {
       var end = new Date(el.getAttribute('data-end'));
       end.setHours(23,59,59,0);
       var start = el.getAttribute('data-start') ? new Date(el.getAttribute('data-start')) : end;
       start.setHours(0,0,0,0);
-      if (today <= end) {
-        el.classList.add('hi');
+      if (end >= today) {
+        if (!nextDate || start < nextDate) {
+          nextDate = start;
+          nextEvent = el;
+        }
       }
     });
+
+    if (nextEvent) nextEvent.classList.add('hi');
 
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
