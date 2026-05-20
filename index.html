@@ -623,10 +623,7 @@
       font-size: 10px;
       letter-spacing: 0.13em;
       color: var(--purple);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
+      display: block;
     }
     .ac-avatar {
       width: 36px; height: 36px;
@@ -664,6 +661,8 @@
       text-transform: uppercase;
       color: var(--muted);
       font-weight: 400;
+      display: block;
+      margin-bottom: 8px;
     }
     .ac-tag {
       display: inline-block;
@@ -1314,97 +1313,103 @@
 
   <div class="artists-grid reveal">
     <div class="artist-card clickable" onclick="openArtist('galen')">
-      <div class="ac-num">01 &mdash; <span class="ac-medium-inline">Music · Songwriting</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Music · Songwriting</span></div>
       <div class="ac-avatar">GA</div>
       <div class="ac-info"><div class="ac-medium">Music · Songwriting</div><div class="ac-name">Galen Ayers</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('natacha')">
-      <div class="ac-num">02 &mdash; <span class="ac-medium-inline">Painting · Watercolour</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Painting · Watercolour</span></div>
       <div class="ac-avatar">NB</div>
       <div class="ac-info"><div class="ac-medium">Painting · Watercolour</div><div class="ac-name">Natacha Best</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('rita')">
-      <div class="ac-num">03 &mdash; <span class="ac-medium-inline">Sculpture</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Sculpture</span></div>
       <div class="ac-avatar">RH</div>
       <div class="ac-info"><div class="ac-medium">Sculpture</div><div class="ac-name">Rita Habermann</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('josh')">
-      <div class="ac-num">04 &mdash; <span class="ac-medium-inline">Poetry · Literature</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Poetry · Literature</span></div>
       <div class="ac-avatar">JH</div>
       <div class="ac-info"><div class="ac-medium">Poetry · Literature</div><div class="ac-name">Josh Hickey</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('cleopatra')">
-      <div class="ac-num">05 &mdash; <span class="ac-medium-inline">Photography · Film</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Photography · Film</span></div>
       <div class="ac-avatar">CH</div>
       <div class="ac-info"><div class="ac-medium">Photography · Film</div><div class="ac-name">Kleopatra Haritou</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('andreas')">
-      <div class="ac-num">06 &mdash; <span class="ac-medium-inline">Sculpture · Painting</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Sculpture · Painting</span></div>
       <div class="ac-avatar">AH</div>
       <div class="ac-info"><div class="ac-medium">Sculpture · Painting</div><div class="ac-name">Andreas Horstmann</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('belladonna')">
-      <div class="ac-num">07 &mdash; <span class="ac-medium-inline">Photography · Textile</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Photography · Textile</span></div>
       <div class="ac-avatar">BL</div>
       <div class="ac-info"><div class="ac-medium">Photography · Textile</div><div class="ac-name">Belladonna Lagerkvist</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('maribe')">
-      <div class="ac-num">08 &mdash; <span class="ac-medium-inline">Painting</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Painting</span></div>
       <div class="ac-avatar">ML</div>
       <div class="ac-info"><div class="ac-medium">Painting</div><div class="ac-name">Maribé Lambert-Markouizos</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('amy')">
-      <div class="ac-num">09 &mdash; <span class="ac-medium-inline">Writing · Poetry</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Writing · Poetry</span></div>
       <div class="ac-avatar">AM</div>
       <div class="ac-info"><div class="ac-medium">Writing · Poetry</div><div class="ac-name">Amy Martin</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('vanessa')">
-      <div class="ac-num">10 &mdash; <span class="ac-medium-inline">XR · Painting · AR</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">XR · Painting · AR</span></div>
       <div class="ac-avatar">VN</div>
       <div class="ac-info"><div class="ac-medium">XR · Painting · AR</div><div class="ac-name">Vanessa Nawka</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('martina')">
-      <div class="ac-num">11 &mdash; <span class="ac-medium-inline">Painting</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Painting</span></div>
       <div class="ac-avatar">MP</div>
       <div class="ac-info"><div class="ac-medium">Painting</div><div class="ac-name">Martina Pape</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('rebecca')">
-      <div class="ac-num">12 &mdash; <span class="ac-medium-inline">Installation · Textiles</span></div>
-      <div class="ac-avatar">RP</div>
-      <div class="ac-info"><div class="ac-medium">Installation · Textiles</div><div class="ac-name">Rebecca Pelayo</div></div>
+      <div class="ac-num"><span class="ac-medium-inline">Installation · Textiles · Sound · Poetry</span></div>
+      <div class="ac-avatar">KD</div>
+      <div class="ac-info"><div class="ac-medium">Installation · Textiles · Sound · Poetry</div><div class="ac-name">KARTYDRA DUO</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('lisa')">
-      <div class="ac-num">13 &mdash; <span class="ac-medium-inline">Fine Arts</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Fine Arts</span></div>
       <div class="ac-avatar">LP</div>
       <div class="ac-info"><div class="ac-medium">Fine Arts</div><div class="ac-name">Lisa Pohl</div></div>
       <div class="ac-tag green">Physical Exhibition</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('jacqueline')">
-      <div class="ac-num">14 &mdash; <span class="ac-medium-inline">Textile · Silk</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Textile · Silk</span></div>
       <div class="ac-avatar">JS</div>
       <div class="ac-info"><div class="ac-medium">Textile · Silk</div><div class="ac-name">Jacqueline Savidge</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
+    <div class="artist-card clickable" onclick="openArtist('alma')">
+      <div class="ac-num"><span class="ac-medium-inline">Art · Research · Philosophy</span></div>
+      <div class="ac-avatar">AT</div>
+      <div class="ac-info"><div class="ac-medium">Art · Research · Philosophy</div><div class="ac-name">Alma Tetto</div></div>
+      <div class="ac-tag">AR &middot; Poster</div>
+    </div>
     <div class="artist-card clickable" onclick="openArtist('dana')">
-      <div class="ac-num">15 &mdash; <span class="ac-medium-inline">Ceramics · Pottery</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Ceramics · Pottery</span></div>
       <div class="ac-avatar">DP</div>
       <div class="ac-info"><div class="ac-medium">Ceramics · Pottery</div><div class="ac-name">danapottery.hydra</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('sandra')">
-      <div class="ac-num">16 &mdash; <span class="ac-medium-inline">Music · Poetry · Film</span></div>
+      <div class="ac-num"><span class="ac-medium-inline">Music · Poetry · Film</span></div>
       <div class="ac-avatar">SZ</div>
       <div class="ac-info"><div class="ac-medium">Music · Poetry · Film</div><div class="ac-name">Sandra Zemor</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
@@ -1616,91 +1621,91 @@
 <script>
   var artists = {
     cleopatra: {
-      tag: "01 — Photography · Film · Installation",
+      tag: "Photography · Film · Installation",
       name: "Kleopatra Haritou",
       medium: "Photography · Installation · Moving Image",
       bio: "An Athens-born visual thinker and filmmaker working across photography, installation and moving image. Her work explores social realities, urban spaces and human liminality, and has been exhibited internationally, including at the Benaki Museum, Art Athina and the Mykonos Biennale.",
       url: "https://www.kleopatraharitou.com"
     },
     jacqueline: {
-      tag: "02 — Textile · Embroidery",
+      tag: "Textile · Embroidery",
       name: "Jacqueline Savidge",
       medium: "Textile · Silk · Embroidery",
       bio: "Visual artist. Recent textile works in silk with embroidery.",
       url: "https://www.instagram.com/jacqueline.savidge"
     },
     sandra: {
-      tag: "03 — Music · Poetry · Drawing · Moving Image",
+      tag: "Music · Poetry · Drawing · Moving Image",
       name: "Sandra Zemor",
       medium: "Music · Poetry · Drawing · Moving Image",
       bio: "A singer and multidisciplinary artist writing songs, composing music, art and video. Her poetic and spiritually influenced practice blends mysticism, storytelling and visual art, creating intimate songs & works to heal the hearts and souls, sharing the light of ancient wisdom.",
       url: "https://www.sandrazemor.com"
     },
     andreas: {
-      tag: "04 — Sculpture · Painting · Collage",
+      tag: "Sculpture · Painting · Collage",
       name: "Andreas Horstmann",
       medium: "Sculpture · Painting · Collage",
       bio: "A German-born self-taught artist living on the island of Hydra since 2016. Working across sculpture, painting and collage, his abstract practice explores experimental techniques and materials. Since beginning his artistic journey in 2011, he has regularly participated in solo and group exhibitions and welcomes visitors to his home studio on Hydra.",
       url: "https://www.instagram.com/hydrAndArt"
     },
     dana: {
-      tag: "05 — Ceramics · Pottery",
+      tag: "Ceramics · Pottery",
       name: "danapottery.hydra",
       medium: "Ceramics · Hand-Built Pottery",
       bio: "A ceramic artist creating hand-built pottery inspired by ancient civilizations. Her work explores timeless forms, organic textures and archaeological aesthetics, blending traditional craftsmanship with a contemporary artistic sensibility.",
       url: "https://www.instagram.com/danapottery.hydra"
     },
     galen: {
-      tag: "06 — Music · Songwriting",
+      tag: "Music · Songwriting",
       name: "Galen Ayers",
       medium: "Music · Folk · Dream-Pop",
       bio: "A British-Spanish musician and songwriter whose work blends folk, dream-pop and poetic storytelling. Her emotionally intimate music explores themes of memory, healing and human connection, shaped by her multicultural life between Spain, London and Greece.\n\nWritten and performed by Galen Ayers · Produced by Paul Simm · Photo by Baron Claiborne.",
       url: "https://www.galenayers.com"
     },
     martina: {
-      tag: "07 — Painting",
+      tag: "Painting",
       name: "Martina Pape",
       medium: "Painting",
       bio: "Born in Munich in 1965, Martina Pape studied at the Academy of Fine Arts Munich, where she received her diploma. She first came to Hydra as an Erasmus student and has returned to the island many times over the years.",
       url: "https://www.martina-pape.de"
     },
     amy: {
-      tag: "08 — Writing · Poetry",
+      tag: "Writing · Poetry",
       name: "Amy Martin",
       medium: "Writing · Memoir · Poetry",
       bio: "A writer exploring the quiet intersections between memory, place and human connection. Moving between travel writing, memoir, historical fiction and poetic vignettes, their work reflects on belonging, ethics and the stories hidden within landscapes and everyday encounters. Having travelled extensively around the world — and, as they humorously put it, briefly \"visited the afterlife\" — their writing balances depth, curiosity and a deep appreciation for sunlight and life itself.",
       url: null
     },
     natacha: {
-      tag: "09 — Painting · Watercolour",
+      tag: "Painting · Watercolour",
       name: "Natacha Best",
       medium: "Painting · Watercolour",
       bio: "A French painter exhibiting internationally since 1980 in France, Spain and Greece. Living between Paris and Hydra since 1990, her work primarily focuses on watercolor landscapes, capturing the light, atmosphere and poetic beauty of Mediterranean environments.",
       url: "https://instagram.com/bestofnatacha"
     },
     maribe: {
-      tag: "10 — Painting",
+      tag: "Painting",
       name: "Maribé Lambert-Markouizos",
       medium: "Painting",
       bio: "A French painter based on Hydra since the 1970s. Deeply inspired by the island's harmony and emotional atmosphere, she creates her work from her studio overlooking the sea in Mandraki.",
       url: null
     },
     rita: {
-      tag: "11 — Sculpture",
+      tag: "Sculpture",
       name: "Rita Habermann",
       medium: "Sculpture",
       bio: "A sculptor based in Greece, where she has been creating work for the past 40 years. Inspired by the people, landscapes and light of Greece, she moved her atelier to the country after training with French and Italian sculptors. Her practice is best known for the \"Taygeta\" sculpture series, developed through her distinctive artistic language and exhibited through her Sculpture Museum in Koilada, Argolida.\n\nAtelier Sud",
       url: null
     },
     lisa: {
-      tag: "12 — Fine Arts",
+      tag: "Fine Arts",
       name: "Lisa Pohl",
       medium: "Fine Arts",
       bio: "Born in 1989 in Winterthur, Switzerland, Lisa Pohl studied Fine Arts in Lucerne and Rotterdam after completing her foundation studies in Zurich, graduating with a Master in Fine Arts. She lives and works in Zurich, where she develops independent artistic projects alongside commissioned work, while also teaching visual arts part-time at a secondary school.\n\nWorks on physical display at Veranda Restaurant, Hydra.",
       url: null
     },
     belladonna: {
-      tag: "13 — Photography · Textile · Fashion",
+      tag: "Photography · Textile · Fashion",
       name: "Belladonna Lagerkvist",
       medium: "Photography · Illustration · Textile",
       bio: "A Swedish artist and designer based in France whose multidisciplinary practice combines photography, illustration, textile and fashion design, rituals and wellness techniques. Inspired by nature and positive psychology, her work explores \"Holistic Creation\" and rituals of wellbeing, inviting viewers to reconnect with nature through immersive and poetic experiences.",
@@ -1708,7 +1713,7 @@
       instagram: "https://instagram.com/belladonnalagerkvist_art"
     },
     josh: {
-      tag: "16 — Poetry · Literature",
+      tag: "Poetry · Literature",
       name: "Josh Hickey",
       medium: "Poetry · Literature",
       bio: "Josh Hickey opens the new Sto Limani Bookstore on Hydra in early June 2026 — a space dedicated to poetry and literature at the heart of the island.",
@@ -1716,7 +1721,7 @@
       instagram: "https://instagram.com/hydrabookclub"
     },
     vanessa: {
-      tag: "14 — XR · Painting · Sculpture · AR",
+      tag: "XR · Painting · Sculpture · AR",
       name: "Vanessa Nawka",
       medium: "XR · Painting · Sculpture · AR",
       bio: "A German XR artist, curator and multidisciplinary creative working between physical and digital art forms. Her practice combines painting, sculpture, augmented reality and immersive storytelling, often inspired by Greek mythology, spirituality and the landscapes of Hydra. Through her hybrid exhibitions and the Digital Bohemians Club platform, she explores new ways of connecting contemporary art, technology and human experience across physical and virtual spaces.",
@@ -1724,11 +1729,18 @@
       instagram: "https://instagram.com/digital.bohemians"
     },
     rebecca: {
-      tag: "15 — Installation · Textiles · Architecture",
-      name: "Rebecca Pelayo",
-      medium: "Installation · Textiles · Site-Specific",
-      bio: "A visual artist and architect born in Madagascar whose work explores the paradoxes of insularity through installation, textiles and site-specific interventions. Inspired by islands, mythology and ancestral heritage, her practice bridges the earthy landscapes of Madagascar with the mineral atmospheres of the Aegean.\nKARTYDRA — Original concept: Clio Van de Walle & Rebekoukou · Visual art & cyanotype printings: Rebekoukou · Sound composition, voice & poems: Clio Van de Walle",
+      tag: "Installation · Textiles · Sound · Poetry",
+      name: "KARTYDRA DUO",
+      medium: "Installation · Textiles · Sound · Poetry",
+      bio: "KARTYDRA is a multidisciplinary collaboration between Rebekoukou and Clio Van de Walle, merging visual art, cyanotype printing, sound, voice and poetry into immersive artistic experiences inspired by mythology, insularity and Mediterranean memory.\n\nRebekoukou (Rebecca Pelayo) is a visual artist and architect born in Madagascar whose practice moves between installation, textiles, cyanotype printing and site-specific interventions inspired by islands, mythology and ancestral heritage.\nClio Van de Walle is a poet, sound artist and performer whose work explores memory, voice, mythology and emotional landscapes through spoken word, sound composition and immersive storytelling.\n§Original concept — Rebekoukou & Clio Van de Walle · Visual art & cyanotype prints — Rebekoukou · Sound composition, voice & poetry — Clio Van de Walle",
       url: "https://www.lacompagnieindigo.com/en/la-compagnie"
+    },
+    alma: {
+      tag: "Art · Research · Philosophy",
+      name: "Alma Tetto",
+      medium: "Art · Research · Philosophy",
+      bio: "An artist, researcher, and philosopher based on Hydra. Her work moves across dream, language, embodiment, and participatory inquiry, exploring memory, imagination, relational perception, and the creative intelligence of the living world.\n\nShe is the founder of the Shelter Foundation, a collective of transdisciplinary artists and researchers engaged in inquiry around cultural flourishing and new forms of embodied and ecological possibility. She hosts the Free Quarterly, a seasonal creative cohort devoted to embodied inquiry, creativity, and collective imagination.",
+      url: "https://www.almatetto.com"
     }
   };
 
@@ -1738,7 +1750,14 @@
     document.getElementById('apTag').textContent = a.tag;
     document.getElementById('apName').textContent = a.name;
     document.getElementById('apMedium').textContent = a.medium;
-    document.getElementById('apBio').innerHTML = a.bio.replace(/\n/g, '<br><br>');
+    var bioParts = a.bio.split('§');
+    var mainBio = bioParts[0]
+      .replace(/\n/g, '<br>')
+      .replace(/KARTYDRA/g, '<strong>KARTYDRA</strong>')
+      .replace(/Rebekoukou/g, '<strong>Rebekoukou</strong>')
+      .replace(/Clio Van de Walle/g, '<strong>Clio Van de Walle</strong>');
+    var footnote = bioParts[1] ? '<br><span style="font-size:10px;color:#bbb;font-family:\'Space Mono\',monospace;letter-spacing:0.03em;line-height:1.3;display:block;margin-top:6px;">' + bioParts[1].replace(/Rebekoukou/g, '<strong style="color:#999;">Rebekoukou</strong>').replace(/Clio Van de Walle/g, '<strong style="color:#999;">Clio Van de Walle</strong>') + '</span>' : '';
+    document.getElementById('apBio').innerHTML = mainBio + footnote;
     document.getElementById('apLink').href = a.url || '#';
     document.getElementById('apLink').textContent = a.url && a.url.includes('instagram') ? '↗ Instagram' : '↗ ' + (a.url || '').replace('https://www.', '');
     document.getElementById('apLink').style.display = a.url ? 'block' : 'none';
@@ -1783,33 +1802,30 @@
     document.getElementById('btnCal').classList.toggle('active', !isMap);
   }
 
-  // ── NAV TITLE ON SCROLL ──
-  var navTitle = document.getElementById('navTitle');
-  var navEdition = document.getElementById('navEdition');
-  var heroTitle = document.querySelector('.intro-title');
-  window.addEventListener('scroll', function() {
-    if (!heroTitle) return;
-    var heroBottom = heroTitle.getBoundingClientRect().bottom;
-    if (heroBottom < 0) {
-      navTitle.classList.add('visible');
-      navEdition.style.opacity = '0';
-      navEdition.style.pointerEvents = 'none';
-    } else {
-      navTitle.classList.remove('visible');
-      navEdition.style.opacity = '1';
-      navEdition.style.pointerEvents = '';
-    }
-  }, { passive: true });
-
-  // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ONLY ──
   document.addEventListener('DOMContentLoaded', function() {
+
+    // ── NAV TITLE ON SCROLL ──
+    var navTitle = document.getElementById('navTitle');
+    var navEdition = document.getElementById('navEdition');
+    var heroTitle = document.querySelector('.intro-title');
+    window.addEventListener('scroll', function() {
+      if (!heroTitle) return;
+      var heroBottom = heroTitle.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        if (navTitle) navTitle.classList.add('visible');
+        if (navEdition) { navEdition.style.opacity = '0'; navEdition.style.pointerEvents = 'none'; }
+      } else {
+        if (navTitle) navTitle.classList.remove('visible');
+        if (navEdition) { navEdition.style.opacity = '1'; navEdition.style.pointerEvents = ''; }
+      }
+    }, { passive: true });
+
+    // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ONLY ──
     var today = new Date();
     today.setHours(0,0,0,0);
-
     var events = document.querySelectorAll('.cal-event[data-end]');
     var nextEvent = null;
     var nextDate = null;
-
     events.forEach(function(el) {
       var end = new Date(el.getAttribute('data-end'));
       end.setHours(23,59,59,0);
@@ -1822,9 +1838,9 @@
         }
       }
     });
-
     if (nextEvent) nextEvent.classList.add('hi');
 
+    // ── SCROLL REVEAL ──
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -1837,6 +1853,7 @@
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
   });
 </script>
 </body>
