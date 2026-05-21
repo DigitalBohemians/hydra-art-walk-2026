@@ -1892,8 +1892,70 @@
 
   });
 </script>
-<!-- ── Hydra Art Walk · Analytics Tracker ── -->
-<!-- Dashboard öffnen: Shift + A -->
+<!-- ── Hydra Art Walk · Analytics Tracker · Google Sheets ── -->
+<script>
+(function() {
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycby8ymlV-RJx_Z-swmgJCR4YOpE4Fq4ZsLZIIgnqm1u4uRzOGo2c8Ew4W-WmCLrn4uln/exec';
+
+  function track(typ, element, details) {
+    try {
+      var params = new URLSearchParams({
+        seite: 'Hauptseite', typ: typ,
+        element: element || '', details: details || ''
+      });
+      fetch(SHEET_URL + '?' + params.toString(), { mode: 'no-cors' }).catch(function(){});
+    } catch(e) {}
+  }
+
+  var origOpenArtist = window.openArtist;
+  window.openArtist = function(id) {
+    var n = { galen:'Galen Ayers', natacha:'Natacha Best', rita:'Rita Habermann',
+      josh:'Josh Hickey', cleopatra:'Kleopatra Haritou', andreas:'Andreas Horstmann',
+      belladonna:'Belladonna Lagerkvist', maribe:'Maribé Lambert-Markouizos',
+      amy:'Amy Martin', vanessa:'Vanessa Nawka', martina:'Martina Pape',
+      rebecca:'Rebecca Pelayo & Clio', lisa:'Lisa Pohl', jacqueline:'Jacqueline Savidge',
+      alma:'Alma Tetto', dana:'danapottery.hydra', sandra:'Sandra Zemor' };
+    track('Künstler-Klick', n[id] || id, '');
+    if (origOpenArtist) origOpenArtist(id);
+  };
+
+  var origShowView = window.showView;
+  window.showView = function(view) {
+    track('Toggle', view === 'map' ? 'Map geöffnet' : 'Kalender geöffnet', '');
+    if (origShowView) origShowView(view);
+  };
+
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a');
+    if (el && el.href && el.href.includes('support'))
+      track('Support-Klick', 'Support Us Button', el.href);
+  });
+
+  var sections = [
+    { label: 'Intro', el: '.intro' },
+    { label: 'Map/Kalender', el: '.map-section' },
+    { label: 'Künstler', el: '.artists-section' },
+    { label: 'Footer', el: 'footer' }
+  ];
+  var reached = {};
+  window.addEventListener('scroll', function() {
+    var wh = window.innerHeight;
+    sections.forEach(function(s) {
+      if (reached[s.label]) return;
+      var el = document.querySelector(s.el);
+      if (!el) return;
+      if (el.getBoundingClientRect().top < wh * 0.75) {
+        reached[s.label] = true;
+        track('Scroll', s.label + ' erreicht', '');
+      }
+    });
+  }, { passive: true });
+
+  track('Seitenaufruf', 'index', navigator.language || '');
+})();
+</script>
+</body>
+</html>
 <script>
 (function() {
   var STORE = 'hydra_analytics';
