@@ -775,19 +775,21 @@
     .ap-link {
       display: block;
       width: 100%;
-      padding: 13px;
-      background: linear-gradient(90deg, #a855f7, #ec4899);
-      color: #fff;
+      padding: 10px 13px;
+      background: none;
+      border: 1.5px solid rgba(168,85,247,0.35);
+      color: var(--purple);
       text-align: center;
       text-decoration: none;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.04em;
-      border-radius: 10px;
-      transition: opacity 0.2s;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 8px;
     }
-    .ap-link:hover { opacity: 0.85; }
+    .ap-link:hover { background: rgba(168,85,247,0.07); }
 
     /* SPONSORS */
     .sponsors-section {
@@ -1380,8 +1382,8 @@
     </div>
     <div class="artist-card clickable" onclick="openArtist('rebecca')">
       <div class="ac-num"><span class="ac-medium-inline">Installation · Textiles · Sound · Poetry</span></div>
-      <div class="ac-avatar">KD</div>
-      <div class="ac-info"><div class="ac-medium">Installation · Textiles · Sound · Poetry</div><div class="ac-name">KARTYDRA DUO</div></div>
+      <div class="ac-avatar">RP</div>
+      <div class="ac-info"><div class="ac-medium">Installation · Textiles · Sound · Poetry</div><div class="ac-name">Rebecca Pelayo<br>Clio Van de Walle</div></div>
       <div class="ac-tag">AR &middot; Poster</div>
     </div>
     <div class="artist-card clickable" onclick="openArtist('lisa')">
@@ -1730,10 +1732,11 @@
     },
     rebecca: {
       tag: "Installation · Textiles · Sound · Poetry",
-      name: "KARTYDRA DUO",
+      name: "Rebecca Pelayo & Clio Van de Walle",
       medium: "Installation · Textiles · Sound · Poetry",
-      bio: "KARTYDRA is a multidisciplinary collaboration between Rebekoukou and Clio Van de Walle, merging visual art, cyanotype printing, sound, voice and poetry into immersive artistic experiences inspired by mythology, insularity and Mediterranean memory.\n\nRebekoukou (Rebecca Pelayo) is a visual artist and architect born in Madagascar whose practice moves between installation, textiles, cyanotype printing and site-specific interventions inspired by islands, mythology and ancestral heritage.\nClio Van de Walle is a poet, sound artist and performer whose work explores memory, voice, mythology and emotional landscapes through spoken word, sound composition and immersive storytelling.\n§Original concept — Rebekoukou & Clio Van de Walle · Visual art & cyanotype prints — Rebekoukou · Sound composition, voice & poetry — Clio Van de Walle",
-      url: "https://www.lacompagnieindigo.com/en/la-compagnie"
+      bio: "HTML::<div style='margin-bottom:12px;'><strong>KARTYDRA</strong></div><div style='margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eee;'><div style='font-family:Space Mono,monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#a855f7;margin-bottom:6px;'>Rebecca Pelayo</div><div style='font-size:13px;font-weight:300;color:#444;line-height:1.6;'><strong>Rebekoukou</strong> (Rebecca Pelayo) is a visual artist and architect born in Madagascar whose practice moves between installation, textiles, cyanotype printing and site-specific interventions inspired by islands, mythology and ancestral heritage.</div><a href='https://instagram.com/rebekoukou' target='_blank' style='display:inline-block;margin-top:8px;color:#a855f7;text-decoration:none;font-family:Space Mono,monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;'>↗ @rebekoukou</a></div><div><div style='font-family:Space Mono,monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#a855f7;margin-bottom:6px;'>Clio Van de Walle</div><div style='font-size:13px;font-weight:300;color:#444;line-height:1.6;'><strong>Clio Van de Walle</strong> is a poet, sound artist and performer whose work explores memory, voice, mythology and emotional landscapes through spoken word, sound composition and immersive storytelling.</div><a href='https://www.lacompagnieindigo.com/en/la-compagnie' target='_blank' style='display:inline-block;margin-top:8px;color:#a855f7;text-decoration:none;font-family:Space Mono,monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;'>↗ lacompagnieindigo.com</a></div>",
+      url: null,
+      instagram: null
     },
     alma: {
       tag: "Art · Research · Philosophy",
@@ -1750,18 +1753,48 @@
     document.getElementById('apTag').textContent = a.tag;
     document.getElementById('apName').textContent = a.name;
     document.getElementById('apMedium').textContent = a.medium;
+    if (a.bio.startsWith('HTML::')) {
+      document.getElementById('apBio').innerHTML = a.bio.substring(6);
+    } else {
     var bioParts = a.bio.split('§');
     var mainBio = bioParts[0]
       .replace(/\n/g, '<br>')
-      .replace(/KARTYDRA/g, '<strong>KARTYDRA</strong>')
-      .replace(/Rebekoukou/g, '<strong>Rebekoukou</strong>')
-      .replace(/Clio Van de Walle/g, '<strong>Clio Van de Walle</strong>');
-    var footnote = bioParts[1] ? '<br><span style="font-size:10px;color:#bbb;font-family:\'Space Mono\',monospace;letter-spacing:0.03em;line-height:1.3;display:block;margin-top:6px;">' + bioParts[1].replace(/Rebekoukou/g, '<strong style="color:#999;">Rebekoukou</strong>').replace(/Clio Van de Walle/g, '<strong style="color:#999;">Clio Van de Walle</strong>') + '</span>' : '';
-    document.getElementById('apBio').innerHTML = mainBio + footnote;
-    document.getElementById('apLink').href = a.url || '#';
-    document.getElementById('apLink').textContent = a.url && a.url.includes('instagram') ? '↗ Instagram' : '↗ ' + (a.url || '').replace('https://www.', '');
-    document.getElementById('apLink').style.display = a.url ? 'block' : 'none';
-    // Instagram secondary link
+      .replace(/KARTYDRA/g, '<strong>KARTYDRA</strong>');
+
+    // Build sections for §§NAME format
+    var sections = '';
+    for (var i = 1; i < bioParts.length; i++) {
+      var part = bioParts[i];
+      if (part.startsWith('§')) {
+        // Section header
+        var lines = part.substring(1).split('\n');
+        var header = lines[0];
+        var rawLines = lines.slice(1);
+        var contentHtml = '';
+        rawLines.forEach(function(line) {
+          if (line.match(/^\[ig:([^\]]+)\]$/)) {
+            var handle = line.match(/^\[ig:([^\]]+)\]$/)[1];
+            contentHtml += '<a href="https://instagram.com/' + handle + '" target="_blank" style="display:inline-block;margin-top:8px;color:var(--purple);text-decoration:none;font-family:\'Space Mono\',monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;">↗ @' + handle + '</a>';
+          } else if (line === '[url:lacompagnieindigo]') {
+            contentHtml += '<a href="https://www.lacompagnieindigo.com/en/la-compagnie" target="_blank" style="display:inline-block;margin-top:8px;color:var(--purple);text-decoration:none;font-family:\'Space Mono\',monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;">↗ lacompagnieindigo.com</a>';
+          } else {
+            contentHtml += line
+              .replace(/Rebekoukou/g, '<strong>Rebekoukou</strong>')
+              .replace(/Clio Van de Walle/g, '<strong>Clio Van de Walle</strong>') + '<br>';
+          }
+        });
+        var content = contentHtml;
+        sections += '<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);"><div style="font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:5px;">' + header + '</div><div style="font-size:13px;font-weight:300;color:#444;line-height:1.6;">' + content + '</div></div>';
+      } else {
+        // Footnote
+        sections += '<div style="margin-top:10px;font-size:10px;color:#bbb;font-family:\'Space Mono\',monospace;letter-spacing:0.03em;line-height:1.3;">' + part.replace(/Rebekoukou/g, '<strong style="color:#999;">Rebekoukou</strong>').replace(/Clio Van de Walle/g, '<strong style="color:#999;">Clio Van de Walle</strong>') + '</div>';
+      }
+    }
+    document.getElementById('apBio').innerHTML = mainBio + sections;
+    } // end else HTML::
+
+    // Links
+    var linkEl = document.getElementById('apLink');
     var igEl = document.getElementById('apInstagram');
     if (a.instagram) {
       igEl.href = a.instagram;
@@ -1770,6 +1803,9 @@
     } else {
       igEl.style.display = 'none';
     }
+    linkEl.href = a.url || '#';
+    linkEl.textContent = a.url && a.url.includes('instagram') ? '↗ Instagram' : '↗ ' + (a.url || '').replace('https://www.', '');
+    linkEl.style.display = a.url ? 'block' : 'none';
     document.getElementById('artistOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
