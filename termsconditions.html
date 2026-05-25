@@ -4,9 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terms & Conditions — Hydra Art Walk 2026</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg: #ffffff;
@@ -18,8 +21,13 @@
       --purple: #a855f7;
       --radius: 8px;
     }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -27,7 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       padding: 20px 44px;
       display: flex;
@@ -39,7 +46,14 @@
       top: 0;
       z-index: 200;
     }
-    .logo-slot { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+
+    .logo-slot {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
     .logo-text {
       font-family: 'Space Mono', monospace;
       font-size: 12px;
@@ -48,6 +62,7 @@
       color: #111;
       line-height: 1.6;
     }
+
     .logo-text span {
       display: block;
       font-size: 10px;
@@ -55,8 +70,8 @@
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
+
     .nav-back {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
@@ -64,16 +79,14 @@
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--purple); }
 
-    /* HERO */
     .hero {
       max-width: 760px;
       margin: 0 auto;
       padding: 64px 44px 48px;
     }
+
     .hero-label {
       font-family: 'Space Mono', monospace;
       font-size: 10px;
@@ -82,18 +95,18 @@
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 16px;
       display: block;
     }
+
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(1.8rem, 4vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
       margin-bottom: 16px;
     }
+
     .hero-sub {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
@@ -102,7 +115,6 @@
       line-height: 1.7;
     }
 
-    /* CONTENT */
     .content {
       max-width: 760px;
       margin: 0 auto;
@@ -120,14 +132,12 @@
       color: var(--text);
       line-height: 1.7;
     }
-    .intro-box strong { color: var(--purple); font-weight: 700; }
 
     .section {
       margin-bottom: 48px;
       padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
     }
-    .section:last-child { border-bottom: none; }
 
     .section-num {
       font-family: 'Space Mono', monospace;
@@ -137,18 +147,16 @@
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
       margin-bottom: 8px;
       display: block;
     }
+
     .section h2 {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 18px;
       font-weight: 700;
-      letter-spacing: -0.01em;
       margin-bottom: 16px;
-      color: var(--text);
     }
+
     .section p {
       font-size: 14px;
       font-weight: 300;
@@ -156,11 +164,12 @@
       line-height: 1.8;
       margin-bottom: 12px;
     }
-    .section p:last-child { margin-bottom: 0; }
+
     .section ul {
       list-style: none;
       margin: 12px 0;
     }
+
     .section ul li {
       font-size: 14px;
       font-weight: 300;
@@ -170,6 +179,7 @@
       position: relative;
       margin-bottom: 4px;
     }
+
     .section ul li::before {
       content: '—';
       position: absolute;
@@ -188,15 +198,15 @@
       border-radius: var(--radius);
       margin: 16px 0;
     }
+
     .fee-amount {
-      font-family: 'Space Grotesk', sans-serif;
       font-size: 24px;
       font-weight: 700;
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
+
     .fee-label {
       font-family: 'Space Mono', monospace;
       font-size: 10px;
@@ -206,16 +216,15 @@
       line-height: 1.5;
     }
 
-    /* FOOTER */
     footer {
       padding: 28px 44px;
       border-top: 1px solid var(--border);
       display: flex;
-      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
     }
+
     .footer-left {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
@@ -224,34 +233,26 @@
       color: var(--muted);
       line-height: 1.9;
     }
-    .footer-left strong { color: var(--text); font-weight: 400; }
 
     @media (max-width: 640px) {
-      nav, .hero, .content, footer { padding-left: 20px; padding-right: 20px; }
-      .hero { padding-top: 40px; }
+      nav, .hero, .content, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <nav>
   <a class="logo-slot" href="/index.html">
-    <svg viewBox="0 0 80 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="32">
-      <defs>
-        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#a855f7"/>
-          <stop offset="50%" stop-color="#d946ef"/>
-          <stop offset="100%" stop-color="#ec4899"/>
-        </linearGradient>
-      </defs>
-      <circle cx="28" cy="24" r="23" fill="#1e1e24"/>
-      <circle cx="52" cy="24" r="22" fill="none" stroke="url(#lg)" stroke-width="2"/>
-    </svg>
     <div class="logo-text">
       DigitalBohemians
       <span>Augmented Reality</span>
     </div>
   </a>
+
   <a class="nav-back" href="/index.html">← Back</a>
 </nav>
 
@@ -264,101 +265,126 @@
 <div class="content">
 
   <div class="intro-box">
-    By submitting and transferring any artist data, paintings, photographs, artworks, sculptures, digital works, voice recordings, texts, music, videos or other materials (<strong>"Materials"</strong>) to Hydra Art Walk / Digital Bohemians Club, the submitting artist (<strong>"Artist"</strong>) agrees to the following legally binding terms and conditions.<br><br>
-    Submission of the Materials constitutes <strong>full acceptance</strong> of these participation rules and license terms.
-  </div>
-
-  <div class="intro-box" style="margin-bottom:48px;">
-    The Artist agrees that the submitted Materials may be used for the production, presentation and promotion of the Hydra Art Walk project, including but not limited to:
-    <ul style="list-style:none;margin-top:12px;">
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;margin-bottom:4px;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Printed posters</li>
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;margin-bottom:4px;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Augmented Reality (AR) experiences &amp; exhibitions</li>
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;margin-bottom:4px;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Digital and physical exhibitions</li>
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;margin-bottom:4px;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Social media &amp; press publications</li>
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;margin-bottom:4px;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Websites and promotional campaigns</li>
-      <li style="padding-left:18px;position:relative;font-size:14px;font-weight:300;color:#444;line-height:1.8;"><span style="position:absolute;left:0;color:#a855f7;font-weight:700;">—</span>Exhibition documentation and archives</li>
-    </ul>
+    By submitting and transferring any artist data, artworks, photographs, sculptures,
+    voice recordings, music, videos or digital files ("Materials"),
+    the Artist agrees to the following legally binding terms and conditions.
   </div>
 
   <div class="section">
     <span class="section-num">1 — License Grant</span>
     <h2>License Grant</h2>
-    <p>The Artist grants Hydra Art Walk / Digital Bohemians Club a non-exclusive, irrevocable, worldwide, transferable, sublicensable and royalty-free license to use, reproduce, publish, display, distribute and promote the submitted Materials in connection with the Hydra Art Walk project and all related activities.</p>
-    <p>Technical or formatting adjustments may be made where necessary for production or promotional purposes.</p>
-    <p>This license remains valid for all materials already produced, published or distributed prior to any withdrawal by the Artist.</p>
+
+    <p>
+      The Artist grants Hydra Art Walk / Digital Bohemians Club
+      a non-exclusive license to use submitted materials
+      for exhibitions, posters, AR experiences, press,
+      social media and promotional purposes.
+    </p>
   </div>
 
   <div class="section">
-    <span class="section-num">2 — Ownership & Warranties</span>
-    <h2>Ownership & Warranties</h2>
-    <p>The Artist retains copyright ownership of the submitted Materials.</p>
-    <p>The Artist warrants and represents that:</p>
-    <ul>
-      <li>the Artist is the lawful rights holder of the submitted Materials</li>
-      <li>the submitted Materials do not infringe any third-party rights</li>
-      <li>all necessary permissions and licenses for submission and publication have been obtained</li>
-    </ul>
-    <p>The Artist agrees to indemnify and hold harmless Hydra Art Walk / Digital Bohemians Club, its organizers, curators and partners against any claims, damages or legal disputes arising from the submitted Materials.</p>
-  </div>
-
-  <div class="section">
-    <span class="section-num">3 — Binding Participation</span>
+    <span class="section-num">2 — Binding Participation</span>
     <h2>Binding Participation</h2>
-    <p>Participation becomes binding once Hydra Art Walk / Digital Bohemians Club has commenced any production, publication or promotional activities relating to the Artist, including but not limited to:</p>
-    <ul>
-      <li>Website publication</li>
-      <li>Social media announcements</li>
-      <li>Curatorial planning &amp; AR integration</li>
-      <li>Graphic design preparation &amp; poster printing</li>
-      <li>Promotional distribution &amp; press communication</li>
-      <li>Event publication</li>
-    </ul>
+
+    <p>
+      Participation becomes binding once production,
+      promotional work, website publication,
+      graphic preparation or AR integration has commenced.
+    </p>
   </div>
 
   <div class="section">
-    <span class="section-num">4 — Withdrawal & Cancellation</span>
+    <span class="section-num">3 — Withdrawal & Cancellation</span>
     <h2>Withdrawal & Cancellation</h2>
-    <p>If an Artist withdraws, cancels participation or requests removal from the project after the official website launch or after production and promotional activities have commenced, Hydra Art Walk / Digital Bohemians Club reserves the right to charge a mandatory cancellation and compensation fee.</p>
+
+    <p>
+      Withdrawal after production or launch may result
+      in cancellation and compensation fees.
+    </p>
+
     <div class="fee-box">
       <div class="fee-amount">EUR 150</div>
-      <div class="fee-label">Cancellation &amp;<br>Compensation Fee</div>
+      <div class="fee-label">
+        Cancellation & Compensation Fee
+      </div>
     </div>
-    <p>This fee covers already incurred organizational, technical, administrative and production-related expenses, including graphic design, poster production, AR integration, website and hosting costs, promotional efforts, and restructuring work.</p>
-    <p>Hydra Art Walk / Digital Bohemians Club further reserves the right to claim additional damages where applicable.</p>
   </div>
 
   <div class="section">
-    <span class="section-num">5 — Post-Launch Changes</span>
+    <span class="section-num">4 — Post-Launch Changes</span>
     <h2>Post-Launch Changes & Edit Requests</h2>
-    <p>Following the official launch of the Hydra Art Walk website and commencement of public promotion, all submitted Materials shall be considered finalized and production-ready.</p>
-    <p>Additional change requests submitted after launch — including text changes, image replacements, artwork exchanges, updated links, audio replacements or layout adjustments — may result in an additional administrative and production fee.</p>
+
+    <p>
+      Following the official launch of the Hydra Art Walk website
+      and the commencement of public promotion,
+      all submitted Materials shall be considered finalized and production-ready.
+    </p>
+
+    <p>
+      Small website or homepage text corrections may be included free of charge,
+      provided they are minor and do not require extensive restructuring,
+      redesign or technical adjustments.
+    </p>
+
+    <p>
+      Any additional file changes, file replacements,
+      file conversions, image exchanges, audio replacements,
+      updated links, artwork exchanges, layout adjustments
+      or technical updates requested after launch
+      may result in an additional administrative and production fee.
+    </p>
+
     <div class="fee-box">
       <div class="fee-amount">EUR 15</div>
-      <div class="fee-label">Per requested<br>change after launch</div>
+      <div class="fee-label">
+        Per file change,<br>
+        replacement or conversion
+      </div>
     </div>
-    <p>Hydra Art Walk / Digital Bohemians Club reserves the right to refuse excessive or technically incompatible modification requests.</p>
+
+    <p>
+      If a poster change is requested after the poster
+      has already been printed or prepared for production,
+      an additional poster editing fee applies.
+    </p>
+
+    <div class="fee-box">
+      <div class="fee-amount">EUR 25</div>
+      <div class="fee-label">
+        Poster change<br>
+        after printing
+      </div>
+    </div>
+
+    <p>
+      Hydra Art Walk / Digital Bohemians Club reserves the right
+      to refuse excessive, technically incompatible
+      or time-sensitive modification requests.
+    </p>
   </div>
 
   <div class="section">
-    <span class="section-num">6 — No Retroactive Removal</span>
-    <h2>No Retroactive Removal</h2>
-    <p>The Artist acknowledges and agrees that Hydra Art Walk / Digital Bohemians Club is not obligated to retroactively remove, delete or destroy already published, distributed or archived promotional materials, documentation, press publications, website entries, social media content or exhibition records created prior to withdrawal.</p>
-  </div>
-
-  <div class="section">
-    <span class="section-num">7 — Acceptance of Terms</span>
+    <span class="section-num">5 — Acceptance of Terms</span>
     <h2>Acceptance of Terms</h2>
-    <p>By submitting and transferring the Materials, the Artist confirms that they have read, understood and accepted these terms in full and acknowledges that these terms constitute a legally binding agreement.</p>
+
+    <p>
+      By submitting materials,
+      the Artist confirms that they have read,
+      understood and accepted these terms in full.
+    </p>
   </div>
 
 </div>
 
 <footer>
   <div class="footer-left">
-    <strong>DigitalBohemians.club</strong>
-    Hydra Art Walk &middot; Edition III &middot; 2026
+    <strong>DigitalBohemians.club</strong><br>
+    Hydra Art Walk · Edition III · 2026
   </div>
-  <a href="/index.html" style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);text-decoration:none;">← Back to Website</a>
+
+  <a href="/index.html" class="nav-back">
+    ← Back to Website
+  </a>
 </footer>
 
 </body>
