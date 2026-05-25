@@ -133,10 +133,19 @@
       line-height: 1.7;
     }
 
+    .intro-box strong {
+      color: var(--purple);
+      font-weight: 700;
+    }
+
     .section {
       margin-bottom: 48px;
       padding-bottom: 48px;
       border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
     }
 
     .section-num {
@@ -197,6 +206,7 @@
       border: 1px solid rgba(168,85,247,0.2);
       border-radius: var(--radius);
       margin: 16px 0;
+      flex-wrap: wrap;
     }
 
     .fee-amount {
@@ -266,7 +276,7 @@
 
   <div class="intro-box">
     By submitting and transferring any artist data, artworks, photographs, sculptures,
-    voice recordings, music, videos or digital files ("Materials"),
+    voice recordings, music, videos or digital files (<strong>"Materials"</strong>),
     the Artist agrees to the following legally binding terms and conditions.
   </div>
 
@@ -276,14 +286,31 @@
 
     <p>
       The Artist grants Hydra Art Walk / Digital Bohemians Club
-      a non-exclusive license to use submitted materials
-      for exhibitions, posters, AR experiences, press,
+      a non-exclusive, worldwide and royalty-free license
+      to use submitted materials for exhibitions,
+      posters, AR experiences, press,
       social media and promotional purposes.
     </p>
   </div>
 
   <div class="section">
-    <span class="section-num">2 — Binding Participation</span>
+    <span class="section-num">2 — Ownership & Warranties</span>
+    <h2>Ownership & Warranties</h2>
+
+    <p>
+      The Artist retains copyright ownership
+      of the submitted materials.
+    </p>
+
+    <p>
+      The Artist confirms that they are the lawful rights holder
+      of the submitted materials and that no third-party rights
+      are infringed.
+    </p>
+  </div>
+
+  <div class="section">
+    <span class="section-num">3 — Binding Participation</span>
     <h2>Binding Participation</h2>
 
     <p>
@@ -294,12 +321,13 @@
   </div>
 
   <div class="section">
-    <span class="section-num">3 — Withdrawal & Cancellation</span>
+    <span class="section-num">4 — Withdrawal & Cancellation</span>
     <h2>Withdrawal & Cancellation</h2>
 
     <p>
-      Withdrawal after production or launch may result
-      in cancellation and compensation fees.
+      Withdrawal after production or launch
+      may result in cancellation
+      and compensation fees.
     </p>
 
     <div class="fee-box">
@@ -311,27 +339,32 @@
   </div>
 
   <div class="section">
-    <span class="section-num">4 — Post-Launch Changes</span>
+    <span class="section-num">5 — Post-Launch Changes</span>
     <h2>Post-Launch Changes & Edit Requests</h2>
 
     <p>
       Following the official launch of the Hydra Art Walk website
-      and the commencement of public promotion,
-      all submitted Materials shall be considered finalized and production-ready.
+      and commencement of public promotion,
+      all submitted materials shall be considered finalized
+      and production-ready.
     </p>
 
     <p>
-      Small website or homepage text corrections may be included free of charge,
-      provided they are minor and do not require extensive restructuring,
+      Small homepage or website text corrections
+      may be included free of charge
+      if they do not require restructuring,
       redesign or technical adjustments.
     </p>
 
     <p>
-      Any additional file changes, file replacements,
-      file conversions, image exchanges, audio replacements,
-      updated links, artwork exchanges, layout adjustments
-      or technical updates requested after launch
-      may result in an additional administrative and production fee.
+      Any additional file changes,
+      file replacements, file conversions,
+      image exchanges, audio replacements,
+      updated links, artwork exchanges,
+      layout adjustments or technical updates
+      requested after launch
+      may result in additional administrative
+      and production fees.
     </p>
 
     <div class="fee-box">
@@ -343,8 +376,8 @@
     </div>
 
     <p>
-      If a poster change is requested after the poster
-      has already been printed or prepared for production,
+      If a poster change is requested
+      after the poster has already been printed,
       an additional poster editing fee applies.
     </p>
 
@@ -364,13 +397,85 @@
   </div>
 
   <div class="section">
-    <span class="section-num">5 — Acceptance of Terms</span>
+    <span class="section-num">6 — File Requirements</span>
+    <h2>File Requirements</h2>
+
+    <p>
+      To ensure smooth production,
+      AR integration and website performance,
+      submitted files should meet
+      the following requirements:
+    </p>
+
+    <ul>
+      <li>Images: JPEG format preferred, max. 500 KB per image</li>
+      <li>Audio: MP3 format only</li>
+      <li>3D files: OBJ format with textures included</li>
+      <li>3D files should not exceed approx. 6 MB whenever possible</li>
+    </ul>
+
+    <p>
+      Unsupported, unoptimized
+      or incompatible file formats
+      may require additional technical preparation,
+      conversion or optimization fees.
+    </p>
+
+    <div class="fee-box">
+      <div class="fee-amount">EUR 10+</div>
+      <div class="fee-label">
+        Image conversion,<br>
+        resizing or optimization
+      </div>
+    </div>
+
+    <div class="fee-box">
+      <div class="fee-amount">EUR 15+</div>
+      <div class="fee-label">
+        Audio conversion,<br>
+        cleanup or optimization
+      </div>
+    </div>
+
+    <div class="fee-box">
+      <div class="fee-amount">EUR 25–50</div>
+      <div class="fee-label">
+        3D conversion,<br>
+        texture fixing or optimization
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="section-num">7 — No Retroactive Removal</span>
+    <h2>No Retroactive Removal</h2>
+
+    <p>
+      Hydra Art Walk / Digital Bohemians Club
+      shall not be obligated
+      to retroactively remove,
+      delete or destroy already published,
+      distributed or archived promotional materials,
+      website entries, social media content,
+      printed posters or exhibition documentation
+      created prior to withdrawal.
+    </p>
+  </div>
+
+  <div class="section">
+    <span class="section-num">8 — Acceptance of Terms</span>
     <h2>Acceptance of Terms</h2>
 
     <p>
       By submitting materials,
       the Artist confirms that they have read,
       understood and accepted these terms in full.
+    </p>
+
+    <p>
+      These terms shall be governed
+      and interpreted in accordance
+      with the laws of Germany.
     </p>
   </div>
 
