@@ -427,6 +427,117 @@
             line-height: 1.5;
         }
 
+        /* Goodiebag Section */
+        .goodiebag-section {
+            padding: 3rem 2rem;
+            background: #fafaf8;
+            text-align: center;
+        }
+
+        .goodiebag-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gold);
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 0px;
+        }
+
+        .goodiebag-intro {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .goodiebag-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .goodiebag-item {
+            padding: 1.5rem 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .goodiebag-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .goodiebag-item p {
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .goodiebag-item-duo {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Playlist Section */
+        .playlist-section {
+            padding: 2.5rem 2rem;
+            background: white;
+            text-align: center;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .playlist-icon {
+            font-size: 1.8rem;
+        }
+
+        .playlist-section h3 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .playlist-subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .spotify-button {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: #1DB954;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .spotify-button:hover {
+            background: #1ed760;
+        }
+
         /* What to Bring Section */
         .what-to-bring {
             max-width: 1000px;
@@ -1096,6 +1207,40 @@
                 <div class="timeline-desc">Journal. Rosenquartz. Palo Santo. Special Hydra tea. The ritual closes as the sun sets.</div>
             </div>
         </div>
+    </section>
+
+    <!-- Goodiebag Section -->
+    <section id="goodiebag" class="goodiebag-section">
+        <h2>Your Grounding Goodiebag</h2>
+        <p class="goodiebag-intro">Treasures to carry the energy home</p>
+        <div class="goodiebag-grid">
+            <div class="goodiebag-item">
+                <div class="goodiebag-icon">✨</div>
+                <p>Healing Crystal</p>
+            </div>
+            <div class="goodiebag-item">
+                <div class="goodiebag-icon">🌿</div>
+                <p>Scents</p>
+            </div>
+            <div class="goodiebag-item">
+                <div class="goodiebag-icon">🧿</div>
+                <p>Talisman</p>
+            </div>
+            <div class="goodiebag-item">
+                <div class="goodiebag-icon">📔</div>
+                <p>Reflection</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlist Section -->
+    <section id="playlist" class="playlist-section">
+        <div class="playlist-header">
+            <span class="playlist-icon">🎵</span>
+            <h3>The Golden Hour Soundtrack</h3>
+        </div>
+        <p class="playlist-subtitle">Curated music to deepen your grounding journey</p>
+        <a href="https://open.spotify.com/playlist/YOUR_PLAYLIST_ID" target="_blank" class="spotify-button">Listen on Spotify</a>
     </section>
 
     <!-- What to Bring Section -->
