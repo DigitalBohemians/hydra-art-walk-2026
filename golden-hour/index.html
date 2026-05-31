@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Hour Grounding Experience - Hydra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Avenir+Next:wght@300;400&family=Andale+Mono:wght@400&display=swap');
+
+        :root {
+            --gold: #B8956A;
+            --cream: #f9f5f0;
+            --beige: #e8dcc4;
+            --light-beige: #f5f1ed;
+            --soft-beige: #dcc9b8;
+            --sage: #a8a89f;
+            --dark: #6b6b63;
+            --text: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #faf8f6 0%, var(--light-beige) 100%);
+            color: var(--text);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(184, 149, 106, 0.12);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .logo {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            letter-spacing: 0.4px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: auto;
+            display: block;
+            padding: 0;
+            max-width: none;
+            margin: 0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 500px;
+            background: url('silentmindfulness_GoldenHour.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-text {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 4rem;
+            z-index: 10;
+            text-align: center;
+            background: linear-gradient(135deg, #faf8f6 0%, var(--light-beige) 100%);
+        }
+
+        .moon-icon {
+            display: none;
+        }
+
+        .hero h1 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: 0px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--gold);
+        }
+
+        .headline-separator {
+            display: none;
+        }
+
+        .grounding-subtitle {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #000000;
+            letter-spacing: 0px;
+            margin-bottom: 2rem;
+            margin-top: -1.5rem;
+        }
+
+        .hero-subtitle {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--gold);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            letter-spacing: 0.2px;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #c9a961 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1.2px;
+            font-weight: 400;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(184, 149, 106, 0.25);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(184, 149, 106, 0.35);
+        }
+
+        .hero-image {
+            display: none;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Headlines */
+        .section-headline {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .details {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: transparent;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid var(--dark);
+            border-bottom: 1px solid var(--dark);
+        }
+
+        .details-table td {
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            vertical-align: top;
+        }
+
+        .details-table td:last-child {
+            border-right: none;
+        }
+
+        .detail-label {
+            font-size: 0.7rem;
+            color: var(--gold);
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .detail-title {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 0px;
+            font-weight: 300;
+            line-height: 1.2;
+            min-height: auto;
+            display: block;
+        }
+
+        .detail-description {
+            font-size: 0.95rem;
+            color: #000000;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        /* Reality Section */
+        .reality {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .reality h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            letter-spacing: 0px;
+            font-weight: 300;
+        }
+
+        .reality-subtitle {
+            display: none;
+        }
+
+        .reality-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .reality-item {
+            padding: 2.5rem 2rem;
+            background: transparent;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            border-left: none;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .reality-item:last-child {
+            border-right: none;
+        }
+
+        .reality-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #000000;
+            font-weight: 300;
+            text-align: left;
+        }
+
+        .reality-icon {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .red-cross {
+            color: #d32f2f;
+        }
+
+        .green-check {
+            color: #388e3c;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .timeline-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            letter-spacing: 0px;
+            font-weight: 300;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            padding: 1.5rem;
+            background: var(--cream);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+        }
+
+        .timeline-time {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* What to Bring Section */
+        .what-to-bring {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: rgba(168, 168, 159, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(184, 149, 106, 0.12);
+        }
+
+        .what-to-bring h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .bring-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .bring-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .bring-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .bring-item p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Host Section */
+        .host-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        .host-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .host-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .host-image {
+            width: 100%;
+            height: 350px;
+            background: url('Vanessa.jpg') center/cover no-repeat;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .host-bio h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .host-title {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .host-bio p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: rgba(232, 220, 196, 0.06);
+            border-radius: 20px;
+        }
+
+        .testimonials-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--gold);
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 4rem;
+            background: linear-gradient(135deg, rgba(232, 220, 196, 0.06) 0%, rgba(168, 168, 159, 0.04) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(184, 149, 106, 0.12);
+        }
+
+        .booking-section h2 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            letter-spacing: 0px;
+            font-weight: 300;
+        }
+
+        .spots-remaining {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--sage);
+            letter-spacing: 0.3px;
+            font-weight: 300;
+        }
+
+        .spots-bar {
+            width: 100%;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            border: 2px solid var(--gold);
+        }
+
+        .spots-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, #c9a961 100%);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 400;
+            font-size: 0.8rem;
+        }
+
+        .pricing-info {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+
+        .price {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin: 1rem 0;
+            letter-spacing: 0px;
+            font-weight: 300;
+        }
+
+        .price-small {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* Stripe Form */
+        .stripe-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 400;
+            color: var(--text);
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--beige);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.1);
+        }
+
+        #card-element {
+            padding: 0.9rem;
+            border: 2px solid var(--beige);
+            border-radius: 8px;
+            background: var(--cream);
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+        }
+
+        #card-element.StripeElement--focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #c9a961 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(184, 149, 106, 0.2);
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(184, 149, 106, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: #c0392b;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            text-align: center;
+            border-left: 4px solid #4caf50;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #7a7a6f 100%);
+            color: var(--cream);
+            text-align: center;
+            padding: 3.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer h3 {
+            font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            color: var(--beige);
+            font-weight: 300;
+        }
+
+        footer p {
+            margin: 0.7rem 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.2px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(184, 149, 106, 0.25);
+            margin: 1.5rem 0;
+        }
+
+        .info-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .info-text strong {
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-text {
+                padding: 4rem 2rem;
+            }
+
+            .hero-banner {
+                height: 400px;
+            }
+
+            .details-table td {
+                padding: 2rem 1.5rem;
+            }
+
+            .reality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .bring-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .host-content {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+                display: none;
+            }
+
+            .hero-text {
+                padding: 3rem 1.5rem;
+                margin-top: 0;
+            }
+
+            .hero-banner {
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+            }
+
+            .details {
+                padding: 2.5rem 1.5rem;
+                margin: 1.5rem 1rem;
+            }
+
+            .details-table td {
+                display: block;
+                width: 100%;
+                padding: 1.5rem 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .details-table td:last-child {
+                border-bottom: none;
+            }
+
+            .reality {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .reality h2 {
+                font-size: 1.8rem;
+            }
+
+            .timeline-section,
+            .host-section,
+            .testimonials-section,
+            .faq-section {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .what-to-bring {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .booking-section {
+                padding: 2rem;
+                margin: 2rem 1rem;
+            }
+
+            .stripe-form {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 1rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .detail-label {
+                font-size: 0.65rem;
+            }
+
+            .detail-title {
+                font-size: 1.3rem;
+            }
+
+            .detail-description {
+                font-size: 0.9rem;
+            }
+
+            .reality h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 2.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" style="text-align: center; line-height: 1.8;">✦ GOLDEN HOUR ✦<br><span style="font-size: 0.75rem; font-weight: 300; letter-spacing: 0.3px; color: var(--text); display: block; margin-top: 8px;">A Transformational Grounding<br>Sunset Experience on Hydra</span></div>
+        <ul>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#host">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#booking">Book</a></li>
+            <li><a href="https://instagram.com/silentmindfulness" target="_blank" style="color: var(--gold);">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-banner"></div>
+        <div class="hero-text">
+            <h1>Golden Hour</h1>
+            <p class="grounding-subtitle">Grounding Experience</p>
+            <p class="hero-tagline">A slow sunset experience on Hydra.<br><br>Ground your energy.<br>Come back to yourself.<br>Embrace presence.<br><br>60 minutes of reflection, connection & sacred silence.</p>
+            <a href="#booking" class="cta-button">BOOK YOUR SEAT</a>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details" id="details">
+        <h2 class="section-headline">What Awaits You</h2>
+        <table class="details-table">
+            <tr>
+                <td>
+                    <span class="detail-label">TIME</span>
+                    <div class="detail-title">Friday 25.06</div>
+                    <div class="detail-description">19:45<br>60-75 minutes</div>
+                </td>
+                <td>
+                    <span class="detail-label">LOCATION</span>
+                    <div class="detail-title">380° Rooftop</div>
+                    <div class="detail-description">In the heart of Hydra<br>With ocean view</div>
+                </td>
+                <td>
+                    <span class="detail-label">WHAT'S INSIDE</span>
+                    <div class="detail-title">Body Grounding<br>Heart Opening</div>
+                    <div class="detail-description">A calming<br>centering experience</div>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2>The Experience Hour by Hour</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">0-5 MIN</div>
+                <div class="timeline-title">Welcome & Arrival</div>
+                <div class="timeline-desc">Settle in. Choose your affirmation card. Tea & warmth. Easing into presence.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">5-20 MIN</div>
+                <div class="timeline-title">Body Grounding & Breath</div>
+                <div class="timeline-desc">Body scan. Slow breathing. Connect to earth. Feel your body again.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">20-40 MIN</div>
+                <div class="timeline-title">Heart Opening & Manifestation</div>
+                <div class="timeline-desc">Hand on heart. Inner truth. Affirmations. "You are worthy. You are enough."</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-time">40-60 MIN</div>
+                <div class="timeline-title">Sunset Closing Circle</div>
+                <div class="timeline-desc">Journal. Rosenquartz. Palo Santo. Special Hydra tea. The ritual closes as the sun sets.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Bring Section -->
+    <section class="what-to-bring">
+        <h2>Before You Come</h2>
+        <div class="bring-grid">
+            <div class="bring-item">
+                <h3>What to Bring</h3>
+                <p>• Comfortable, flowing clothes<br>• An open heart<br>• Your phone on silent (or leave it)<br>• Nothing else is needed</p>
+            </div>
+            <div class="bring-item">
+                <h3>How to Prepare</h3>
+                <p>• Arrive 5 minutes early<br>• No experience necessary<br>• Beginners & experienced welcome<br>• This is a judgment-free space</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="reality">
+        <h2>You're on Hydra.</h2>
+
+        <div class="reality-grid">
+            <div class="reality-item">
+                <span class="reality-icon red-cross">✕</span>
+                <p>
+                    You're sitting by the sea and yet... you're often not 100% in the here and now. Your body is here, but you don't really <em>live</em> in it. You feel drained. Disconnected. Like something's missing, even though everything looks perfect.
+                </p>
+            </div>
+
+            <div class="reality-item">
+                <span class="reality-icon green-check">✓</span>
+                <p>
+                    In this moment. 60 minutes. A rooftop. 10 women who feel exactly this. Not to "fix" everything, but to <em>come home</em> — to yourself. That's what we do here.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Section -->
+    <section class="host-section" id="host">
+        <h2>Meet the Facilitator</h2>
+        <div class="host-content">
+            <div class="host-image">👩‍🦰</div>
+            <div class="host-bio">
+                <div class="host-title">Certified Meditation Guide & Tarot Reader</div>
+                <p>I create sacred spaces where women remember that they are enough. My approach blends mindfulness wisdom with feminine manifestation energy — it's grounding meets empowerment.</p>
+                <p>Gratitude and grounding open the heart. And when your heart is open, manifestation becomes real. I believe that presence is the rarest luxury. In a world that demands constant doing, I invite you to simply <em>be</em>. That's where the magic happens.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Women Are Saying</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I came for the sunset, I left with clarity. The energy in that room was just magic."</p>
+                <div class="testimonial-author">— A, Munich</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"60 minutes of pure flow. I felt present for the first time in months. Already booked the next one."</p>
+                <div class="testimonial-author">— M, Zurich</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The ritual, the rooftop, the group energy — everything felt sacred yet so light and joyful."</p>
+                <div class="testimonial-author">— S, Hydra</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section" id="booking">
+        <h2>Book Your Spot</h2>
+        
+        <div class="spots-remaining">
+            10 Spots available
+        </div>
+
+        <div class="pricing-info">
+            <p style="color: var(--sage); font-size: 0.9rem; letter-spacing: 0.3px; font-weight: 300;">PER PERSON</p>
+            <div class="price">€50<span class="price-small"></span></div>
+        </div>
+
+        <div class="stripe-form" style="max-width: 600px; margin: 2rem auto; text-align: center;">
+            <p style="font-size: 1rem; color: #555; line-height: 1.6; margin-bottom: 2rem;">
+                Ready to come home to yourself? Click below to secure your spot. You'll be taken to a secure payment page.
+            </p>
+            
+            <a href="https://book.stripe.com/00wdR855bbtj50h1TS4Ni02" class="cta-button" style="display: inline-block; margin-bottom: 2rem;">
+                €50 BOOK NOW
+            </a>
+
+            <div class="info-text">
+                <p><strong>Secure:</strong> Your payment is encrypted with Stripe.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: #888;">Confirmation email with all details sent immediately after booking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Do I need experience with meditation?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                No. This experience is designed for everyone — whether you've meditated your whole life or you're completely new. There's no right or wrong way to be present.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can I bring a friend?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely. We have limited spots (10 total) to keep the experience intimate. Book early so you can both join us.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What if the weather is bad?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We have a covered area and can adapt the location if needed. The experience happens rain or shine — we work with nature.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What's the cancellation policy?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                100% refund (minus 10€ administrative fee) if cancelled until 48 hours before the event. After that, you can credit your payment toward a future date. Life happens — we get it.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Will I be transformed in 60 minutes?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                This is not about dramatic transformation. It's about coming home to yourself for one hour. What happens after is up to you — but many women find clarity, permission, and peace.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>What if I feel emotional during the experience?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Stay in the moment. Everything is allowed. And this will be a joyful group — no worries. We're here to feel, breathe, and laugh together. Whatever comes up, it's all part of the magic.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Questions or special needs?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Reach out via Instagram @silendmindfulness. If you have anxiety about groups, accessibility needs, or anything else — DM me so I can make sure you feel safe and supported.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>GOLDEN HOUR GROUNDING EXPERIENCE</h3>
+        <p>60 minutes of reflection, connection & grounding beneath the Hydra sunset</p>
+        <div class="footer-divider"></div>
+        <p>Friday • 25.06.2025 • 380° Rooftop Terrace • Hydra, Greece</p>
+        <p style="margin-top: 1.5rem;">Follow & Connect: <a href="https://instagram.com/silentmindfulness" target="_blank" style="color: var(--gold); text-decoration: none; font-weight: 500;">@silentmindfulness</a></p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2025 Golden Hour Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            answer.classList.toggle('show');
+            toggle.textContent = answer.classList.contains('show') ? '−' : '+';
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
