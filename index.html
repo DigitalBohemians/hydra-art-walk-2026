@@ -388,9 +388,10 @@
     }
     .cal-event:last-of-type { border-bottom: none; }
     .cal-event:hover { background: #fafafa; }
-    .cal-event.hi { background: rgba(168,85,247,0.04); }
-    .cal-event.hi:hover { background: rgba(168,85,247,0.07); }
-    .cal-event.hi .cal-event-date { color: var(--purple); }
+    .cal-event.hi { background: rgba(168,85,247,0.08); border-left: 3px solid var(--purple); }
+    .cal-event.hi:hover { background: rgba(168,85,247,0.12); }
+    .cal-event.hi .cal-event-date { color: var(--purple); font-weight: 700; }
+    .cal-event.hi .cal-event-title { color: var(--purple); }
     .cal-event.hi .cal-event-title::before { content: '● '; color: var(--purple); font-size: 8px; vertical-align: middle; margin-right: 4px; }
     .cal-event-date {
       font-family: 'Space Mono', monospace;
@@ -1167,6 +1168,22 @@
             </div>
           </div>
         </div>
+        <div class="cal-event" data-start="2026-06-19" data-end="2026-06-23">
+          <div class="cal-event-date">19 June</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Popup Souvenir Store at Rodi (–23 June)</div>
+            <div class="cal-event-desc">A pop-up souvenir store at Rodi, Hydra.</div>
+            <span class="cal-event-tag">Pop-Up · Souvenir · Rodi</span>
+          </div>
+        </div>
+        <div class="cal-event" data-start="2026-06-20" data-end="2026-09-06">
+          <div class="cal-event-date">20 June<br>11:30–14:00<br>19:30–22:00</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Hydor / Onar — Water of Dreams</div>
+            <div class="cal-event-desc">By Dimitrios Antonitsis. At the Hydra School. Open daily 11:30–14:00 &amp; 19:30–22:00, until 6 September 2026.</div>
+            <span class="cal-event-tag">Exhibition · Film · Hydra School</span>
+          </div>
+        </div>
         <div class="cal-event" data-start="2026-06-20" data-end="2026-06-20">
           <div class="cal-event-date">20 June<br>19:30–21:30</div>
           <div class="cal-event-body">
@@ -1899,25 +1916,41 @@
       }
     }, { passive: true });
 
-    // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ONLY ──
+    // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ──
     var today = new Date();
     today.setHours(0,0,0,0);
     var events = document.querySelectorAll('.cal-event[data-end]');
-    var nextEvent = null;
     var nextDate = null;
+
+    function dateFromStr(s) {
+      var p = s.split('-');
+      return new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
+    }
+
     events.forEach(function(el) {
-      var end = new Date(el.getAttribute('data-end'));
+      var end = dateFromStr(el.getAttribute('data-end'));
       end.setHours(23,59,59,0);
-      var start = el.getAttribute('data-start') ? new Date(el.getAttribute('data-start')) : end;
+      var startStr = el.getAttribute('data-start');
+      var start = startStr ? dateFromStr(startStr) : end;
       start.setHours(0,0,0,0);
       if (end >= today) {
         if (!nextDate || start < nextDate) {
           nextDate = start;
-          nextEvent = el;
         }
       }
     });
-    if (nextEvent) nextEvent.classList.add('hi');
+
+    if (nextDate) {
+      events.forEach(function(el) {
+        var startStr = el.getAttribute('data-start');
+        if (!startStr) return;
+        var start = dateFromStr(startStr);
+        start.setHours(0,0,0,0);
+        if (start.getTime() === nextDate.getTime()) {
+          el.classList.add('hi');
+        }
+      });
+    }
 
     // ── SCROLL REVEAL ──
     var obs = new IntersectionObserver(function(entries) {
