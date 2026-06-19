@@ -388,7 +388,7 @@
     }
     .cal-event:last-of-type { border-bottom: none; }
     .cal-event:hover { background: #fafafa; }
-    .cal-event.hi { background: rgba(168,85,247,0.08); border-left: 3px solid var(--purple); }
+    .cal-event.hi { background: rgba(168,85,247,0.08); }
     .cal-event.hi:hover { background: rgba(168,85,247,0.12); }
     .cal-event.hi .cal-event-date { color: var(--purple); font-weight: 700; }
     .cal-event.hi .cal-event-title { color: var(--purple); }
@@ -1982,7 +1982,24 @@
       });
     }
 
-    // ── SCROLL REVEAL ──
+    // ── DATE GROUP SEPARATORS ──
+    var allEvents = document.querySelectorAll('.cal-event[data-start]');
+    var lastDate = null;
+    allEvents.forEach(function(el) {
+      var d = el.getAttribute('data-start');
+      if (d !== lastDate) {
+        if (lastDate !== null && !el.classList.contains('hi')) {
+          var start = dateFromStr(d);
+          start.setHours(0,0,0,0);
+          if (start >= today) {
+            var sep = document.createElement('div');
+            sep.style.cssText = 'height:4px;background:linear-gradient(90deg,#a855f7,#ec4899);';
+            el.parentNode.insertBefore(sep, el);
+          }
+        }
+        lastDate = d;
+      }
+    });
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
