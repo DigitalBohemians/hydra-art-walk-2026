@@ -1222,6 +1222,14 @@
             <span class="cal-event-tag">Island-Wide · Posters · AR</span>
           </div>
         </div>
+        <div class="cal-event" data-start="2026-06-21" data-end="2026-06-23">
+          <div class="cal-event-date">Sun 21 June<br>11:30–14:00<br>19:30–23:00</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Cangallery presents — LADIANOS (–23 June)</div>
+            <div class="cal-event-desc">Open daily 11:30–14:00 &amp; 19:30–23:00. Gkiosso Street, between Caprice and the Police Station.</div>
+            <span class="cal-event-tag">Art · Gallery · Cangallery</span>
+          </div>
+        </div>
         <div class="cal-event" data-start="2026-06-21" data-end="2026-06-21">
           <div class="cal-event-date">Sun 21 June<br>18:00</div>
           <div class="cal-event-body">
@@ -1239,6 +1247,14 @@
             <div class="cal-event-title">Olga Migliaressi-Phoca — Book Signing</div>
             <div class="cal-event-desc">Olga Migliaressi-Phoca signing her editions book <em>"Her Mess"</em>.</div>
             <span class="cal-event-tag">Books · Signing · Literature</span>
+          </div>
+        </div>
+        <div class="cal-event" data-start="2026-06-22" data-end="2026-06-26">
+          <div class="cal-event-date">Mon 22 June</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">Vessels (–26 June) — BelleValia Hotel</div>
+            <div class="cal-event-desc">Group exhibition at BelleValia Hotel with Diane Alexandre, Dana Aviv, Zen Du &amp; Nadiia Shapoval.</div>
+            <span class="cal-event-tag">Art · Exhibition · BelleValia</span>
           </div>
         </div>
         <div class="cal-event" data-start="2026-06-22" data-end="2026-06-22">
@@ -1306,12 +1322,20 @@
             </div>
           </div>
         </div>
+        <div class="cal-event" data-start="2026-06-26" data-end="2026-06-26">
+          <div class="cal-event-date">Fri 26 June<br>19:30–21:30</div>
+          <div class="cal-event-body">
+            <div class="cal-event-title">THESITE — Jane Resnick &amp; Oliver Altermatt</div>
+            <div class="cal-event-desc">An evening with Jane Resnick and Oliver Altermatt. Krieze Street, Kamini, Hydra. 7:30pm–9:30pm.</div>
+            <span class="cal-event-tag">Art · THESITE · Kamini</span>
+          </div>
+        </div>
       </div>
 
       <div class="cal-month">
         <div class="cal-month-label">July 2026</div>
         <div class="cal-event" data-start="2026-07-04" data-end="2026-07-09">
-          <div class="cal-event-date">Sat 4 – Thu 9 July</div>
+          <div class="cal-event-date">Sat 4 –<br>Thu 9 July</div>
           <div class="cal-event-body">
             <div class="cal-event-title">Hydra Dance Days — Workshops</div>
             <div class="cal-event-desc">Workshops for Hydra's population, all ages, by Christine Bastin (France), Alice Kok (South Africa &amp; Germany) and Michaela Meschke (Sweden).</div>
@@ -1335,7 +1359,7 @@
           </div>
         </div>
         <div class="cal-event" data-start="2026-07-08" data-end="2026-07-09">
-          <div class="cal-event-date">Wed 8 &amp; Thu 9 July<br>Noon</div>
+          <div class="cal-event-date">Wed 8 &amp;<br>Thu 9 July<br>Noon</div>
           <div class="cal-event-body">
             <div class="cal-event-title">Port Parade</div>
             <div class="cal-event-desc">Expect some dancing surprises in the port of Hydra!</div>
@@ -1994,22 +2018,25 @@
     }
 
     // ── DATE GROUP SEPARATORS ──
-    var allEvents = document.querySelectorAll('.cal-event[data-start]');
-    var lastDate = null;
-    allEvents.forEach(function(el) {
-      var d = el.getAttribute('data-start');
-      if (d !== lastDate) {
-        if (lastDate !== null && !el.classList.contains('hi')) {
-          var start = dateFromStr(d);
-          start.setHours(0,0,0,0);
-          if (start >= today) {
-            var sep = document.createElement('div');
-            sep.style.cssText = 'height:4px;background:linear-gradient(90deg,#a855f7,#ec4899);';
-            el.parentNode.insertBefore(sep, el);
+    var calMonths = document.querySelectorAll('.cal-month');
+    calMonths.forEach(function(month) {
+      var monthEvents = month.querySelectorAll('.cal-event[data-start]');
+      var lastDate = null;
+      monthEvents.forEach(function(el) {
+        var d = el.getAttribute('data-start');
+        if (d !== lastDate) {
+          if (lastDate !== null && !el.classList.contains('hi')) {
+            var start = dateFromStr(d);
+            start.setHours(0,0,0,0);
+            if (start >= today) {
+              var sep = document.createElement('div');
+              sep.style.cssText = 'height:4px;background:linear-gradient(90deg,#a855f7,#ec4899);';
+              el.parentNode.insertBefore(sep, el);
+            }
           }
+          lastDate = d;
         }
-        lastDate = d;
-      }
+      });
     });
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
