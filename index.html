@@ -1821,7 +1821,8 @@
       name: "Lisa Pohl",
       medium: "Fine Arts",
       bio: "Born in 1989 in Winterthur, Switzerland. Completed a preparatory art programme in Zurich, followed by studies in Fine Arts in Lucerne and Rotterdam. Earned a Master's degree in Fine Arts. Lives in Zurich, where she pursues an independent artistic practice and works on commissioned projects.\n\nWorks on physical display at Veranda Restaurant, Hydra.",
-      url: null
+      url: null,
+      instagram: "https://instagram.com/_lisapohl"
     },
     belladonna: {
       tag: "Photography · Textile · Fashion",
@@ -2061,6 +2062,7 @@
 </script>
 <!-- ── Hydra Art Walk · Analytics Tracker · Google Sheets ── -->
 <script>
+document.addEventListener('DOMContentLoaded', function() {
 (function() {
   var SHEET_URL = 'https://script.google.com/macros/s/AKfycbymATI23PQ9CBvpXEzjV8373FNKheOy-GKT6_VVLrNANp5YvhsSdArm_4Cgp1OlPdHf/exec';
 
@@ -2120,6 +2122,7 @@
 
   track('Seitenaufruf', 'index', navigator.language || '');
 })();
+});
 </script>
 </body>
 </html>
