@@ -15,7 +15,7 @@
 
   <!-- OG / Social Sharing -->
   <meta property="og:title" content="Hydra Art Walk 2026 — DigitalBohemians" />
-  <meta property="og:description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
+  <meta property="og:description" content="Hydra Art Walk 2026 closed early due to bad weather. Vavortex winners continue in location-based AR, the Metaverse and the Vavortex gallery until 31 December 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://digitalbohemians.club" />
   <meta property="og:image" content="https://digitalbohemians.club/og-image.jpg" />
@@ -27,11 +27,11 @@
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hydra Art Walk 2026 — DigitalBohemians" />
-  <meta name="twitter:description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
+  <meta name="twitter:description" content="Hydra Art Walk 2026 closed early due to bad weather. Vavortex winners continue in location-based AR, the Metaverse and the Vavortex gallery until 31 December 2026." />
   <meta name="twitter:image" content="https://digitalbohemians.club/og-image.jpg" />
 
   <!-- General -->
-  <meta name="description" content="A hybrid AR group exhibition across the island of Hydra, Greece. Physical posters, augmented reality, studio visits & events. June – 22 September 2026." />
+  <meta name="description" content="Hydra Art Walk 2026 closed early due to bad weather. Vavortex winners continue in location-based AR, the Metaverse and the Vavortex gallery until 31 December 2026." />
   <meta name="theme-color" content="#a855f7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -236,10 +236,96 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 28px;
-      min-height: 160px;
       box-sizing: border-box;
     }
     .intro-highlight strong { color: var(--purple); font-weight: 700; }
+
+    /* NOTICE */
+    .notice {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      font-size: 14px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.6;
+      text-align: left;
+      opacity: 0;
+      animation: up 0.8s 0.34s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .notice strong { color: var(--text); font-weight: 700; }
+
+    /* VAVORTEX */
+    .vav-title {
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .vav-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .ways {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 780px;
+      margin: 24px auto 28px;
+      text-align: left;
+      opacity: 0;
+      animation: up 0.8s 0.42s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .way {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 24px 26px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .way::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad);
+    }
+    .way-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+    .way-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .way-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
 
     .feature-bar {
       display: flex;
@@ -317,140 +403,12 @@
       line-height: 1.7;
       max-width: 220px;
     }
-    .map-notice {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: rgba(168,85,247,0.05);
-      border: 1px solid rgba(168,85,247,0.2);
-      border-radius: var(--radius);
-      margin-bottom: 16px;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-    }
-    .map-notice-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--purple);
-      flex-shrink: 0;
-      animation: blink 1.6s ease-in-out infinite;
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
     }
 
-    /* TOGGLE */
-    .view-toggle {
-      display: inline-flex;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .toggle-btn {
-      padding: 10px 24px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      background: #fff;
-      color: var(--muted);
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-    .toggle-btn:first-child { border-right: 1px solid var(--border); }
-    .toggle-btn.active { background: var(--grad); color: #fff; }
-    .toggle-btn:not(.active):hover { color: var(--purple); }
-
-    /* CALENDAR */
-    .calendar-wrap { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-    .cal-month { border-bottom: 1px solid var(--border); }
-    .cal-month:last-child { border-bottom: none; }
-    .cal-month-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #fff;
-      padding: 10px 20px;
-      background: linear-gradient(90deg, #a855f7, #ec4899);
-      border-bottom: none;
-    }
-    .cal-event {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-      background: #fff;
-      transition: background 0.15s;
-    }
-    .cal-event:last-of-type { border-bottom: none; }
-    .cal-event:hover { background: #fafafa; }
-    .cal-event.hi { background: rgba(168,85,247,0.08); }
-    .cal-event.hi:hover { background: rgba(168,85,247,0.12); }
-    .cal-event.hi .cal-event-date { color: var(--purple); font-weight: 700; }
-    .cal-event.hi .cal-event-title { color: var(--purple); }
-    .cal-event.hi .cal-event-title::before { content: '● '; color: var(--purple); font-size: 8px; vertical-align: middle; margin-right: 4px; }
-    .cal-event-date {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-      padding: 18px 20px;
-      min-width: 110px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      line-height: 1.5;
-    }
-    .cal-event-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
-    .cal-event-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
-    .cal-event-desc {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .cal-event-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-      border: 1px solid rgba(168,85,247,0.25);
-      border-radius: 4px;
-      padding: 3px 8px;
-      display: inline-block;
-      margin-top: 4px;
-      align-self: flex-start;
-    }
-    .cal-coming-soon {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 20px;
-      background: rgba(168,85,247,0.04);
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-    }
     @media (max-width: 640px) {
-      .cal-event { flex-direction: column; }
-      .cal-event-date { border-right: none; border-bottom: 1px solid var(--border); padding: 12px 16px; min-width: unset; }
-      .cal-event-body { padding: 12px 16px; }
-      .toggle-btn { padding: 10px 18px; font-size: 10px; }
       .map-note { display: none; }
     }
 
@@ -464,239 +422,8 @@
       background: #e8eef0;
     }
     #map { width: 100%; height: 100%; }
-    .leaflet-tile { filter: grayscale(0.1) brightness(1.02); }
-    .leaflet-popup-content-wrapper {
-      background: #fff !important;
-      border: none !important;
-      border-radius: var(--radius) !important;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.1) !important;
-      color: var(--text) !important;
-      font-family: 'Space Grotesk', sans-serif !important;
-      padding: 0 !important;
-      overflow: hidden;
-    }
-    .leaflet-popup-content { margin: 0 !important; }
-    .leaflet-popup-tip-container { display: none; }
-    .leaflet-popup-close-button {
-      color: var(--text) !important;
-      font-size: 20px !important;
-      top: 12px !important;
-      right: 14px !important;
-      font-weight: 300 !important;
-    }
-    .leaflet-control-zoom a {
-      background: #fff !important;
-      color: var(--text) !important;
-      border-color: var(--border) !important;
-    }
-    .leaflet-control-zoom a:hover { background: var(--surface) !important; }
-    .popup-bar { height: 4px; background: linear-gradient(90deg, #a855f7, #ec4899); }
-    .popup-inner { padding: 16px 18px 18px; min-width: 230px; }
-    .popup-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    .popup-inner h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .popup-inner p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-    .popup-coords {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .ar-btn {
-      display: block;
-      width: 100%;
-      padding: 13px;
-      background: var(--grad);
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border-radius: calc(var(--radius) - 2px);
-      transition: opacity 0.2s;
-    }
-    .ar-btn:hover { opacity: 0.85; }
-    .marker-outer {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #a855f7, #ec4899);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .marker-inner { width: 28px; height: 28px; border-radius: 50%; background: #fff; }
-    .marker-outer.filled .marker-inner { background: var(--text); }
-    .my-location-dot {
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      background: #3b82f6;
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
-      animation: pulse-blue 2s ease-in-out infinite;
-    }
-    @keyframes pulse-blue {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(59,130,246,0.3); }
-      50% { box-shadow: 0 0 0 10px rgba(59,130,246,0.0); }
-    }
 
-    /* ARTISTS */
-    .artists-section { padding: 80px 44px; border-top: 1px solid var(--border); }
-    .artists-top {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 36px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .artists-sub {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .artists-top h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 1;
-    }
-    .artists-top-note {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 280px;
-      text-align: right;
-      line-height: 1.65;
-    }
-    .artists-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2px;
-    }
-    .artist-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: background 0.2s;
-      min-height: 190px;
-    }
-    .artist-card:hover { background: var(--surface2); }
-    .artist-card.tba {
-      border: 1px dashed var(--border);
-      background: transparent;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .ac-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.13em;
-      color: var(--purple);
-      display: block;
-    }
-    .ac-avatar {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(236,72,153,0.08));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .ac-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.1;
-      min-height: 3.6em;
-      display: flex;
-      align-items: flex-start;
-    }
-    .ac-medium {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: none;
-    }
-    .ac-medium-inline {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 400;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .ac-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border: 1px solid rgba(168,85,247,0.25);
-      border-radius: 4px;
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-top: auto;
-    }
-    .ac-tag.green {
-      border-color: rgba(34,197,94,0.3);
-      color: #16a34a;
-    }
-    .ac-tag.blue {
-      border-color: rgba(59,130,246,0.3);
-      color: #2563eb;
-    }
-    .tba-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--border);
-      line-height: 2;
-    }
-    .artist-card.clickable { cursor: pointer; }
-    .artist-card.clickable:hover { background: var(--surface2); }
-
-    /* ── ARTIST POPUP OVERLAY ── */
+    /* ── POPUP OVERLAY (Dance Days) ── */
     .ap-overlay {
       display: none;
       position: fixed;
@@ -716,7 +443,8 @@
       box-shadow: 0 16px 60px rgba(0,0,0,0.18);
       max-width: 420px;
       width: 100%;
-      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
       animation: popUp 0.28s cubic-bezier(.22,1,.36,1);
     }
     @keyframes popUp {
@@ -765,32 +493,6 @@
       color: var(--muted);
       margin-bottom: 14px;
     }
-    .ap-bio {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-    .ap-link {
-      display: block;
-      width: 100%;
-      padding: 10px 13px;
-      background: none;
-      border: 1.5px solid rgba(168,85,247,0.35);
-      color: var(--purple);
-      text-align: center;
-      text-decoration: none;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
-      margin-bottom: 8px;
-    }
-    .ap-link:hover { background: rgba(168,85,247,0.07); }
 
     /* SPONSORS */
     .sponsors-section {
@@ -818,24 +520,6 @@
       gap: 16px;
       flex-wrap: nowrap;
     }
-    .sponsor-slot.main {
-      width: 220px;
-      height: 88px;
-      flex: 1;
-      max-width: 280px;
-    }
-    @media (max-width: 560px) {
-      .sponsors-section.main { padding: 24px 16px; }
-      .sponsors-row { gap: 10px; }
-      .sponsor-slot.main {
-        width: auto;
-        height: 72px;
-        min-width: 0;
-        font-size: 12px;
-      }
-      .sponsor-slot.main div:first-of-type { font-size: 13px !important; }
-      .sponsor-slot.main div:last-of-type { font-size: 8px !important; }
-    }
     .sponsor-slot {
       width: 140px; height: 56px;
       border: 1px dashed var(--border);
@@ -848,10 +532,23 @@
       color: #ccc;
     }
     .sponsor-slot.main {
-      width: 180px; height: 72px;
+      width: 220px;
+      height: 88px;
+      flex: 1;
+      max-width: 280px;
       font-size: 10px;
     }
-      color: #ccc;
+    @media (max-width: 560px) {
+      .sponsors-section.main { padding: 24px 16px; }
+      .sponsors-row { gap: 10px; }
+      .sponsor-slot.main {
+        width: auto;
+        height: 72px;
+        min-width: 0;
+        font-size: 12px;
+      }
+      .sponsor-slot.main div:first-of-type { font-size: 13px !important; }
+      .sponsor-slot.main div:last-of-type { font-size: 8px !important; }
     }
 
     /* FOOTER */
@@ -897,16 +594,21 @@
       transition: opacity 0.85s cubic-bezier(.22,1,.36,1), transform 0.85s cubic-bezier(.22,1,.36,1);
     }
     .reveal.vis { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .intro-label, .intro-title, .date-band, .intro-text, .notice, .ways, .feature-bar { animation: none; opacity: 1; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      nav, .intro, .map-section, .artists-section, .sponsors-section, footer {
+      nav, .intro, .map-section, .sponsors-section, footer {
         padding-left: 20px; padding-right: 20px;
       }
-      .artists-grid { grid-template-columns: repeat(3, 1fr); }
-      .artists-top-note { text-align: left; }
       .map-wrap { height: 480px; }
       .intro { padding-top: 56px; }
+    }
+    @media (max-width: 640px) {
+      .ways { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .intro-title { font-size: clamp(2.8rem, 14vw, 4rem); }
@@ -915,78 +617,6 @@
       .nav-edition { display: none; }
       .date-band { flex-direction: column; gap: 8px; text-align: center; width: 100%; }
       .date-sep { transform: rotate(90deg); }
-
-      /* ── MOBILE ARTIST LIST ── */
-      .artists-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-      }
-      .artist-card {
-        flex-direction: row;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 16px;
-        min-height: unset;
-        border: none;
-        border-bottom: 1px solid var(--border);
-        border-radius: 0;
-        background: #fff;
-      }
-      .artist-card:last-child { border-bottom: none; }
-      .artist-card.tba {
-        justify-content: flex-start;
-        border-top: 1px solid var(--border);
-        border-bottom: none;
-      }
-      .ac-avatar { display: none; }
-      .ac-num { display: none; }
-      .ac-name {
-        flex: 1;
-        min-height: unset;
-        display: block;
-        font-size: 17px;
-        font-weight: 700;
-        color: var(--text);
-        line-height: 1.2;
-      }
-      .ac-medium {
-        display: block;
-        font-family: 'Space Mono', monospace;
-        font-size: 9px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--purple);
-        font-weight: 400;
-        margin-bottom: 4px;
-        margin-top: -20px;
-      }
-      .ac-medium-inline { display: none; }
-      .ac-info {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .ac-info .ac-medium {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      .ac-info .ac-name {
-        min-height: unset;
-      }
-      .ac-tag {
-        font-size: 8px;
-        padding: 4px 9px;
-        margin-top: 0;
-        flex-shrink: 0;
-        white-space: nowrap;
-        align-self: center;
-      }
-      .tba-label { font-size: 9px; line-height: 1.8; }
     }
   </style>
 </head>
@@ -995,7 +625,7 @@
 <!-- NAV -->
 <nav>
   <div class="logo-slot">
-    <svg viewBox="0 0 80 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="38">
+    <svg viewBox="0 0 80 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="38" aria-hidden="true">
       <defs>
         <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#a855f7"/>
@@ -1022,10 +652,10 @@
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
-    <a href="https://instagram.com/digitalbohemians.club" target="_blank" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#a855f7,#ec4899);text-decoration:none;transition:opacity 0.2s;flex-shrink:0;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+    <a href="https://instagram.com/digitalbohemians.club" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#a855f7,#ec4899);text-decoration:none;transition:opacity 0.2s;flex-shrink:0;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/></svg>
     </a>
-    <a href="https://hydraartwalk.com/support.html" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;padding:0.5rem 1.1rem;border-radius:var(--radius);transition:opacity 0.2s;white-space:nowrap;">↗ Support Us</a>
+    <a href="https://hydraartwalk.com/support.html" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;padding:0.5rem 1.1rem;border-radius:var(--radius);transition:opacity 0.2s;white-space:nowrap;">↗ Support Us</a>
   </div>
 </nav>
 
@@ -1041,28 +671,42 @@
 
   <div class="date-band">
     <div>
-      <div class="d-label">Opens</div>
+      <div class="d-label">Opened</div>
       <div class="d-val">21 June 2026</div>
     </div>
     <div class="date-sep">&rarr;</div>
     <div>
-      <div class="d-label">Closes</div>
-      <div class="d-val">15 October 2026</div>
+      <div class="d-label">Status</div>
+      <div class="d-val">Closed early</div>
     </div>
   </div>
 
-  <p class="intro-text">
-    <strong>Hydra Art Walk</strong> is a hybrid group exhibition spread across the entire island &mdash; physical posters by participating artists placed in the harbour, alleyways, and on hillside walls, each one activatable as a <strong>web-based AR experience</strong>. No app needed. Point your phone at a poster and the artwork comes alive: painting, sculpture, poetry, music &mdash; extended into augmented reality, directly in your browser.<br><br>
-    Each poster also carries a <strong>personal audio</strong> by the artist &mdash; what brought them to Hydra, and why we all love this island. 🎧<br><br>
-    <strong style="font-size:20px;background:linear-gradient(90deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.01em;line-height:1.8;display:block;">Unmute your phone.<br>Point your camera at the poster.<br>Watch &amp; listen. 🎧</strong>
-  </p>
+  <div class="notice">
+    <strong>Update:</strong> Due to bad weather, the Hydra Art Walk had to close early. The Vavortex show continues until the end of the year.
+  </div>
 
-  <p class="intro-text intro-highlight">
-    Across the island, <strong>physical posters</strong> invite you on a
-    <strong>Hydra Art Walk</strong> — each one a portal into painting, sculpture,
-    poetry and music, extended into AR. Plus a series of
-    <strong>studio visits &amp; events</strong> throughout the season.
-  </p>
+  <!-- VAVORTEX · LOCATION-BASED AR -->
+  <div class="intro-text intro-highlight">
+    <span class="vav-label">— Until 31 December 2026</span>
+    <div class="vav-title">Vavortex<br>Location-Based AR</div>
+    <div style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.7;">
+      Until the end of the year, we are showing <strong>Vavortex</strong> winners: part of them in <strong>location-based AR</strong> and in the <strong>Metaverse</strong>, the rest in the <strong>Vavortex gallery</strong>.
+    </div>
+  </div>
+
+  <div class="ways">
+    <div class="way">
+      <div class="way-tag">AR &middot; Metaverse</div>
+      <div class="way-title">Part of the winners</div>
+      <div class="way-text">A selection of the winners is shown in location-based AR and in the Metaverse. Open the lens, point your phone at the surroundings, and the artworks appear in place.</div>
+      <a href="https://horizon.meta.com/world/3995104930741324/?hwsh=rrBD2GD4z3&amp;utm_source=messages&amp;utm_medium=SHARE&amp;utm_parent=SHARING&amp;utm_cohort=ORGANIC_UNKNOWN" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;padding:12px 22px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.04em;text-decoration:none;border-radius:var(--radius);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">↗ Enter the Metaverse</a>
+    </div>
+    <div class="way">
+      <div class="way-tag">Gallery</div>
+      <div class="way-title">The rest of the winners</div>
+      <div class="way-text">All other winners are on view in the Vavortex gallery.</div>
+    </div>
+  </div>
 
   <!-- SUPPORT CTA -->
   <div class="intro-text intro-highlight" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;text-align:left;">
@@ -1071,7 +715,7 @@
       <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-0.01em;">This project runs on passion.</div>
       <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:var(--muted);line-height:1.6;">Art, AR and community — if you love what we're doing, help us keep it alive and growing.</div>
     </div>
-    <a href="https://hydraartwalk.com/support.html" target="_blank" style="display:inline-block;padding:14px 28px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);white-space:nowrap;transition:opacity 0.2s;flex-shrink:0;">↗ Support Us</a>
+    <a href="https://hydraartwalk.com/support.html" target="_blank" rel="noopener" style="display:inline-block;padding:14px 28px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);white-space:nowrap;transition:opacity 0.2s;flex-shrink:0;">↗ Support Us</a>
   </div>
 
   <div class="feature-bar">
@@ -1080,8 +724,6 @@
     <div class="feature-item">Augmented Reality</div>
     <div class="feature-sep"></div>
     <div class="feature-item">Studio Visits</div>
-    <div class="feature-sep"></div>
-    <div class="feature-item">Painting &middot; Sculpture &middot; Poetry &middot; Music</div>
     <div class="feature-sep"></div>
     <div class="feature-item hi">3rd Edition</div>
   </div>
@@ -1119,7 +761,7 @@
   </div>
 </section>
 
-<!-- MAP + CALENDAR -->
+<!-- MAP -->
 <div class="map-section">
   <div class="map-header">
     <div class="map-title-group">
@@ -1127,417 +769,19 @@
       <div class="map-title">Hydra Art Walk 2026</div>
     </div>
     <div class="map-note">
-      Exact locations &amp; events<br>
+      Exact locations<br>
       confirmed from June 2026
     </div>
   </div>
 
-  <!-- TOGGLE -->
-  <div class="view-toggle">
-    <button class="toggle-btn active" id="btnMap" onclick="showView('map')">🗺 Map</button>
-    <button class="toggle-btn" id="btnCal" onclick="showView('cal')">📅 Calendar</button>
-  </div>
-
-  <!-- MAP VIEW -->
+  <!-- MAP VIEW (Platzhalter – Karte wird separat aktualisiert) -->
   <div id="viewMap">
     <div class="map-wrap reveal">
       <iframe src="https://digitalbohemians.github.io/hydra-map/" width="100%" height="100%" frameborder="0" style="border:none;display:block;" title="Hydra Art Walk Map" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- CALENDAR VIEW -->
-  <div id="viewCal" style="display:none;">
-    <div class="map-notice">
-      <div class="map-notice-dot"></div>
-      Full event programme announced at launch &mdash; Late May / Mid June 2026
-    </div>
-    <div class="calendar-wrap">
-
-      <div class="cal-month">
-        <div class="cal-month-label">June 2026</div>
-        <div class="cal-event" data-start="2026-06-01" data-end="2026-06-01">
-          <div class="cal-event-date">Mon 1 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">↗ Sto Limani Hydra Book Club — Opening</div>
-            <div class="cal-event-desc">Josh Hickey opens the new Sto Limani Hydra Book Club on Hydra — a space dedicated to poetry and literature at the heart of the island.</div>
-            <span class="cal-event-tag">Book Club · Poetry · Literature</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-17" data-end="2026-06-21">
-          <div class="cal-event-date">Tue 17 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Barbershop &amp; Art (–21 June)</div>
-            <div class="cal-event-desc">A special art event by ArtCinema Hydra.</div>
-            <span class="cal-event-tag">Art · ArtCinema</span>
-            <div style="margin-top:8px;">
-              <a href="https://artcinemahydra.com" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ artcinemahydra.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-19" data-end="2026-06-23">
-          <div class="cal-event-date">Thu 19 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Popup Souvenir Store at Rodi (–23 June)</div>
-            <div class="cal-event-desc">A pop-up souvenir store at Rodi, Hydra.</div>
-            <span class="cal-event-tag">Pop-Up · Souvenir · Rodi</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-20" data-end="2026-09-06">
-          <div class="cal-event-date">Fri 20 June<br>11:30–14:00<br>19:30–22:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydor / Onar — Water of Dreams</div>
-            <div class="cal-event-desc">By Dimitrios Antonitsis. At the Hydra School. Open daily 11:30–14:00 &amp; 19:30–22:00, until 6 September 2026.</div>
-            <span class="cal-event-tag">Exhibition · Film · Hydra School</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-20" data-end="2026-06-20">
-          <div class="cal-event-date">Fri 20 June<br>19:30–21:30</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Gifted with Soul — danapottery.hydra</div>
-            <div class="cal-event-desc">An evening event at danapottery.hydra. 7:30pm–9:30pm.</div>
-            <span class="cal-event-tag">Ceramics · Event · Hydra</span>
-            <div style="margin-top:8px;">
-              <a href="https://instagram.com/danapottery.hydra" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ @danapottery.hydra</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-09-22">
-          <div class="cal-event-date">Sun 21 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Wilhelmina's Art Gallery — Lighthouses of the Earth</div>
-            <div class="cal-event-desc">Opening of the new exhibition at Wilhelmina's Art Gallery, Mandraki Beach, Hydra.</div>
-            <span class="cal-event-tag">Art · Gallery · Mandraki</span>
-            <div style="margin-top:8px;">
-              <a href="https://instagram.com/wilhelminas_art_gallery" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ @wilhelminas_art_gallery</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-09-22">
-          <div class="cal-event-date">Sun 21 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">↗ Exhibition Opens &mdash; AR Group Show</div>
-            <div class="cal-event-desc">All artists go live at Hydra Harbour. Point your phone at any poster — the artwork comes alive in augmented reality, directly in your browser.</div>
-            <span class="cal-event-tag">AR · Harbour · All Artists</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-09-22">
-          <div class="cal-event-date">Sun 21 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydra Art Walk Begins</div>
-            <div class="cal-event-desc">Posters distributed across the island — harbourfront, alleyways, hillside walls. Each poster activates a unique AR experience.</div>
-            <span class="cal-event-tag">Island-Wide · Posters · AR</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-06-23">
-          <div class="cal-event-date">Sun 21 June<br>11:30–14:00<br>19:30–23:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Cangallery presents — LADIANOS (–23 June)</div>
-            <div class="cal-event-desc">Open daily 11:30–14:00 &amp; 19:30–23:00. Gkiosso Street, between Caprice and the Police Station.</div>
-            <span class="cal-event-tag">Art · Gallery · Cangallery</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-06-21">
-          <div class="cal-event-date">Sun 21 June<br>18:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Sundown Session — Paradisco</div>
-            <div class="cal-event-desc">Sundown Session at Windmill Hydra. DJ set from 18:00.</div>
-            <span class="cal-event-tag">Music · DJ · Windmill Hydra</span>
-            <div style="margin-top:8px;">
-              <a href="https://instagram.com/windmillhydra" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ @windmillhydra</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-21" data-end="2026-06-21">
-          <div class="cal-event-date">Sun 21 June<br>19:30</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Olga Migliaressi-Phoca — Book Signing</div>
-            <div class="cal-event-desc">Olga Migliaressi-Phoca signing her editions book <em>"Her Mess"</em>.</div>
-            <span class="cal-event-tag">Books · Signing · Literature</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-22" data-end="2026-06-26">
-          <div class="cal-event-date">Mon 22 June</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Vessels (–26 June) — BelleValia Hotel</div>
-            <div class="cal-event-desc">Group exhibition at BelleValia Hotel with Diane Alexandre, Dana Aviv, Zen Du &amp; Nadiia Shapoval.</div>
-            <span class="cal-event-tag">Art · Exhibition · BelleValia</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-22" data-end="2026-06-22">
-          <div class="cal-event-date">Mon 22 June<br>Evening</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">DESTE Foundation — Grand Opening</div>
-            <div class="cal-event-desc">Grand Opening at the Slaughterhouse, Hydra. Nari Ward — <em>"Until that day"</em>.</div>
-            <span class="cal-event-tag">Art · DESTE · Slaughterhouse</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-23" data-end="2026-06-23">
-          <div class="cal-event-date">Tue 23 June<br>17:00–22:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Rob Pruitt's Flea Market — ArtCinema</div>
-            <div class="cal-event-desc">Rob Pruitt's Flea Market hosted by ArtCinema Hydra. 5pm–10pm.</div>
-            <span class="cal-event-tag">Art · Flea Market · ArtCinema</span>
-            <div style="margin-top:8px;">
-              <a href="https://artcinemahydra.com" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ artcinemahydra.com</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-23" data-end="2026-06-23">
-          <div class="cal-event-date">Tue 23 June<br>19:00–23:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">NOMAS — Biggest Hydra Issue Launch</div>
-            <div class="cal-event-desc">NOMAS launches their biggest Hydra issue at the Hydra Book Club. 7pm–11pm.</div>
-            <span class="cal-event-tag">Press · Launch · Book Club</span>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-23" data-end="2026-06-23">
-          <div class="cal-event-date">Tue 23 June<br>20:30–21:30</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">↗ Hydra Art Walk Opening — 20:30</div>
-            <div class="cal-event-desc">Official opening get together of the Hydra Art Walk 2026. With registration only.</div>
-            <span class="cal-event-tag">Opening · 20:30–21:30</span>
-            <div style="margin-top:10px;">
-              <a href="https://luma.com/jt4dsdmh" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--purple);text-decoration:none;letter-spacing:-0.01em;">↗ Register on Luma</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-24" data-end="2026-06-24">
-          <div class="cal-event-date">Wed 24 June<br>19:30</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Evening at OCF — Artist Talk, Film &amp; Music</div>
-            <div class="cal-event-desc">
-              <strong>19:30</strong> Artist Talk<br>
-              <strong>21:00</strong> Film Screening<br>
-              <strong>21:30</strong> Musical Performance
-            </div>
-            <span class="cal-event-tag">Art · Film · Music · OCF</span>
-            <div style="margin-top:8px;">
-              <a href="https://instagram.com/OCFSTUDIO" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ @OCFSTUDIO</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-25" data-end="2026-06-25">
-          <div class="cal-event-date">Thu 25 June<br>19:45</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">✦ Golden Hour — Grounding Experience</div>
-            <div class="cal-event-desc">A slow sunset experience on Hydra. Ground your energy. Come back to yourself. Embrace presence. 75 minutes of reflection, connection &amp; sacred silence. 380° Rooftop, Hydra. €50 per person — 10 spots only.</div>
-            <span class="cal-event-tag">Wellness · Sunset · 75 min</span>
-            <div style="margin-top:8px;display:flex;gap:12px;flex-wrap:wrap;">
-              <a href="https://hydraartwalk.com/golden-hour/" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ Book Your Seat</a>
-              <a href="https://instagram.com/silentmindfulness" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;">↗ @silentmindfulness</a>
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-06-26" data-end="2026-06-26">
-          <div class="cal-event-date">Fri 26 June<br>19:30–21:30</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">THESITE — Jane Resnick &amp; Oliver Altermatt</div>
-            <div class="cal-event-desc">An evening with Jane Resnick and Oliver Altermatt. Krieze Street, Kamini, Hydra. 7:30pm–9:30pm.</div>
-            <span class="cal-event-tag">Art · THESITE · Kamini</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cal-month">
-        <div class="cal-month-label">July 2026</div>
-        <div class="cal-event" data-start="2026-07-04" data-end="2026-07-09">
-          <div class="cal-event-date">Sat 4 –<br>Thu 9 July</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydra Dance Days — Workshops</div>
-            <div class="cal-event-desc">Workshops for Hydra's population, all ages, by Christine Bastin (France), Alice Kok (South Africa &amp; Germany) and Michaela Meschke (Sweden).</div>
-            <span class="cal-event-tag">Dance · Workshops · All Ages</span>
-            <div style="margin-top:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:300;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="https://instagram.com/hydradancedays" target="_blank" style="color:var(--purple);text-decoration:none;">↗ @hydradancedays</a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-07-05" data-end="2026-07-05">
-          <div class="cal-event-date">Sun 5 July<br>20:00</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydrogoios — Festival Opening Evening</div>
-            <div class="cal-event-desc">Presentation of the artists and extracts from pieces and workshops.</div>
-            <span class="cal-event-tag">Dance · Opening · Hydrogoios</span>
-            <div style="margin-top:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:300;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="https://instagram.com/hydradancedays" target="_blank" style="color:var(--purple);text-decoration:none;">↗ @hydradancedays</a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-07-08" data-end="2026-07-09">
-          <div class="cal-event-date">Wed 8 &amp;<br>Thu 9 July<br>Noon</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Port Parade</div>
-            <div class="cal-event-desc">Expect some dancing surprises in the port of Hydra!</div>
-            <span class="cal-event-tag">Dance · Port · Public</span>
-            <div style="margin-top:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:300;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="https://instagram.com/hydradancedays" target="_blank" style="color:var(--purple);text-decoration:none;">↗ @hydradancedays</a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-07-09" data-end="2026-07-09">
-          <div class="cal-event-date">Thu 9 July<br>21:15</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydrama Theatre — International Dance Evening</div>
-            <div class="cal-event-desc">Christine Bastin / Compagnie Folia (France) · Alice Kok (South Africa &amp; Germany) · Sigurd Blystad, Norwegian National Ballet · Danae &amp; Dionysios · Efi Farmaki Dance Company · Compagnie Moveo (France) · Hydra dance amateur group, all ages.<br><br>⛵ Boat departure at 21:00, in front of the church tower.</div>
-            <span class="cal-event-tag">Dance · Hydrama · International</span>
-            <div style="margin-top:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:300;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;">
-              <a href="https://instagram.com/hydradancedays" target="_blank" style="color:var(--purple);text-decoration:none;">↗ @hydradancedays</a>
-              
-            </div>
-          </div>
-        </div>
-        <div class="cal-event" data-start="2026-07-04" data-end="2026-07-09">
-          <div class="cal-event-date">Info</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Hydra Dance Days — Contact</div>
-            <div class="cal-event-desc">
-              <a href="https://instagram.com/hydradancedays" target="_blank" style="color:var(--purple);text-decoration:none;">↗ Instagram: @hydradancedays</a>
-            </div>
-            <span class="cal-event-tag">Dance · Contact</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cal-month">
-        <div class="cal-month-label">22 September 2026</div>
-        <div class="cal-event" data-start="2026-09-22" data-end="2026-09-22">
-          <div class="cal-event-date">Tue 22 Sept</div>
-          <div class="cal-event-body">
-            <div class="cal-event-title">Exhibition Closes</div>
-            <div class="cal-event-desc">Final day of the Hydra Art Walk 2026.</div>
-            <span class="cal-event-tag">Closing</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cal-coming-soon">
-        <div class="cs-dot" style="width:8px;height:8px;border-radius:50%;background:var(--purple);animation:blink 1.6s ease-in-out infinite;flex-shrink:0;"></div>
-        More events announced throughout the season &mdash; Instagram: @hydradancedays
-      </div>
-
-    </div>
-  </div>
 </div>
-
-<!-- ARTISTS -->
-<section class="artists-section">
-  <div class="artists-top reveal">
-    <div>
-      <span class="artists-sub">&mdash; Participating Artists</span>
-      <h2>The Group</h2>
-    </div>
-  </div>
-
-  <div class="artists-grid reveal">
-    <div class="artist-card clickable" onclick="openArtist('galen')">
-      <div class="ac-num"><span class="ac-medium-inline">Music · Songwriting</span></div>
-      <div class="ac-avatar">GA</div>
-      <div class="ac-info"><div class="ac-medium">Music · Songwriting</div><div class="ac-name">Galen Ayers</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('natacha')">
-      <div class="ac-num"><span class="ac-medium-inline">Painting · Watercolour</span></div>
-      <div class="ac-avatar">NB</div>
-      <div class="ac-info"><div class="ac-medium">Painting · Watercolour</div><div class="ac-name">Natacha Best</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('rita')">
-      <div class="ac-num"><span class="ac-medium-inline">Sculpture</span></div>
-      <div class="ac-avatar">RH</div>
-      <div class="ac-info"><div class="ac-medium">Sculpture</div><div class="ac-name">Rita Habermann</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('josh')">
-      <div class="ac-num"><span class="ac-medium-inline">Poetry · Literature</span></div>
-      <div class="ac-avatar">JH</div>
-      <div class="ac-info"><div class="ac-medium">Poetry · Literature</div><div class="ac-name">Josh Hickey</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('cleopatra')">
-      <div class="ac-num"><span class="ac-medium-inline">Photography · Film</span></div>
-      <div class="ac-avatar">CH</div>
-      <div class="ac-info"><div class="ac-medium">Photography · Film</div><div class="ac-name">Kleopatra Haritou</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('andreas')">
-      <div class="ac-num"><span class="ac-medium-inline">Sculpture · Painting</span></div>
-      <div class="ac-avatar">AH</div>
-      <div class="ac-info"><div class="ac-medium">Sculpture · Painting</div><div class="ac-name">Andreas Horstmann</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('belladonna')">
-      <div class="ac-num"><span class="ac-medium-inline">Photography · Textile</span></div>
-      <div class="ac-avatar">BL</div>
-      <div class="ac-info"><div class="ac-medium">Photography · Textile</div><div class="ac-name">Belladonna Lagerkvist</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('maribe')">
-      <div class="ac-num"><span class="ac-medium-inline">Painting</span></div>
-      <div class="ac-avatar">ML</div>
-      <div class="ac-info"><div class="ac-medium">Painting</div><div class="ac-name">Maribé Lambert-Markouizos</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('amy')">
-      <div class="ac-num"><span class="ac-medium-inline">Writing · Poetry</span></div>
-      <div class="ac-avatar">AM</div>
-      <div class="ac-info"><div class="ac-medium">Writing · Poetry</div><div class="ac-name">Amy Martin</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('vanessa')">
-      <div class="ac-num"><span class="ac-medium-inline">XR · Painting · AR</span></div>
-      <div class="ac-avatar">VN</div>
-      <div class="ac-info"><div class="ac-medium">XR · Painting · AR</div><div class="ac-name">Vanessa Nawka</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('martina')">
-      <div class="ac-num"><span class="ac-medium-inline">Painting</span></div>
-      <div class="ac-avatar">MP</div>
-      <div class="ac-info"><div class="ac-medium">Painting</div><div class="ac-name">Martina Pape</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('rebecca')">
-      <div class="ac-num"><span class="ac-medium-inline">Art · Cyanotype · Sound · Poetry</span></div>
-      <div class="ac-avatar">RP</div>
-      <div class="ac-info"><div class="ac-medium">Art · Cyanotype · Sound · Poetry</div><div class="ac-name">Rebecca Pelayo<br>Clio Van de Walle</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('lisa')">
-      <div class="ac-num"><span class="ac-medium-inline">Fine Arts</span></div>
-      <div class="ac-avatar">LP</div>
-      <div class="ac-info"><div class="ac-medium">Fine Arts</div><div class="ac-name">Lisa Pohl</div></div>
-      <div class="ac-tag green">Physical Exhibition</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('jacqueline')">
-      <div class="ac-num"><span class="ac-medium-inline">Textile · Silk</span></div>
-      <div class="ac-avatar">JS</div>
-      <div class="ac-info"><div class="ac-medium">Textile · Silk</div><div class="ac-name">Jacqueline Savidge</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('alma')">
-      <div class="ac-num"><span class="ac-medium-inline">Art · Research · Philosophy</span></div>
-      <div class="ac-avatar">AT</div>
-      <div class="ac-info"><div class="ac-medium">Art · Research · Philosophy</div><div class="ac-name">Alma Tetto</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('dana')">
-      <div class="ac-num"><span class="ac-medium-inline">Ceramics · Pottery</span></div>
-      <div class="ac-avatar">DP</div>
-      <div class="ac-info"><div class="ac-medium">Ceramics · Pottery</div><div class="ac-name">danapottery.hydra</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card clickable" onclick="openArtist('sandra')">
-      <div class="ac-num"><span class="ac-medium-inline">Music · Poetry · Film</span></div>
-      <div class="ac-avatar">SZ</div>
-      <div class="ac-info"><div class="ac-medium">Music · Poetry · Film</div><div class="ac-name">Sandra Zemor</div></div>
-      <div class="ac-tag">AR &middot; Poster</div>
-    </div>
-    <div class="artist-card tba">
-      <div class="tba-label">+ More<br>Announced<br>Soon</div>
-    </div>
-  </div>
-</section>
 
 <!-- SPONSORS -->
 <section class="sponsors-section">
@@ -1556,11 +800,11 @@
   <div class="reveal" style="text-align:center;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:300;color:var(--muted);letter-spacing:-0.01em;margin-bottom:32px;">
     Huge thank you to <strong style="color:var(--text);font-weight:700;">F. Meucci</strong>
     &nbsp;&amp;&nbsp;
-    <a href="https://hydraicons.gr" target="_blank" style="color:var(--text);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(168,85,247,0.3);transition:color 0.2s;" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#0a0a0a'">Icons Hotel</a>
+    <a href="https://hydraicons.gr" target="_blank" rel="noopener" style="color:var(--text);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(168,85,247,0.3);transition:color 0.2s;" onmouseover="this.style.color='#a855f7'" onmouseout="this.style.color='#0a0a0a'">Icons Hotel</a>
   </div>
   <div class="reveal" style="text-align:center;">
     <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">— Want to support?</div>
-    <a href="https://hydraartwalk.com/support.html" target="_blank" style="display:inline-block;padding:14px 36px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">↗ Support Us</a>
+    <a href="https://hydraartwalk.com/support.html" target="_blank" rel="noopener" style="display:inline-block;padding:14px 36px;background:linear-gradient(90deg,#a855f7,#ec4899);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-radius:var(--radius);transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">↗ Support Us</a>
   </div>
 </section>
 
@@ -1610,7 +854,7 @@
     <iframe data-tally-src="https://tally.so/embed/Xx1AOP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Hydra Art Walk 2027" style="border:none;" id="tallyFrame"></iframe>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
     <div id="tallyFallback" style="margin-top:16px;">
-      <a href="https://tally.so/r/Xx1AOP" target="_blank" style="
+      <a href="https://tally.so/r/Xx1AOP" target="_blank" rel="noopener" style="
         display: inline-block;
         padding: 14px 32px;
         background: linear-gradient(90deg, #a855f7, #ec4899);
@@ -1639,12 +883,12 @@
   <div class="footer-left">
     <strong>DigitalBohemians.club</strong>
     Augmented Reality &middot; Art &middot; Exhibition<br>
-    Hydra Art Walk &middot; Edition III &middot; June &ndash; Mid October 2026
+    Hydra Art Walk &middot; Edition III &middot; 2026 &middot; Vavortex until 31 December 2026
   </div>
   <div class="footer-right">
-    <a href="https://digitalbohemians.club" target="_blank">Website</a>
+    <a href="https://digitalbohemians.club" target="_blank" rel="noopener">Website</a>
     <a href="mailto:hello@digitalbohemians.club">Contact</a>
-    <a href="https://instagram.com/digitalbohemians.club" target="_blank" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#a855f7,#ec4899);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+    <a href="https://instagram.com/digitalbohemians.club" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#a855f7,#ec4899);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/></svg>
     </a>
   </div>
@@ -1655,7 +899,7 @@
   <div class="ap-popup" style="max-width:520px;">
     <div class="ap-bar"></div>
     <div class="ap-inner">
-      <button class="ap-close" onclick="closeDanceDaysDirect()">&times;</button>
+      <button class="ap-close" onclick="closeDanceDaysDirect()" aria-label="Close">&times;</button>
       <span class="ap-tag">4 – 9 July 2026 · Hydra</span>
       <div class="ap-name">Hydra Dance Days</div>
       <div class="ap-medium">Workshops · Performances · International</div>
@@ -1694,7 +938,7 @@
 
         <div style="padding:12px 16px;background:#f7f7f7;border-radius:8px;display:flex;flex-direction:column;gap:6px;">
           <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">For more information</div>
-          <a href="https://instagram.com/hydradancedays" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:var(--purple);text-decoration:none;">↗ Instagram: @hydradancedays</a>
+          <a href="https://instagram.com/hydradancedays" target="_blank" rel="noopener" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:var(--purple);text-decoration:none;">↗ Instagram: @hydradancedays</a>
           <a href="mailto:compagnie.moveo@gmail.com" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:300;color:#555;text-decoration:none;">✉ compagnie.moveo@gmail.com</a>
         </div>
 
@@ -1715,247 +959,12 @@
     document.getElementById('danceDaysOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-</script>
-
-<!-- ARTIST POPUP OVERLAY -->
-<div class="ap-overlay" id="artistOverlay" onclick="closeArtist(event)">
-  <div class="ap-popup" id="artistPopup">
-    <div class="ap-bar"></div>
-    <div class="ap-inner">
-      <button class="ap-close" onclick="closeArtistDirect()">&times;</button>
-      <span class="ap-tag" id="apTag"></span>
-      <div class="ap-name" id="apName"></div>
-      <div class="ap-medium" id="apMedium"></div>
-      <p class="ap-bio" id="apBio"></p>
-      <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(168,85,247,0.03);border:1px solid rgba(168,85,247,0.12);border-radius:6px;margin-bottom:16px;">
-        <span style="font-size:16px;flex-shrink:0;">🎧</span>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:300;color:#666;line-height:1.5;">Each poster includes audio — a personal story, or music.</div>
-      </div>
-      <a class="ap-link" id="apLink" href="#" target="_blank">↗ Visit Website</a>
-      <a class="ap-link" id="apInstagram" href="#" target="_blank" style="display:none;margin-top:8px;background:none;border:1px solid rgba(168,85,247,0.3);color:var(--purple);-webkit-text-fill-color:var(--purple);">↗ Instagram</a>
-    </div>
-  </div>
-</div>
-
-<script>
-  var artists = {
-    cleopatra: {
-      tag: "Photography · Film · Installation",
-      name: "Kleopatra Haritou",
-      medium: "Photography · Installation · Moving Image",
-      bio: "An Athens-born visual thinker and filmmaker working across photography, installation and moving image. Her work explores social realities, urban spaces and human liminality, and has been exhibited internationally, including at the Benaki Museum, Art Athina and the Mykonos Biennale.",
-      url: "https://www.kleopatraharitou.com"
-    },
-    jacqueline: {
-      tag: "Textile · Embroidery",
-      name: "Jacqueline Savidge",
-      medium: "Textile · Silk · Embroidery",
-      bio: "Visual artist. Recent textile works in silk with embroidery.",
-      url: "https://www.instagram.com/jacqueline.savidge"
-    },
-    sandra: {
-      tag: "Music · Poetry · Drawing · Moving Image",
-      name: "Sandra Zemor",
-      medium: "Music · Poetry · Drawing · Moving Image",
-      bio: "A singer and multidisciplinary artist writing songs, composing music, art and video. Her poetic and spiritually influenced practice blends mysticism, storytelling and visual art, creating intimate songs & works to heal the hearts and souls, sharing the light of ancient wisdom.",
-      url: "https://www.sandrazemor.com"
-    },
-    andreas: {
-      tag: "Sculpture · Painting · Collage",
-      name: "Andreas Horstmann",
-      medium: "Sculpture · Painting · Collage",
-      bio: "A German-born self-taught artist living on the island of Hydra since 2016. Working across sculpture, painting and collage, his abstract practice explores experimental techniques and materials. Since beginning his artistic journey in 2011, he has regularly participated in solo and group exhibitions and welcomes visitors to his home studio on Hydra.",
-      url: "https://www.instagram.com/hydrAndArt"
-    },
-    dana: {
-      tag: "Ceramics · Pottery",
-      name: "danapottery.hydra",
-      medium: "Ceramics · Hand-Built Pottery",
-      bio: "A ceramic artist creating hand-built pottery inspired by ancient civilizations. Her work explores timeless forms, organic textures and archaeological aesthetics, blending traditional craftsmanship with a contemporary artistic sensibility.",
-      url: "https://www.instagram.com/danapottery.hydra"
-    },
-    galen: {
-      tag: "Music · Songwriting",
-      name: "Galen Ayers",
-      medium: "Music · Folk · Dream-Pop",
-      bio: "British musician and songwriter with Spanish heritage, whose work blends folk, dream-pop and poetic storytelling. Her emotionally intimate music explores themes of memory, healing and human connection, shaped by her multicultural life between Spain, London and Greece.\n\nWritten and performed by Galen Ayers · Produced by Paul Simm · Photo by Baron Claiborne.",
-      url: "https://www.galenayers.com"
-    },
-    martina: {
-      tag: "Painting",
-      name: "Martina Pape",
-      medium: "Painting",
-      bio: "Born in Munich in 1965, Martina Pape studied at the Academy of Fine Arts Munich, where she received her diploma. She first came to Hydra as an Erasmus student and has returned to the island many times over the years.",
-      url: "http://martina-pape.de"
-    },
-    amy: {
-      tag: "Writing · Poetry",
-      name: "Amy Martin",
-      medium: "Writing · Memoir · Poetry",
-      bio: "A writer exploring the quiet intersections between memory, place and human connection. Moving between travel writing, memoir, historical fiction and poetic vignettes, their work reflects on belonging, ethics and the stories hidden within landscapes and everyday encounters. Having travelled extensively around the world — and, as they humorously put it, briefly \"visited the afterlife\" — their writing balances depth, curiosity and a deep appreciation for sunlight and life itself.",
-      url: null
-    },
-    natacha: {
-      tag: "Painting · Watercolour",
-      name: "Natacha Best",
-      medium: "Painting · Watercolour",
-      bio: "A French painter exhibiting internationally since 1980 in France, Spain and Greece. Living between Paris and Hydra since 1990, her work primarily focuses on watercolor landscapes, capturing the light, atmosphere and poetic beauty of Mediterranean environments.",
-      url: "https://instagram.com/bestofnatacha"
-    },
-    maribe: {
-      tag: "Painting",
-      name: "Maribé Lambert-Markouizos",
-      medium: "Painting",
-      bio: "A French painter based on Hydra since the 1970s. Deeply inspired by the island's harmony and emotional atmosphere, she creates her work from her studio overlooking the sea in Mandraki.",
-      url: null
-    },
-    rita: {
-      tag: "Sculpture",
-      name: "Rita Habermann",
-      medium: "Sculpture",
-      bio: "A sculptor based in Greece, where she has been creating work for the past 40 years. Inspired by the people, landscapes and light of Greece, she moved her atelier to the country after training with French and Italian sculptors. Her practice is best known for the \"Taygeta\" sculpture series, developed through her distinctive artistic language and exhibited through her Sculpture Museum in Koilada, Argolida.\n\nAtelier Sud",
-      url: null
-    },
-    lisa: {
-      tag: "Fine Arts",
-      name: "Lisa Pohl",
-      medium: "Fine Arts",
-      bio: "Born in 1989 in Winterthur, Switzerland. Completed a preparatory art programme in Zurich, followed by studies in Fine Arts in Lucerne and Rotterdam. Earned a Master's degree in Fine Arts. Lives in Zurich, where she pursues an independent artistic practice and works on commissioned projects.\n\nWorks on physical display at Veranda Restaurant, Hydra.",
-      url: null,
-      instagram: "https://instagram.com/_lisapohl"
-    },
-    belladonna: {
-      tag: "Photography · Textile · Fashion",
-      name: "Belladonna Lagerkvist",
-      medium: "Photography · Illustration · Textile",
-      bio: "A Swedish artist and designer based in France whose multidisciplinary practice combines photography, illustration, textile and fashion design, rituals and wellness techniques. Inspired by nature and positive psychology, her work explores \"Holistic Creation\" and rituals of wellbeing, inviting viewers to reconnect with nature through immersive and poetic experiences.",
-      url: "https://www.belladonnalagerkvist.com",
-      instagram: "https://instagram.com/belladonnalagerkvist_art"
-    },
-    josh: {
-      tag: "Poetry · Literature",
-      name: "Josh Hickey",
-      medium: "Poetry · Literature",
-      bio: "Josh Hickey opens the new Sto Limani Bookstore on Hydra in early June 2026 — a space dedicated to poetry and literature at the heart of the island.",
-      url: null,
-      instagram: "https://instagram.com/hydrabookclub"
-    },
-    vanessa: {
-      tag: "XR · Painting · Sculpture · AR",
-      name: "Vanessa Nawka",
-      medium: "XR · Painting · Sculpture · AR",
-      bio: "A German XR artist, curator and multidisciplinary creative working between physical and digital art forms. Her practice combines painting, sculpture, augmented reality and immersive storytelling, often inspired by Greek mythology, spirituality and the landscapes of Hydra. Through her hybrid exhibitions and the Digital Bohemians Club platform, she explores new ways of connecting contemporary art, technology and human experience across physical and virtual spaces.",
-      url: "https://www.vanessanawka.com",
-      instagram: "https://instagram.com/digital.bohemians"
-    },
-    rebecca: {
-      tag: "Art · Cyanotype · Sound · Poetry",
-      name: "Rebecca Pelayo & Clio Van de Walle",
-      medium: "Art · Cyanotype · Sound · Poetry",
-      bio: "HTML::<div style='margin-bottom:12px;'><strong>KARTYDRA</strong></div><div style='margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eee;'><div style='font-family:Space Mono,monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#a855f7;margin-bottom:6px;'>Rebecca Pelayo</div><div style='font-size:13px;font-weight:300;color:#444;line-height:1.6;'><strong>Rebekoukou</strong> (Rebecca Pelayo) is a visual artist and architect born in Madagascar whose practice moves between installation, textiles, cyanotype printing and site-specific interventions inspired by islands, mythology and ancestral heritage.</div><a href='https://instagram.com/rebekoukou' target='_blank' style='display:inline-block;margin-top:8px;color:#a855f7;text-decoration:none;font-family:Space Mono,monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;'>↗ @rebekoukou</a></div><div><div style='font-family:Space Mono,monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#a855f7;margin-bottom:6px;'>Clio Van de Walle</div><div style='font-size:13px;font-weight:300;color:#444;line-height:1.6;'><strong>Clio Van de Walle</strong> is a poet, sound artist and performer whose work explores memory, voice, mythology and emotional landscapes through spoken word, sound composition and immersive storytelling.</div><a href='https://www.lacompagnieindigo.com/en/la-compagnie' target='_blank' style='display:inline-block;margin-top:8px;color:#a855f7;text-decoration:none;font-family:Space Mono,monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;'>↗ lacompagnieindigo.com</a></div>",
-      url: null,
-      instagram: null
-    },
-    alma: {
-      tag: "Art · Research · Philosophy",
-      name: "Alma Tetto",
-      medium: "Art · Research · Philosophy",
-      bio: "An artist, researcher, and philosopher based on Hydra. Her work moves across dream, language, embodiment, and participatory inquiry, exploring memory, imagination, relational perception, and the creative intelligence of the living world.\n\nShe is the founder of the Tetto Foundation, a collective of transdisciplinary artists and researchers engaged in inquiry around cultural flourishing and new forms of embodied and ecological possibility. She hosts the Free Quarterly, a seasonal creative cohort devoted to embodied inquiry, creativity, and collective imagination.",
-      url: "https://www.almatetto.com"
-    }
-  };
-
-  function openArtist(id) {
-    var a = artists[id];
-    if (!a) return;
-    document.getElementById('apTag').textContent = a.tag;
-    document.getElementById('apName').textContent = a.name;
-    document.getElementById('apMedium').textContent = a.medium;
-    if (a.bio.startsWith('HTML::')) {
-      document.getElementById('apBio').innerHTML = a.bio.substring(6);
-    } else {
-    var bioParts = a.bio.split('§');
-    var mainBio = bioParts[0]
-      .replace(/\n/g, '<br>')
-      .replace(/KARTYDRA/g, '<strong>KARTYDRA</strong>');
-
-    // Build sections for §§NAME format
-    var sections = '';
-    for (var i = 1; i < bioParts.length; i++) {
-      var part = bioParts[i];
-      if (part.startsWith('§')) {
-        // Section header
-        var lines = part.substring(1).split('\n');
-        var header = lines[0];
-        var rawLines = lines.slice(1);
-        var contentHtml = '';
-        rawLines.forEach(function(line) {
-          if (line.match(/^\[ig:([^\]]+)\]$/)) {
-            var handle = line.match(/^\[ig:([^\]]+)\]$/)[1];
-            contentHtml += '<a href="https://instagram.com/' + handle + '" target="_blank" style="display:inline-block;margin-top:8px;color:var(--purple);text-decoration:none;font-family:\'Space Mono\',monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;">↗ @' + handle + '</a>';
-          } else if (line === '[url:lacompagnieindigo]') {
-            contentHtml += '<a href="https://www.lacompagnieindigo.com/en/la-compagnie" target="_blank" style="display:inline-block;margin-top:8px;color:var(--purple);text-decoration:none;font-family:\'Space Mono\',monospace;font-size:11px;border:1px solid rgba(168,85,247,0.3);border-radius:6px;padding:4px 10px;">↗ lacompagnieindigo.com</a>';
-          } else {
-            contentHtml += line
-              .replace(/Rebekoukou/g, '<strong>Rebekoukou</strong>')
-              .replace(/Clio Van de Walle/g, '<strong>Clio Van de Walle</strong>') + '<br>';
-          }
-        });
-        var content = contentHtml;
-        sections += '<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);"><div style="font-family:\'Space Mono\',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);margin-bottom:5px;">' + header + '</div><div style="font-size:13px;font-weight:300;color:#444;line-height:1.6;">' + content + '</div></div>';
-      } else {
-        // Footnote
-        sections += '<div style="margin-top:10px;font-size:10px;color:#bbb;font-family:\'Space Mono\',monospace;letter-spacing:0.03em;line-height:1.3;">' + part.replace(/Rebekoukou/g, '<strong style="color:#999;">Rebekoukou</strong>').replace(/Clio Van de Walle/g, '<strong style="color:#999;">Clio Van de Walle</strong>') + '</div>';
-      }
-    }
-    document.getElementById('apBio').innerHTML = mainBio + sections;
-    } // end else HTML::
-
-    // Links
-    var linkEl = document.getElementById('apLink');
-    var igEl = document.getElementById('apInstagram');
-    if (a.instagram) {
-      igEl.href = a.instagram;
-      igEl.textContent = '↗ ' + a.instagram.replace('https://instagram.com/', '@');
-      igEl.style.display = 'block';
-    } else {
-      igEl.style.display = 'none';
-    }
-    linkEl.href = a.url || '#';
-    linkEl.textContent = a.url && a.url.includes('instagram') ? '↗ Instagram' : '↗ ' + (a.url || '').replace('https://www.', '');
-    linkEl.style.display = a.url ? 'block' : 'none';
-    document.getElementById('artistOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeArtist(e) {
-    if (e.target === document.getElementById('artistOverlay')) closeArtistDirect();
-  }
-
-  function closeArtistDirect() {
-    document.getElementById('artistOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeArtistDirect();
-      closeDanceDaysDirect();
-    }
+    if (e.key === 'Escape') closeDanceDaysDirect();
   });
 </script>
 
 <script>
-  // Scroll reveal
-  // ── TOGGLE MAP / CALENDAR ──
-  function showView(view) {
-    var isMap = view === 'map';
-    document.getElementById('viewMap').style.display = isMap ? 'block' : 'none';
-    document.getElementById('viewCal').style.display = isMap ? 'none' : 'block';
-    document.getElementById('btnMap').classList.toggle('active', isMap);
-    document.getElementById('btnCal').classList.toggle('active', !isMap);
-  }
-
   document.addEventListener('DOMContentLoaded', function() {
 
     // ── NAV TITLE ON SCROLL ──
@@ -1974,77 +983,7 @@
       }
     }, { passive: true });
 
-    // ── AUTO-HIGHLIGHT NEXT UPCOMING EVENT ──
-    var today = new Date();
-    today.setHours(0,0,0,0);
-    var events = document.querySelectorAll('.cal-event[data-end]');
-    var nextDate = null;
-
-    function dateFromStr(s) {
-      var p = s.split('-');
-      return new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
-    }
-
-    // First: find earliest start >= today (events starting today or future)
-    events.forEach(function(el) {
-      var startStr = el.getAttribute('data-start');
-      if (!startStr) return;
-      var start = dateFromStr(startStr);
-      start.setHours(0,0,0,0);
-      var end = dateFromStr(el.getAttribute('data-end'));
-      end.setHours(23,59,59,0);
-      if (start >= today && end >= today) {
-        if (!nextDate || start < nextDate) nextDate = start;
-      }
-    });
-
-    // Fallback: if nothing starts today or future, show ongoing events (started before today, end >= today)
-    if (!nextDate) {
-      events.forEach(function(el) {
-        var startStr = el.getAttribute('data-start');
-        if (!startStr) return;
-        var start = dateFromStr(startStr);
-        start.setHours(0,0,0,0);
-        var end = dateFromStr(el.getAttribute('data-end'));
-        end.setHours(23,59,59,0);
-        if (end >= today) {
-          if (!nextDate || start < nextDate) nextDate = start;
-        }
-      });
-    }
-
-    // Highlight all events whose start matches nextDate
-    if (nextDate) {
-      events.forEach(function(el) {
-        var startStr = el.getAttribute('data-start');
-        if (!startStr) return;
-        var start = dateFromStr(startStr);
-        start.setHours(0,0,0,0);
-        if (start.getTime() === nextDate.getTime()) el.classList.add('hi');
-      });
-    }
-
-    // ── DATE GROUP SEPARATORS ──
-    var calMonths = document.querySelectorAll('.cal-month');
-    calMonths.forEach(function(month) {
-      var monthEvents = month.querySelectorAll('.cal-event[data-start]');
-      var lastDate = null;
-      monthEvents.forEach(function(el) {
-        var d = el.getAttribute('data-start');
-        if (d !== lastDate) {
-          if (lastDate !== null && !el.classList.contains('hi')) {
-            var start = dateFromStr(d);
-            start.setHours(0,0,0,0);
-            if (start >= today) {
-              var sep = document.createElement('div');
-              sep.style.cssText = 'height:4px;background:linear-gradient(90deg,#a855f7,#ec4899);';
-              el.parentNode.insertBefore(sep, el);
-            }
-          }
-          lastDate = d;
-        }
-      });
-    });
+    // ── SCROLL REVEAL ──
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
@@ -2060,6 +999,7 @@
 
   });
 </script>
+
 <!-- ── Hydra Art Walk · Analytics Tracker · Google Sheets ── -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -2076,24 +1016,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch(e) {}
   }
 
-  var origOpenArtist = window.openArtist;
-  window.openArtist = function(id) {
-    var n = { galen:'Galen Ayers', natacha:'Natacha Best', rita:'Rita Habermann',
-      josh:'Josh Hickey', cleopatra:'Kleopatra Haritou', andreas:'Andreas Horstmann',
-      belladonna:'Belladonna Lagerkvist', maribe:'Maribé Lambert-Markouizos',
-      amy:'Amy Martin', vanessa:'Vanessa Nawka', martina:'Martina Pape',
-      rebecca:'Rebecca Pelayo & Clio', lisa:'Lisa Pohl', jacqueline:'Jacqueline Savidge',
-      alma:'Alma Tetto', dana:'danapottery.hydra', sandra:'Sandra Zemor' };
-    track('Künstler-Klick', n[id] || id, '');
-    if (origOpenArtist) origOpenArtist(id);
-  };
-
-  var origShowView = window.showView;
-  window.showView = function(view) {
-    track('Toggle', view === 'map' ? 'Map geöffnet' : 'Kalender geöffnet', '');
-    if (origShowView) origShowView(view);
-  };
-
   document.addEventListener('click', function(e) {
     var el = e.target.closest('a');
     if (el && el.href && el.href.includes('support'))
@@ -2102,8 +1024,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var sections = [
     { label: 'Intro', el: '.intro' },
-    { label: 'Map/Kalender', el: '.map-section' },
-    { label: 'Künstler', el: '.artists-section' },
+    { label: 'Map', el: '.map-section' },
     { label: 'Footer', el: 'footer' }
   ];
   var reached = {};
